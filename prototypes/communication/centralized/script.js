@@ -70,7 +70,7 @@
   };
 
   const state = {
-    leftOpen: true,
+    leftOpen: false,
     leftMode: "chat",
     personalView: "blockers",
     rightOpen: false,

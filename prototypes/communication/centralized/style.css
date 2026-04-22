@@ -1,49 +1,81 @@
 body.prototype-variant-b {
-  padding-top: 40px;
+  padding-top: 0;
 }
 
 .workspace {
-  height: calc(100dvh - 40px);
-  min-height: calc(100dvh - 40px);
+  height: 100dvh;
+  min-height: 100dvh;
 }
 
-.prototype-banner {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 100;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 0 16px;
-  background: rgba(32, 43, 71, 0.94);
-  color: #fff;
-  font: 500 13px/1 "Roboto", sans-serif;
-  backdrop-filter: blur(12px);
-}
-
+.prototype-banner,
 .prototype-banner-label {
+  display: none;
+}
+
+.hub-switcher {
+  position: relative;
+}
+
+.hub-switcher[open] {
+  z-index: 40;
+}
+
+.hub-switcher-toggle {
+  list-style: none;
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  min-width: 72px;
-  height: 24px;
-  padding: 0 10px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.16);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  gap: 8px;
+  min-height: 40px;
+  padding: 0 14px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, var(--purple) 0%, var(--token-color-additional-seablue) 100%);
+  color: var(--token-color-grey-white);
+  font: var(--token-text-medium-small-text);
+  letter-spacing: var(--token-text-medium-small-text-letter-spacing);
+  cursor: pointer;
+  box-shadow: var(--shadow);
 }
 
-.prototype-banner a {
-  margin-left: auto;
-  color: #fff;
+.hub-switcher-toggle::-webkit-details-marker {
+  display: none;
+}
+
+.hub-switcher-caret {
+  font-size: 12px;
+  line-height: 1;
+}
+
+.hub-switcher-menu {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  min-width: 250px;
+  display: grid;
+  gap: 4px;
+  padding: 8px;
+  border: 1px solid rgba(31, 31, 36, 0.1);
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 18px 40px rgba(31, 31, 36, 0.16);
+}
+
+.hub-switcher-link {
+  display: block;
+  min-height: 40px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  color: var(--text);
+  font: 500 14px/1.35 "Roboto", sans-serif;
   text-decoration: none;
-  opacity: 0.88;
+}
+
+.hub-switcher-link:hover {
+  background: #f5f7fa;
+}
+
+.hub-switcher-link.is-current {
+  background: rgba(104, 94, 247, 0.08);
+  color: #5a51d6;
 }
 
 .workspace-body.left-open,

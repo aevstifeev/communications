@@ -3,284 +3,275 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Communication Prototypes Hub</title>
+  <title>Communication Concepts Hub</title>
   <link rel="stylesheet" href="../../styles/tokens.css">
   <style>
     :root {
-      color-scheme: light;
-      --hub-bg: #f4efe7;
-      --hub-surface: rgba(255, 255, 255, 0.86);
-      --hub-surface-strong: #ffffff;
-      --hub-text: #1f1f24;
-      --hub-muted: #676270;
-      --hub-border: rgba(31, 31, 36, 0.1);
-      --hub-accent: #c35f3d;
-      --hub-accent-soft: rgba(195, 95, 61, 0.12);
-      --hub-shadow: 0 24px 60px rgba(44, 36, 30, 0.12);
+      --bg: var(--app-color-bg);
+      --surface: var(--app-color-surface);
+      --border: var(--app-color-border);
+      --text: var(--app-color-text);
+      --muted: var(--app-color-text-muted);
+      --accent: var(--app-color-accent);
+      --accent-strong: var(--app-color-accent-strong);
+      --info: var(--app-color-info);
+      --shadow: var(--app-shadow-card);
+      --font-family: var(--app-font-family);
+      --text-caption: var(--app-text-caption);
+      --text-body: var(--app-text-body);
+      --text-title: var(--app-text-title);
+      --text-button: var(--app-text-button);
     }
 
     * {
       box-sizing: border-box;
     }
 
+    html,
     body {
       margin: 0;
-      font-family: "Segoe UI", sans-serif;
+      min-height: 100%;
+    }
+
+    body {
+      font-family: var(--font-family);
+      color: var(--text);
       background:
-        radial-gradient(circle at top left, rgba(195, 95, 61, 0.12), transparent 24rem),
-        radial-gradient(circle at right center, rgba(87, 122, 196, 0.08), transparent 26rem),
-        var(--hub-bg);
-      color: var(--hub-text);
+        radial-gradient(circle at top left, rgba(33, 150, 243, 0.05), transparent 18rem),
+        radial-gradient(circle at right top, rgba(125, 76, 207, 0.04), transparent 20rem),
+        linear-gradient(180deg, #fcfcfc 0%, #f4f5f7 100%);
     }
 
-    .page {
-      width: min(1120px, calc(100% - 32px));
-      margin: 0 auto;
-      padding: 40px 0 56px;
-    }
-
-    .hero {
-      display: grid;
-      gap: 16px;
-      margin-bottom: 28px;
-      padding: 28px;
-      border: 1px solid var(--hub-border);
-      border-radius: 28px;
-      background: var(--hub-surface);
-      box-shadow: var(--hub-shadow);
-      backdrop-filter: blur(20px);
-    }
-
-    .eyebrow {
+    p,
+    h2 {
       margin: 0;
-      font-size: 12px;
+    }
+
+    .screen {
+      width: min(1280px, calc(100% - 40px));
+      min-height: calc(100vh - 40px);
+      margin: 20px auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: repeat(6, minmax(0, 1fr));
+      column-gap: 24px;
+      padding: 24px;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.82), rgba(250, 250, 251, 0.96));
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+    }
+
+    .left-side {
+      grid-column: 1;
+      grid-row: 2 / span 4;
+      display: grid;
+      align-content: center;
+      justify-items: center;
+      min-height: 0;
+    }
+
+    .hypothesis-text {
+      width: min(420px, calc(100% - 88px));
+      font-size: clamp(20px, 1.45vw, 25px);
+      line-height: 1.52;
+      letter-spacing: -0.018em;
+      color: var(--text);
+    }
+
+    .hypothesis-break {
+      display: block;
+      height: 0.55em;
+    }
+
+    .hypothesis-text strong {
       font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--hub-accent);
     }
 
-    h1 {
-      margin: 0;
-      font-size: clamp(32px, 5vw, 56px);
-      line-height: 0.96;
-    }
-
-    h2,
-    p {
-      margin: 0;
-    }
-
-    .hero p {
-      max-width: 780px;
-      font-size: 16px;
-      line-height: 1.6;
-      color: var(--hub-muted);
-    }
-
-    .meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 6px;
-    }
-
-    .chip {
-      display: inline-flex;
-      align-items: center;
-      padding: 10px 14px;
-      border-radius: 999px;
-      background: var(--hub-accent-soft);
-      color: var(--hub-text);
-      font-size: 13px;
-      font-weight: 500;
-    }
-
-    .section-title {
-      margin: 0 0 14px;
-      font-size: 18px;
-    }
-
-    .grid {
+    .right-side {
+      grid-column: 2;
+      grid-row: 2 / span 4;
+      min-height: 0;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 16px;
+      grid-template-rows: auto auto;
+      align-content: center;
+      gap: 28px;
     }
 
     .card {
       display: grid;
-      gap: 14px;
-      min-height: 240px;
-      padding: 22px;
-      border: 1px solid var(--hub-border);
-      border-radius: 24px;
-      background: var(--hub-surface-strong);
-      box-shadow: 0 14px 36px rgba(44, 36, 30, 0.08);
+      grid-template-columns: 36ch auto;
+      grid-template-areas:
+        "label button"
+        "title button"
+        "body button";
+      justify-content: end;
+      align-content: start;
+      align-items: start;
+      padding: 10px 18px 10px 52px;
+      border: none;
+      background: transparent;
+      box-shadow: none;
     }
 
-    .card.is-disabled {
-      opacity: 0.62;
-      background: rgba(255, 255, 255, 0.78);
-    }
-
-    .card strong {
-      font-size: 12px;
-      letter-spacing: 0.08em;
+    .card-label {
+      grid-area: label;
+      width: 36ch;
+      margin-bottom: 10px;
+      color: var(--muted);
+      font: var(--text-caption);
+      font-weight: 700;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: var(--hub-accent);
     }
 
     .card h2 {
-      margin: 0;
-      font-size: 24px;
-      line-height: 1.1;
+      grid-area: title;
+      width: 36ch;
+      margin-bottom: 12px;
+      font: var(--text-title);
+      font-size: clamp(28px, 2vw, 34px);
+      line-height: 1.08;
+      letter-spacing: -0.024em;
     }
 
     .card p {
-      margin: 0;
-      color: var(--hub-muted);
-      line-height: 1.55;
-    }
-
-    .notes {
-      display: grid;
-      gap: 8px;
-      padding: 0;
-      margin: 0;
-      list-style: none;
-      color: var(--hub-muted);
-      font-size: 14px;
-      line-height: 1.5;
-    }
-
-    .actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: auto;
+      grid-area: body;
+      width: 36ch;
+      max-width: 36ch;
+      margin-bottom: 0;
+      color: var(--muted);
+      font: var(--text-body);
+      font-size: 17px;
+      line-height: 1.58;
     }
 
     .button {
+      grid-area: button;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-height: 44px;
-      padding: 0 16px;
-      border-radius: 999px;
-      border: 1px solid var(--hub-border);
-      color: var(--hub-text);
+      min-height: 42px;
+      padding: 0 18px;
+      align-self: start;
+      justify-self: end;
+      margin-top: 4px;
+      color: var(--token-color-grey-white);
       text-decoration: none;
-      font-weight: 600;
-      background: #fff;
+      font: var(--text-button);
+      font-weight: 700;
+      box-shadow: var(--shadow);
     }
 
-    .button.primary {
-      background: var(--hub-text);
-      color: #fff;
-      border-color: var(--hub-text);
+    .distributed .button {
+      background: linear-gradient(135deg, #4f78cf 0%, var(--info) 100%);
     }
 
-    .footer-note {
-      margin-top: 22px;
-      padding: 18px 20px;
-      border-radius: 20px;
-      background: rgba(255, 255, 255, 0.72);
-      border: 1px solid var(--hub-border);
-      color: var(--hub-muted);
-      line-height: 1.6;
+    .centralized .button {
+      background: linear-gradient(135deg, var(--accent-strong) 0%, var(--accent) 100%);
+    }
+
+    @media (max-width: 980px) {
+      .screen {
+        min-height: auto;
+        grid-template-columns: 1fr;
+        grid-template-rows: none;
+        margin: 10px auto 20px;
+        row-gap: 16px;
+      }
+
+      .left-side,
+      .right-side {
+        min-height: auto;
+        grid-column: auto;
+        grid-row: auto;
+      }
+
+      .right-side {
+        grid-template-rows: none;
+      }
+
+      .left-side {
+        padding: 40px 0;
+      }
     }
 
     @media (max-width: 720px) {
-      .page {
-        width: min(100% - 20px, 1120px);
-        padding-top: 20px;
+      .screen {
+        width: min(100% - 20px, 1280px);
+        row-gap: 16px;
+        column-gap: 16px;
+        padding: 16px;
       }
 
-      .hero,
+      .hypothesis-text {
+        width: min(100% - 32px, 420px);
+        font-size: 22px;
+        line-height: 1.48;
+      }
+
+      .right-side {
+        gap: 16px;
+      }
+
       .card {
-        padding: 20px;
-        border-radius: 22px;
+        grid-template-columns: 1fr;
+        grid-template-areas:
+          "label"
+          "title"
+          "body"
+          "button";
+        justify-content: stretch;
+        padding: 24px 20px;
+      }
+
+      .card-label,
+      .card h2,
+      .card p {
+        width: auto;
+      }
+
+      .card p {
+        max-width: none;
+        margin-bottom: 18px;
+      }
+
+      .button {
+        justify-self: start;
       }
     }
   </style>
 </head>
 <body>
-  <main class="page">
-    <section class="hero">
-      <p class="eyebrow">Communication Module</p>
-      <h1>Хаб для активных версий модуля коммуникации</h1>
-      <p>
-        Здесь собраны основные варианты для сравнения: базовая контрольная точка, распределённая версия
-        и централизованный модуль коммуникации. Архивный drawer-паттерн сохранён отдельно и не входит в
-        основной контур демонстрации.
+  <main class="screen">
+    <section class="left-side">
+      <p class="hypothesis-text">
+        <strong>Если</strong> мы дадим встроенные ЧАТ и ВКС на уровне “good enough” прямо рядом с задачами и проектами
+        (без попытки конкурировать с мессенджерами),<br>
+        <span class="hypothesis-break" aria-hidden="true"></span>
+        <strong>то</strong> команды будут реже уносить обсуждения и решения наружу,<br>
+        <span class="hypothesis-break" aria-hidden="true"></span>
+        <strong>потому</strong> что обсуждение и решение будут происходить в том же контуре, где фиксируется работа,<br>
+        <span class="hypothesis-break" aria-hidden="true"></span>
+        тогда вырастет stickiness и снизится риск ухода в all-in-one платформы.
       </p>
-      <div class="meta">
-        <span class="chip">Base как контрольная точка</span>
-        <span class="chip">Distributed как версия 1</span>
-        <span class="chip">Centralized как версия 2</span>
-        <span class="chip">Archive не участвует в основном сравнении</span>
-      </div>
     </section>
 
-    <h2 class="section-title">Варианты</h2>
-    <section class="grid">
-      <article class="card">
-        <strong>Base</strong>
-        <h2>Базовая версия</h2>
-        <p>Зафиксированная версия текущей реализации. Используем её как контрольную точку для оценки следующих решений.</p>
-        <ul class="notes">
-          <li>Папка: <code>base/</code></li>
-          <li>Статус: active</li>
-        </ul>
-        <div class="actions">
-          <a class="button primary" href="./base/index.html">Открыть</a>
-        </div>
+    <section class="right-side" aria-label="Варианты концепции">
+      <article class="card distributed">
+        <span class="card-label">Концепция</span>
+        <h2>Распределённая</h2>
+        <p>Коммуникация встроена в текущие чаты, каналы и обсуждения рядом с работой.</p>
+        <a class="button" href="./distributed/index.html">Смотреть</a>
       </article>
 
-      <article class="card">
-        <strong>Distributed</strong>
-        <h2>Созвоны внутри чатов и каналов</h2>
-        <p>Коммуникация развивается как распределённый слой внутри уже существующих каналов, пространств и обсуждений.</p>
-        <ul class="notes">
-          <li>Папка: <code>distributed/</code></li>
-          <li>Статус: active</li>
-        </ul>
-        <div class="actions">
-          <a class="button primary" href="./distributed/index.html">Открыть</a>
-        </div>
-      </article>
-
-      <article class="card">
-        <strong>Centralized / In Progress</strong>
-        <h2>Коммуникация как отдельный модуль</h2>
-        <p>Встречи, планирование и артефакты собираются в самостоятельный модуль, который живёт наравне с остальными частями системы.</p>
-        <ul class="notes">
-          <li>Папка: <code>centralized/</code></li>
-          <li>Статус: in-progress</li>
-        </ul>
-        <div class="actions">
-          <a class="button primary" href="./centralized/index.html">Открыть</a>
-        </div>
-      </article>
-
-      <article class="card">
-        <strong>Archive</strong>
-        <h2>Context Drawer</h2>
-        <p>Архивный референс паттерна, который сохранён для исторического контекста, но не участвует в основном сравнении вариантов.</p>
-        <ul class="notes">
-          <li>Папка: <code>archive-context-drawer/</code></li>
-          <li>Статус: inactive</li>
-        </ul>
-        <div class="actions">
-          <a class="button" href="./archive-context-drawer/index.html">Открыть архив</a>
-        </div>
+      <article class="card centralized">
+        <span class="card-label">Концепция</span>
+        <h2>Централизованная</h2>
+        <p>Коммуникация становится отдельной точкой входа и самостоятельным модулем.</p>
+        <a class="button" href="./centralized/index.html">Смотреть</a>
       </article>
     </section>
-
-    <p class="footer-note">
-      Общие стили и логика переиспользуются из <code>styles/</code> и <code>scripts/</code>, а историческая структура
-      в <code>concepts/communication/</code> остаётся как исследовательский слой и не считается основной publish-ready навигацией.
-    </p>
   </main>
 </body>
 </html>

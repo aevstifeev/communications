@@ -12,13 +12,6 @@
   <link rel="stylesheet" href="./style.css">
 </head>
 <body class="prototype-variant prototype-inline-panel">
-  <div class="prototype-banner">
-    <span class="prototype-banner-label">Distributed</span>
-    <strong>Распределённая версия модуля коммуникации</strong>
-    <span>Созвон не отдельная сущность, а продолжение текущей коммуникации</span>
-    <a href="../index.html">Вернуться в хаб</a>
-  </div>
-
   <div class="workspace">
     <header class="topbar">
       <div class="brand">
@@ -30,7 +23,14 @@
         <input type="text" value="Найти" aria-label="Поиск">
       </div>
       <div class="topbar-actions">
-        <button class="ai-button">Kaiten - AI</button>
+        <details class="hub-switcher">
+          <summary class="hub-switcher-toggle">Хаб <span class="hub-switcher-caret">▾</span></summary>
+          <div class="hub-switcher-menu">
+            <a class="hub-switcher-link" href="../index.html">← Вернуться в хаб</a>
+            <a class="hub-switcher-link is-current" href="./index.html">Концепция 1 · Distributed</a>
+            <a class="hub-switcher-link" href="../centralized/index.html">Концепция 2 · Centralized</a>
+          </div>
+        </details>
       </div>
     </header>
 
@@ -82,9 +82,9 @@
           <button class="rail-btn" data-left-mode="tree" aria-label="Дерево">✣</button>
         </div>
         <div class="left-rail-bottom">
-          <button class="rail-btn rail-btn-chat is-active" data-left-mode="chat" aria-label="Чаты">
+          <button class="rail-btn rail-btn-chat is-active" id="chatRailButton" data-left-mode="chat" aria-label="Чаты">
             <span class="rail-icon-plane">➤</span>
-            <span class="rail-notification">2</span>
+            <span class="rail-notification" id="chatRailNotification">2</span>
           </button>
           <button class="rail-btn help-btn" aria-label="Обзор">?</button>
           <button class="profile-chip" aria-label="Профиль">
@@ -96,7 +96,19 @@
       <aside class="tree-panel chat-panel" id="leftPanel">
         <div class="panel-header">
           <h2 id="leftPanelTitle">Узел связи</h2>
-          <button class="ghost-btn" id="collapseLeftPanel" aria-label="Свернуть левую панель">≪</button>
+          <div class="panel-header-actions chat-panel-header-actions">
+            <div class="chat-create-split chat-create-split-header" data-chat-create-menu>
+              <button class="chat-create-btn chat-create-btn-header" type="button" aria-label="Создать">
+                <span class="chat-create-glyph">✎</span>
+              </button>
+              <button class="chat-create-toggle chat-create-toggle-header" type="button" data-chat-create-toggle aria-label="Создать канал или чат">▾</button>
+              <div class="chat-create-menu">
+                <button class="chat-create-item" type="button">Создать канал</button>
+                <button class="chat-create-item" type="button">Создать чат</button>
+              </div>
+            </div>
+            <button class="ghost-btn" id="collapseLeftPanel" aria-label="Свернуть левую панель">≪</button>
+          </div>
         </div>
 
         <div class="left-panel-mode" data-panel-mode="personal" hidden>
@@ -134,17 +146,21 @@
           <div class="chat-panel-head">
             <div class="chat-panel-title-row">
               <div class="chat-filter-row">
-                <button class="chat-filter-pill is-active" type="button" aria-label="Непрочитанные">✉</button>
-                <button class="chat-filter-pill" type="button" aria-label="Личные">👤</button>
-                <button class="chat-filter-pill" type="button" aria-label="Системные">🤖</button>
-              </div>
-              <div class="chat-create-split" data-chat-create-menu>
-                <button class="chat-create-btn" type="button" aria-label="Создать">✎</button>
-                <button class="chat-create-toggle" type="button" data-chat-create-toggle aria-label="Создать канал или чат">▾</button>
-                <div class="chat-create-menu">
-                  <button class="chat-create-item" type="button">Создать канал</button>
-                  <button class="chat-create-item" type="button">Создать чат</button>
-                </div>
+                <button class="chat-filter-pill is-active" type="button" aria-label="Новые">
+                  <span class="chat-filter-icon">✦</span>
+                  <span class="chat-filter-text">Новые</span>
+                </button>
+                <button class="chat-filter-pill" type="button" aria-label="Люди">
+                  <span class="chat-filter-icon">👤</span>
+                  <span class="chat-filter-text">Люди</span>
+                </button>
+                <button class="chat-filter-pill" type="button" aria-label="Kaiten">
+                  <span class="chat-filter-icon">⌘</span>
+                  <span class="chat-filter-text">Kaiten</span>
+                </button>
+                <button class="chat-filter-pill chat-filter-pill-ai" type="button" aria-label="AI">
+                  <span class="chat-filter-text">AI</span>
+                </button>
               </div>
             </div>
           </div>
@@ -152,7 +168,7 @@
           <div class="chat-section">
             <p class="chat-section-title">Каналы вне проектов</p>
             <div class="chat-list">
-              <button class="chat-row is-active" data-chat-target="welcome-channel">
+              <button class="chat-row" data-chat-target="welcome-channel">
                 <span class="chat-row-icon">#</span>
                 <span class="chat-row-content">
                   <strong>Welcome</strong>
@@ -192,6 +208,13 @@
                 <span class="chat-row-content">
                   <strong>Service Desk MVP</strong>
                   <small>Оля: проверьте, пожалуйста, новый флоу эскалации</small>
+                </span>
+              </button>
+              <button class="chat-row" data-chat-target="ux-channel">
+                <span class="chat-row-icon project">⌘</span>
+                <span class="chat-row-content">
+                  <strong>Проработка пользовательского опыта</strong>
+                  <small>Обсуждение по карточке работы с ВКС и связанным материалам</small>
                 </span>
               </button>
               <button class="chat-row add-row">
@@ -272,7 +295,7 @@
               </div>
             </div>
             <div class="node-huddle-footer">
-              <div class="node-huddle-wait" id="nodeHuddleWait">Подключаем SIP · 0/5</div>
+              <div class="node-huddle-wait" id="nodeHuddleWait">Подключаем SIP · 0/1</div>
               <div class="node-huddle-controls compact">
                 <div class="huddle-control-split is-active is-compact" data-huddle-control-split>
                   <button class="huddle-control split-main primary" aria-label="Микрофон включён">🎙</button>
@@ -411,7 +434,7 @@
         <section class="task-detail" id="taskDetail">
           <div class="task-detail-resize-handle" id="taskDetailResizeHandle" aria-hidden="true"></div>
           <div class="detail-main task-detail-main">
-            <div class="detail-headline">
+            <div class="detail-headline" id="card-anchor-overview">
               <div>
                 <p class="issue-link">#63053263 Заказчик Виктор Огнев</p>
                 <h2>Проработка пользовательского опыта работы ВКС в Kaiten</h2>
@@ -434,29 +457,29 @@
             </div>
 
             <dl class="detail-grid">
-              <div class="detail-field">
+              <div class="detail-field" id="card-field-location">
                 <dt>Расположение</dt>
                 <dd class="detail-link-row"><a href="#">Design / В работе</a><span class="detail-inline-icon">⌕</span></dd>
               </div>
-              <div class="detail-field">
+              <div class="detail-field" id="card-field-type">
                 <dt>Тип</dt>
                 <dd><span class="pill subtle-pill"><span class="pill-icon">C</span>Card</span></dd>
               </div>
-              <div class="detail-field">
+              <div class="detail-field" id="card-field-participants">
                 <dt>Участники</dt>
                 <dd class="detail-avatars"><span class="avatar large">АЕ</span><span class="avatar large">ВС</span><span class="avatar large">ИГ</span><a href="#" class="detail-text-link">Добавить участников</a></dd>
               </div>
-              <div class="detail-field">
+              <div class="detail-field" id="card-field-deadline">
                 <dt>Срок</dt>
                 <dd><a href="#" class="detail-text-link">Установить срок</a></dd>
               </div>
-              <div class="detail-field">
+              <div class="detail-field" id="card-field-tags">
                 <dt>Метки</dt>
                 <dd><span class="pill rose">Сегмент B</span></dd>
               </div>
             </dl>
 
-            <div class="detail-section">
+            <div class="detail-section" id="card-section-description">
               <h3><span class="detail-section-icon">☰</span>Описание</h3>
               <p>Вариант A показывает, что созвоны являются частью уже существующей коммуникации. Пользователь входит в них через чат, канал пространства или контекст карточки, а не через отдельный модуль.</p>
               <ul>
@@ -674,14 +697,34 @@
           <div class="card-panel-scroll">
             <section class="card-section is-active" data-card-section="info">
               <div class="card-section-block">
-                <h3>Информация о карточке</h3>
-                <ul class="card-section-list">
-                  <li><strong>Статус:</strong> В работе</li>
-                  <li><strong>Исполнители:</strong> Алексей, Вячеслав, Ильдар</li>
-                  <li><strong>Срок:</strong> не задан</li>
-                  <li><strong>Метки:</strong> Сегмент B</li>
-                </ul>
-                <p>В этом блоке остается то, что уже есть в карточке сейчас, но без комментариев и без раздела связей.</p>
+                <h3>Навигация по карточке</h3>
+                <p class="card-section-intro">Быстрые переходы к ключевым полям и секциям карточки без дублирования содержимого.</p>
+                <div class="card-anchor-list">
+                  <a class="card-anchor-link" href="#card-anchor-overview">
+                    <strong>Заголовок и статус</strong>
+                    <small>Название, текущий этап, основные действия</small>
+                  </a>
+                  <a class="card-anchor-link" href="#card-field-location">
+                    <strong>Расположение</strong>
+                    <small>Где лежит карточка в рабочем процессе</small>
+                  </a>
+                  <a class="card-anchor-link" href="#card-field-participants">
+                    <strong>Участники</strong>
+                    <small>Исполнители и доступ к добавлению участников</small>
+                  </a>
+                  <a class="card-anchor-link" href="#card-field-deadline">
+                    <strong>Срок</strong>
+                    <small>Проверить или установить дедлайн</small>
+                  </a>
+                  <a class="card-anchor-link" href="#card-field-tags">
+                    <strong>Метки</strong>
+                    <small>Быстрый переход к сегментам и классификации</small>
+                  </a>
+                  <a class="card-anchor-link" href="#card-section-description">
+                    <strong>Описание</strong>
+                    <small>Контекст задачи и основные тезисы по решению</small>
+                  </a>
+                </div>
               </div>
             </section>
 

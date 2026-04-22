@@ -48,6 +48,8 @@ const spaceChannelFloatBody = document.getElementById("spaceChannelFloatBody");
 const floatChatKicker = document.getElementById("floatChatKicker");
 const floatHuddleButton = document.getElementById("floatHuddleButton");
 const floatComposerInput = document.getElementById("floatComposerInput");
+const chatRailButton = document.getElementById("chatRailButton");
+const chatRailNotification = document.getElementById("chatRailNotification");
 const nodeHuddleDock = document.getElementById("nodeHuddleDock");
 const nodeHuddleCard = document.querySelector(".node-huddle-card");
 const nodeHuddlePeerAvatar = document.getElementById("nodeHuddlePeerAvatar");
@@ -379,6 +381,35 @@ const floatChatTemplates = {
       </article>
     `,
   },
+  "ux-channel": {
+    kicker: "Проектный канал",
+    title: "Проработка пользовательского опыта",
+    composerPlaceholder: "Написать в канал про пользовательский опыт",
+    huddleVisible: true,
+    openToSpace: false,
+    content: `
+      <article class="float-chat-message">
+        <div class="float-chat-meta">
+          <span class="float-avatar">А</span>
+          <div>
+            <strong>Алексей</strong>
+            <small>Сегодня, 16:42</small>
+          </div>
+        </div>
+        <p>Сюда выносим коммуникацию по карточке про пользовательский опыт работы с ВКС, чтобы она не терялась в общем потоке канала пространства.</p>
+      </article>
+      <article class="float-chat-message system-message">
+        <div class="float-chat-meta">
+          <span class="float-avatar system-avatar">AI</span>
+          <div>
+            <strong>Kaiten AI</strong>
+            <small>Сегодня, 16:48</small>
+          </div>
+        </div>
+        <p>Собрал в канал материалы, комментарии и вопросы, связанные со сценарием использования ВКС. Могу отдельно вынести решения в summary после следующего созвона.</p>
+      </article>
+    `,
+  },
   "ai-assistant-chat": {
     kicker: "Личный чат",
     title: "Kaiten AI Assistant",
@@ -552,8 +583,10 @@ const huddleSourceTemplates = {
   "project-channel": { name: "Rick Deckard", avatar: "R", waiting: "Ждём участника из проектного канала" },
   "group-direct-chat": { name: "Rick Deckard", avatar: "R", waiting: "Ждём SIP-подключение в личном чате" },
   "chat-preview": { name: "Rick Deckard", avatar: "R", waiting: "Ждём SIP-подключение" },
-  "task-card": { name: "Rick Deckard", avatar: "R", waiting: "Ждём участника по карточке" },
+  "task-card": { name: "Проработка пользовательского опыта", avatar: "П", waiting: "Ждём участника по карточке" },
 };
+
+const HUDDLE_CONNECT_TICKS = 1;
 
 const huddleContextTemplates = {
   "space-panel": { icon: "#", title: "Задачи на дизайн", meta: "Канал пространства · открыть контекст" },
@@ -753,6 +786,10 @@ function getActiveHuddleTemplate() {
       return huddleSourceTemplates["space-channel"];
     }
 
+    if (state.previewChat === "ux-channel") {
+      return huddleSourceTemplates["task-card"];
+    }
+
     if (state.previewChat === "project-channel" || state.previewChat === "service-channel") {
       return huddleSourceTemplates["project-channel"];
     }
@@ -771,6 +808,10 @@ function getActiveHuddleContextTemplate() {
       return huddleContextTemplates["space-channel"];
     }
 
+    if (state.previewChat === "ux-channel") {
+      return huddleContextTemplates["task-card"];
+    }
+
     if (state.previewChat === "project-channel" || state.previewChat === "service-channel") {
       return huddleContextTemplates["project-channel"];
     }
@@ -787,7 +828,7 @@ function syncHuddleView() {
     : template.waiting;
   const counterLabel = state.huddleConnected
     ? "Созвон активен · два участника в линии"
-    : `Подключаем SIP · ${state.huddleCounter}/5`;
+    : `Подключаем SIP · ${state.huddleCounter}/${HUDDLE_CONNECT_TICKS}`;
   const stageInitials = template.name
     .split(" ")
     .map((part) => part[0])
@@ -825,7 +866,7 @@ function startHuddleSequence() {
   syncHuddleView();
 
   huddleTimer = window.setInterval(() => {
-    if (state.huddleCounter >= 5) {
+    if (state.huddleCounter >= HUDDLE_CONNECT_TICKS) {
       state.huddleConnected = true;
       stopHuddleTimer();
       syncHuddleView();
@@ -905,8 +946,25 @@ function render() {
     button.classList.toggle("is-active", isActive);
   });
 
+  if (chatRailButton) {
+    chatRailButton.classList.toggle("is-call-live", state.huddleOpen);
+  }
+
+  if (chatRailNotification) {
+    chatRailNotification.classList.toggle("is-call-live", state.huddleOpen);
+    chatRailNotification.textContent = state.huddleOpen ? "" : "2";
+    chatRailNotification.setAttribute("aria-label", state.huddleOpen ? "Идет созвон" : "2 непрочитанных");
+  }
+
   leftModePanels.forEach((panel) => {
     panel.hidden = panel.dataset.panelMode !== state.leftMode;
+  });
+
+  chatPreviewTriggers.forEach((trigger) => {
+    const target = trigger.dataset.chatTarget;
+    const isPreviewActive = state.previewOpen && target === state.previewChat;
+    const isTaskContextActive = state.taskOpen && state.detailKind === "task" && target === "ux-channel";
+    trigger.classList.toggle("is-active", isPreviewActive || isTaskContextActive);
   });
 
   const isSpaceRightOpen = state.rightOpen && !state.taskOpen;
@@ -1066,9 +1124,6 @@ if (toolbarCloseRightPanel) {
 
 if (collapseLeftPanel) {
   collapseLeftPanel.addEventListener("click", () => {
-    if (state.huddleOpen && state.huddleMode === "panel") {
-      state.huddleMode = "fullscreen";
-    }
     state.leftOpen = false;
     state.previewOpen = false;
     render();

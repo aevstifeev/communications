@@ -12,11 +12,6 @@
   <link rel="stylesheet" href="./style.css">
 </head>
 <body class="prototype-variant-b">
-  <div class="prototype-banner">
-    <span class="prototype-banner-label">Centralized</span>
-    <strong>Централизованная версия модуля коммуникации</strong>
-    <a href="../index.html">Вернуться в хаб</a>
-  </div>
   <div class="workspace">
     <header class="topbar">
       <div class="brand">
@@ -28,7 +23,14 @@
         <input type="text" value="Найти" aria-label="Поиск">
       </div>
       <div class="topbar-actions">
-        <button class="ai-button">Kaiten AI</button>
+        <details class="hub-switcher">
+          <summary class="hub-switcher-toggle">Хаб <span class="hub-switcher-caret">▾</span></summary>
+          <div class="hub-switcher-menu">
+            <a class="hub-switcher-link" href="../index.html">← Вернуться в хаб</a>
+            <a class="hub-switcher-link" href="../distributed/index.html">Концепция 1 · Distributed</a>
+            <a class="hub-switcher-link is-current" href="./index.html">Концепция 2 · Centralized</a>
+          </div>
+        </details>
       </div>
     </header>
 
@@ -80,7 +82,7 @@
         </div>
         <div class="left-rail-bottom">
           <button class="rail-btn rail-btn-chat is-active" data-left-mode="chat" aria-label="Чаты и коммуникация">
-            <span class="rail-icon-plane">◧</span>
+            <span class="rail-icon-plane">📹</span>
             <span class="rail-notification">2</span>
           </button>
           <button class="rail-btn help-btn" aria-label="Обзор">?</button>
