@@ -1,0 +1,1069 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Communication Variant B</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../styles/tokens.css">
+  <link rel="stylesheet" href="../../../styles/app.css">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body class="prototype-variant-b">
+  <div class="prototype-banner">
+    <span class="prototype-banner-label">Variant B</span>
+    <strong>База Kaiten для второго прототипа</strong>
+    <a href="../hub.html">Вернуться в хаб</a>
+  </div>
+  <div class="workspace">
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-mark"></div>
+        <span>Kaiten</span>
+      </div>
+      <div class="searchbar">
+        <span class="search-icon">⌕</span>
+        <input type="text" value="Найти" aria-label="Поиск">
+      </div>
+      <div class="topbar-actions">
+        <button class="ai-button">Kaiten AI</button>
+      </div>
+    </header>
+
+    <div class="toolbar">
+      <div class="toolbar-main">
+        <div class="toolbar-left">
+          <div class="breadcrumb">
+            <span class="crumb-muted">Research &amp; development</span>
+            <span class="sep">/</span>
+            <span class="crumb-heart">❤</span>
+            <span class="current">Задачи на дизайн</span>
+            <span class="crumb-caret">⌄</span>
+          </div>
+          <div class="view-switch">
+            <button class="mini-btn is-active with-icon"><span class="mini-icon">▦</span><span>Доски</span></button>
+            <button class="mini-btn icon-only" aria-label="Документы">▣</button>
+            <button class="mini-btn icon-only" aria-label="Карточки">◫</button>
+            <button class="mini-btn icon-only" aria-label="Таблица">▥</button>
+            <button class="mini-btn icon-only" aria-label="Список">☰</button>
+            <button class="mini-btn icon-only" aria-label="Календарь">⌷</button>
+          </div>
+          <div class="toolbar-shortcuts">
+            <button class="mini-btn action-pill"><span class="mini-icon">↗</span><span>Отчеты</span></button>
+            <button class="mini-btn action-pill"><span class="mini-icon">⊡</span><span>Архив</span></button>
+          </div>
+        </div>
+        <div class="toolbar-right">
+          <button class="primary-btn add-btn">＋ Добавить</button>
+          <button class="mini-btn filter-btn"><span class="mini-icon">☰</span><span>Фильтры</span></button>
+          <button class="mini-btn icon-only utility-btn" aria-label="Теги">⌃</button>
+          <button class="mini-btn icon-only utility-btn" aria-label="Свернуть">⋂</button>
+          <button class="mini-btn icon-only utility-btn favorite-star" aria-label="Избранное">★</button>
+        </div>
+      </div>
+      <div class="toolbar-panel-head" id="rightPanelToolbarHead" hidden>
+        <div class="toolbar-panel-title" id="rightPanelToolbarTitle">Обзор пространства</div>
+        <div class="toolbar-panel-actions">
+          <button class="panel-head-btn" id="toolbarCloseRightPanel" aria-label="Закрыть правую панель">✕</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="workspace-body">
+      <aside class="left-rail">
+        <div class="left-rail-top">
+          <button class="rail-btn" data-left-mode="personal" aria-label="Личное">◪</button>
+          <button class="rail-btn" data-left-mode="favorites" aria-label="Избранное">★</button>
+          <button class="rail-btn" data-left-mode="tree" aria-label="Дерево">✣</button>
+        </div>
+        <div class="left-rail-bottom">
+          <button class="rail-btn rail-btn-chat is-active" data-left-mode="chat" aria-label="Чаты и коммуникация">
+            <span class="rail-icon-plane">◧</span>
+            <span class="rail-notification">2</span>
+          </button>
+          <button class="rail-btn help-btn" aria-label="Обзор">?</button>
+          <button class="profile-chip" aria-label="Профиль">
+            <span class="profile-avatar">АЕ</span>
+          </button>
+        </div>
+      </aside>
+
+      <aside class="tree-panel chat-panel" id="leftPanel">
+        <div class="panel-header">
+          <h2 id="leftPanelTitle">Дашборд</h2>
+          <div class="panel-header-actions">
+            <button class="ghost-btn" id="collapseLeftPanel" aria-label="Свернуть левую панель">≪</button>
+            <button class="ghost-btn ghost-btn-icon" id="openCommunicationFullscreen" aria-label="Открыть модуль на полном экране">
+              <span aria-hidden="true">↗</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="left-panel-mode" data-panel-mode="personal" hidden>
+          <nav class="simple-menu">
+            <button class="simple-menu-item" data-personal-view="cards">Карточки</button>
+            <button class="simple-menu-item is-current" data-personal-view="blockers">Блокеры</button>
+            <button class="simple-menu-item" data-personal-view="activity">Активности</button>
+            <button class="simple-menu-item" data-personal-view="time">Учёт времени</button>
+            <button class="simple-menu-item" data-personal-view="recordings">Записи встреч</button>
+          </nav>
+        </div>
+
+        <div class="left-panel-mode" data-panel-mode="favorites" hidden>
+          <nav class="favorites-list">
+            <button class="favorite-row"><span class="favorite-icon">▥</span><span>Product Analytics</span></button>
+            <button class="favorite-row"><span class="favorite-icon folder">◼</span><span>Research &amp; development</span></button>
+            <button class="favorite-row is-current"><span class="favorite-icon heart">❤</span><span>Задачи на дизайн</span></button>
+          </nav>
+        </div>
+
+        <div class="left-panel-mode" data-panel-mode="tree" hidden>
+          <div class="panel-search">
+            <input type="text" placeholder="Найти...">
+            <button class="ghost-btn">＋</button>
+          </div>
+          <nav class="tree-list rich">
+            <div class="tree-row"><span class="tree-node-icon">◼</span><span>Research &amp; development</span></div>
+            <div class="tree-row is-selected"><span class="tree-node-icon heart">❤</span><span>Задачи на дизайн</span></div>
+            <div class="tree-row"><span class="tree-node-icon">◼</span><span>Whiteboard</span></div>
+            <div class="tree-row"><span class="tree-node-icon">▥</span><span>Roadmap</span></div>
+          </nav>
+        </div>
+
+        <div class="left-panel-mode chat-scroll" data-panel-mode="chat">
+          <div class="communication-module-tabs communication-module-tabs-top">
+            <button class="chat-filter-pill is-active" type="button" data-communication-tab="dashboard">Дашборд</button>
+            <button class="chat-filter-pill" type="button" data-communication-tab="planner">Планировщик</button>
+            <button class="chat-filter-pill" type="button" data-communication-tab="artifacts">Артефакты</button>
+          </div>
+
+          <div class="communication-module-panels">
+            <section class="communication-module-panel is-active" data-communication-panel="dashboard">
+              <div class="dashboard-sticky-action">
+                <button class="dashboard-start-button" type="button" aria-label="Начать встречу">
+                  <span class="dashboard-start-icon" aria-hidden="true">◧</span>
+                  <span>Начать встречу</span>
+                </button>
+              </div>
+
+              <div class="dashboard-bubble-stack">
+                <article class="dashboard-bubble">
+                  <div class="dashboard-bubble-head">
+                    <span class="dashboard-preview-label">Сейчас</span>
+                    <span class="dashboard-bubble-meta">через 4 мин</span>
+                  </div>
+                  <strong>Ближайшая встреча</strong>
+                  <p class="dashboard-bubble-title">Квалификация 4.0</p>
+                  <p>7 участников, подключение уже открыто, есть материалы и контекст по карточкам.</p>
+                  <button class="dashboard-bubble-cta" id="joinNearestMeeting" type="button">Подключиться</button>
+                  <div class="meeting-bubble-list meeting-bubble-list-secondary">
+                    <article class="meeting-bubble-item">
+                      <strong>17:40 · Синк по сценарию демо</strong>
+                      <p>Короткая рабочая встреча команды продукта.</p>
+                    </article>
+                    <article class="meeting-bubble-item">
+                      <strong>18:30 · Review с редакторами</strong>
+                      <p>Согласование структуры приглашений и записей.</p>
+                    </article>
+                    <article class="meeting-bubble-item">
+                      <strong>19:15 · Финальный слот дня</strong>
+                      <p>Небольшой follow-up по модулю коммуникации.</p>
+                    </article>
+                  </div>
+                </article>
+
+                <article class="dashboard-bubble">
+                  <div class="dashboard-bubble-head">
+                    <span class="dashboard-preview-label">Приглашения</span>
+                    <span class="dashboard-bubble-meta">2 требуют ответа</span>
+                  </div>
+                  <div class="invite-entry-list">
+                    <article class="invite-entry">
+                      <div class="invite-entry-copy">
+                        <strong>Четверг · Созвон с заказчиками</strong>
+                        <p>16:00, внешний слот, ожидает подтверждения участия.</p>
+                      </div>
+                      <div class="invites-bubble-actions">
+                        <button class="invite-action-btn invite-action-btn-accept" type="button">Принять</button>
+                        <button class="invite-action-btn" type="button">Отказаться</button>
+                      </div>
+                    </article>
+                    <article class="invite-entry">
+                      <div class="invite-entry-copy">
+                        <strong>Пятница, 19 · Проект eSync</strong>
+                        <p>18:30, регулярный созвон по текущему статусу проекта.</p>
+                      </div>
+                      <div class="invites-bubble-actions">
+                        <button class="invite-action-btn invite-action-btn-accept" type="button">Принять</button>
+                        <button class="invite-action-btn" type="button">Отказаться</button>
+                      </div>
+                    </article>
+                  </div>
+                </article>
+              </div>
+            </section>
+
+            <section class="communication-module-panel" data-communication-panel="planner">
+              <div class="dashboard-sticky-action">
+                <button class="dashboard-start-button" type="button" aria-label="Запланировать">
+                  <span class="dashboard-start-icon" aria-hidden="true">◫</span>
+                  <span>Запланировать</span>
+                </button>
+              </div>
+
+              <article class="communication-module-card">
+                <div class="planner-week-list">
+                  <section class="planner-day-block">
+                    <div class="planner-day-head">
+                      <strong>Вторник</strong>
+                      <span>3 встречи</span>
+                    </div>
+                    <div class="planner-day-items">
+                      <article class="planner-week-item">
+                        <strong>10:00 · Общий weekly sync</strong>
+                        <p>Команда продукта, статусы и блокеры на неделю.</p>
+                      </article>
+                      <article class="planner-week-item">
+                        <strong>14:30 · Созвон по клиентскому флоу</strong>
+                        <p>Разбор входов в модуль связи и маршрутов пользователей.</p>
+                      </article>
+                      <article class="planner-week-item">
+                        <strong>18:00 · Внутренний review</strong>
+                        <p>Финальная сверка сценариев перед презентацией.</p>
+                      </article>
+                    </div>
+                  </section>
+
+                  <section class="planner-day-block">
+                    <div class="planner-day-head">
+                      <strong>Среда</strong>
+                      <span>2 встречи</span>
+                    </div>
+                    <div class="planner-day-items">
+                      <article class="planner-week-item">
+                        <strong>11:30 · Сессия по планированию релиза</strong>
+                        <p>Слоты, участники и точки подключения для релизной недели.</p>
+                      </article>
+                      <article class="planner-week-item">
+                        <strong>16:00 · Демонстрация сценария ВКС</strong>
+                        <p>Прогон будущего централизованного интерфейса с командой.</p>
+                      </article>
+                    </div>
+                  </section>
+
+                  <section class="planner-day-block">
+                    <div class="planner-day-head">
+                      <strong>Четверг</strong>
+                      <span>4 встречи</span>
+                    </div>
+                    <div class="planner-day-items">
+                      <article class="planner-week-item">
+                        <strong>09:30 · Созвон с заказчиками</strong>
+                        <p>Согласование структуры приглашений и артефактов встречи.</p>
+                      </article>
+                      <article class="planner-week-item">
+                        <strong>12:00 · Product design review</strong>
+                        <p>Обсуждение дашборда, планировщика и полноэкранного режима.</p>
+                      </article>
+                      <article class="planner-week-item">
+                        <strong>15:30 · Архитектурный sync</strong>
+                        <p>Проверка точек входа из карточки, рейлза и календаря.</p>
+                      </article>
+                      <article class="planner-week-item">
+                        <strong>18:15 · Follow-up по модулю связи</strong>
+                        <p>Короткий вечерний слот для фиксации решений.</p>
+                      </article>
+                    </div>
+                  </section>
+                </div>
+              </article>
+            </section>
+
+            <section class="communication-module-panel" data-communication-panel="artifacts">
+              <article class="communication-module-card">
+                <ul class="communication-module-list">
+                  <li>AI summary и решения</li>
+                  <li>Записи встреч и документы</li>
+                  <li>История действий по треду</li>
+                </ul>
+                <div class="artifacts-preview-list">
+                  <article class="artifacts-preview-item">
+                    <span class="mention-label">Summary</span>
+                    <strong>Design sync / recap</strong>
+                    <p>Краткое AI-резюме встречи и список следующих шагов.</p>
+                  </article>
+                  <article class="artifacts-preview-item">
+                    <span class="mention-label">Document</span>
+                    <strong>Meeting notes / v2 module</strong>
+                    <p>Конспект, материалы и ссылки на связанные карточки.</p>
+                  </article>
+                </div>
+              </article>
+            </section>
+          </div>
+        </div>
+      </aside>
+
+      <main class="board-shell">
+        <section class="board-header">
+          <div class="board-title">
+            <span class="board-grip">⠿</span>
+            <h1>Design</h1>
+          </div>
+          <div class="board-actions hover-tools">
+            <button class="board-icon-btn" aria-label="Добавить">＋</button>
+            <button class="board-icon-btn" aria-label="Ссылка">⌃</button>
+            <button class="board-icon-btn" aria-label="Меню">⋮</button>
+            <button class="board-icon-btn" aria-label="Свернуть">⌃</button>
+          </div>
+        </section>
+
+        <section class="board" aria-label="Канбан-доска">
+          <article class="column">
+            <header class="column-header"><span>Очередь</span><span class="count">32</span></header>
+            <div class="column-cards">
+              <button class="task-card"><span class="task-line cyan"></span><h3>Цвета в продукте: синхронизировать кит и фактические библиотеки</h3><div class="task-tags"><span class="pill teal">Техдолг</span></div><div class="task-meta"><div class="avatars"><span>АЕ</span><span>ДС</span></div></div></button>
+              <button class="task-card"><span class="task-line cyan"></span><h3>Добавить баннер в флоу и макеты</h3><div class="task-tags"><span class="pill teal">Техдолг</span></div></button>
+              <button class="task-card"><span class="task-line cyan"></span><h3>Обновить компоненты баров в связи с новой навигацией</h3><div class="task-tags"><span class="pill slate">Сегмент CDX</span></div></button>
+              <button class="task-card"><span class="task-line cyan"></span><h3>Ресерч и концепт: навигация в Service Desk</h3><div class="task-tags"><span class="pill slate">Сегмент CDX</span></div></button>
+            </div>
+          </article>
+          <article class="column">
+            <header class="column-header"><span>Планы на неделю</span><span class="count">2</span></header>
+            <div class="column-cards">
+              <button class="task-card"><span class="task-line cyan"></span><h3>Редизайн и улучшение опыта взаимодействия с таблицей заявок</h3><div class="task-tags"><span class="pill slate">Сегмент CDX</span></div><div class="task-meta"><div class="avatars"><span>ИГ</span></div></div></button>
+              <button class="task-card"><span class="task-line cyan"></span><h3>Посадочная страница для HR / Лендинг "Кайтен для HR"</h3><div class="task-meta"><div class="avatars"><span>ЯК</span><span>ВС</span></div></div></button>
+            </div>
+          </article>
+          <article class="column">
+            <header class="column-header"><span>В работе</span><span class="count">3</span></header>
+            <div class="column-cards">
+              <button class="task-card is-highlighted"><span class="task-line cyan"></span><h3>[MVP] Подключение сервисов и работа с заявками в публичной БЗ</h3><div class="task-tags"><span class="pill slate">Сегмент CDX</span></div><p class="link-row">figma.com/design/proto-case</p><div class="task-meta"><span>0/1</span><div class="avatars"><span>ИГ</span></div></div></button>
+              <button class="task-card"><span class="task-line cyan"></span><h3>Пользователь может закрыть свой запрос в SD через Self Service</h3><div class="task-tags"><span class="pill slate">Сегмент CDX</span></div><p class="link-row">figma.com/design/service-flow</p></button>
+              <button class="task-card"><span class="task-line green"></span><h3>Проработка пользовательского опыта работы ВКС в Kaiten</h3><div class="task-tags"><span class="pill rose">Сегмент B</span></div></button>
+            </div>
+          </article>
+          <article class="column">
+            <header class="column-header"><span>Ревью</span><span class="count">9</span></header>
+            <div class="column-cards">
+              <button class="task-card"><span class="task-line cyan"></span><h3>ЧПУ в базе знаний, чтобы улучшить навигацию</h3><div class="task-tags"><span class="pill slate">Сегмент CDX</span></div></button>
+              <button class="task-card urgent"><span class="status-chip">жду фидбек</span><span class="task-line cyan"></span><h3>Добавить карточку из любой сущности</h3><div class="task-tags"><span class="pill rose">Сегмент B</span></div><div class="task-meta"><span>2 комментария</span><div class="avatars"><span>АЕ</span><span>ДС</span><span>+1</span></div></div></button>
+              <button class="task-card"><span class="task-line cyan"></span><h3>CRM отчеты: конверсии по воронке MVP</h3><div class="task-tags"><span class="pill rose">Сегмент B</span></div></button>
+            </div>
+          </article>
+          <article class="column compact">
+            <header class="column-header"><span>Готово</span><span class="count">7</span></header>
+            <div class="column-cards">
+              <button class="task-card slim"><span class="task-line cyan"></span><h3>Тест</h3></button>
+              <button class="task-card slim"><span class="task-line cyan"></span><h3>Добавить описания для сервисов</h3></button>
+              <button class="task-card slim"><span class="task-line cyan"></span><h3>Подготовить прототип help center на базе SD</h3></button>
+              <button class="task-card slim"><span class="task-line cyan"></span><h3>Покраска ячеек в таблицах</h3></button>
+            </div>
+          </article>
+        </section>
+
+        <section class="task-detail" id="taskDetail">
+          <div class="task-detail-resize-handle" id="taskDetailResizeHandle" aria-hidden="true"></div>
+          <div class="detail-main task-detail-main">
+            <div class="detail-headline">
+              <div>
+                <p class="issue-link">#63053263 Заказчик Виктор Огнев</p>
+                <h2>Проработка пользовательского опыта работы ВКС в Kaiten</h2>
+                <p class="detail-subtitle">Создана 6 дней назад · Перемещена 5 дней назад</p>
+              </div>
+              <button class="circle-btn detail-close-mobile" data-close-task-detail aria-label="Закрыть карточку">✕</button>
+            </div>
+            <div class="detail-actions">
+              <button class="fab">＋</button>
+              <div class="detail-actions-right">
+                <button class="circle-btn">▶</button>
+                <button class="detail-pill">→ В РАБОТЕ</button>
+                <button class="circle-btn">↗</button>
+                <button class="circle-btn">!</button>
+                <button class="circle-btn">⇪</button>
+                <button class="circle-btn">⋮</button>
+              </div>
+            </div>
+            <dl class="detail-grid">
+              <div class="detail-field">
+                <dt>Расположение</dt>
+                <dd class="detail-link-row"><a href="#">Design / В работе</a><span class="detail-inline-icon">⌕</span></dd>
+              </div>
+              <div class="detail-field">
+                <dt>Тип</dt>
+                <dd><span class="pill subtle-pill"><span class="pill-icon">C</span>Card</span></dd>
+              </div>
+              <div class="detail-field">
+                <dt>Участники</dt>
+                <dd class="detail-avatars"><span class="avatar large">АЕ</span><span class="avatar large">ВС</span><span class="avatar large">ИГ</span><a href="#" class="detail-text-link">Добавить участников</a></dd>
+              </div>
+              <div class="detail-field">
+                <dt>Срок</dt>
+                <dd><a href="#" class="detail-text-link">Установить срок</a></dd>
+              </div>
+              <div class="detail-field">
+                <dt>Метки</dt>
+                <dd><span class="pill rose">Сегмент B</span></dd>
+              </div>
+            </dl>
+            <div class="detail-section">
+              <h3><span class="detail-section-icon">☰</span>Описание</h3>
+              <p>Теперь карточка в варианте B открывается не в упрощенном baseline-виде, а по паттерну из версии 1: с отдельной механикой правого рейла, secondary panel и переключаемыми секциями.</p>
+              <ul>
+                <li>Левый рейл и логика режимов взяты из первой версии.</li>
+                <li>Карточка получила отдельный слой правого рейла поверх базового экрана.</li>
+                <li>Внутренности inline-коммуникации не переносим: дальше здесь появится уже централизованный модуль.</li>
+              </ul>
+              <p>То есть мы переносим именно качественно проработанную оболочку и паттерны взаимодействия, а не старую коммуникационную модель целиком.</p>
+            </div>
+            <div class="detail-section">
+              <h3><span class="detail-section-icon">🔗</span>Материалы</h3>
+              <ul class="detail-links-list">
+                <li><a href="#">Baseline как опорная версия для сравнения</a></li>
+                <li><a href="#">Версия 1: механика карточки и правого рейла</a></li>
+                <li><a href="#">Variant B: будущий centralized communication module</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="detail-main document-detail-main" hidden>
+            <div class="detail-headline document-headline">
+              <div>
+                <p class="issue-link">Kaiten Docs / AI Notes / Huddle recap</p>
+                <h2>Тест транскрипция</h2>
+                <p class="detail-subtitle">Обновлён в 08:26 · Автоматически создан после завершения созвона</p>
+              </div>
+              <button class="circle-btn detail-close-mobile" data-close-task-detail aria-label="Закрыть документ">✕</button>
+            </div>
+
+            <div class="document-main-content">
+              <section class="document-main-block">
+                <h3>Зафиксируйте задачи</h3>
+                <div class="document-task-table">
+                  <div class="document-task-row is-head">
+                    <span>Название</span>
+                    <span>Статус</span>
+                  </div>
+                  <div class="document-task-row">
+                    <span>Обсудить предложенный набор сценариев использования созвонов и выявить отсутствующие сценарии</span>
+                    <button class="mini-create-btn">Создать</button>
+                  </div>
+                  <div class="document-task-row">
+                    <span>Разработать концепцию публикации итогов созвона в чат, канал и карточку</span>
+                    <button class="mini-create-btn">Создать</button>
+                  </div>
+                  <div class="document-task-row">
+                    <span>Придумать единый паттерн различения PDF, карточек Kaiten и документов Kaiten</span>
+                    <button class="mini-create-btn">Создать</button>
+                  </div>
+                </div>
+              </section>
+
+              <section class="document-main-block">
+                <h3>Краткая повестка</h3>
+                <ul>
+                  <li>Определены ключевые сценарии использования созвонов в чатах, каналах и карточках.</li>
+                  <li>Выделена необходимость отдельного документа-артефакта после завершения хаддла.</li>
+                  <li>Подтверждено, что итоговый документ должен падать обратно в связанную коммуникацию.</li>
+                </ul>
+              </section>
+
+              <section class="document-main-block">
+                <h3>Повестка</h3>
+                <p>Обсуждались сценарии использования видеозвонков и их интеграция с задачами, календарями и внутренними документами Kaiten. Отдельно выделили модель, в которой пользователь начинает созвон из уже существующей коммуникационной сущности, а после завершения получает документ с summary, задачами и транскриптом.</p>
+              </section>
+
+              <section class="document-main-block">
+                <h3>Транскрипт</h3>
+                <div class="document-main-transcript">
+                  <p><strong>Виктор Огнев [00:00:00]:</strong> Нужно, чтобы итоговый артефакт созвона открывался сразу после завершения звонка и не терялся внутри истории.</p>
+                  <p><strong>Алексей Евстифеев [00:00:21]:</strong> Да, и при этом важно, чтобы он сразу публиковался в ту коммуникацию, откуда созвон был начат.</p>
+                  <p><strong>Rick Deckard [00:04:37]:</strong> Для материалов по выявлению андроидов надо развести внешние PDF и внутренние сущности Kaiten, чтобы переходы были понятными.</p>
+                </div>
+              </section>
+            </div>
+          </div>
+          <aside class="detail-comments">
+            <div class="comments-shell">
+              <div class="comments-topbar">
+                <div class="comments-topbar-spacer"></div>
+                <div class="comments-topbar-actions">
+                  <button class="board-icon-btn topbar-icon-btn" aria-label="В избранное">☆</button>
+                  <button class="board-icon-btn topbar-icon-btn" aria-label="Развернуть">⛶</button>
+                  <button class="board-icon-btn topbar-icon-btn" data-close-task-detail aria-label="Закрыть карточку">✕</button>
+                </div>
+              </div>
+              <div class="comments-header">
+                <button class="comments-tab is-active">Комментарии</button>
+                <button class="comments-tab">Спросить ИИ</button>
+              </div>
+              <div class="comments-toolbar">
+                <div class="comments-toolbar-icons">
+                  <button class="board-icon-btn" aria-label="Видео">◧</button>
+                  <button class="board-icon-btn" aria-label="Режим">▭</button>
+                </div>
+                <button class="comment-filter">Все ▾</button>
+                <div class="comments-toolbar-icons">
+                  <button class="board-icon-btn" aria-label="Компактный вид">▤</button>
+                  <button class="board-icon-btn" aria-label="Широкий вид">▱</button>
+                </div>
+              </div>
+              <div class="comment-input-wrap">
+                <div class="comment-author-avatar self">АЕ</div>
+                <div class="comment-input">
+                  <input type="text" placeholder="Напишите комментарий">
+                  <button class="icon-btn" aria-label="Голосовой ввод">🎙</button>
+                </div>
+              </div>
+              <div class="comments-stream">
+                <article class="comment comment-ai">
+                  <p class="comment-author">Kaiten AI · 1 час назад</p>
+                  <div class="comment-box">
+                    <h4>AI-ассистент</h4>
+                    <p>Карточка уже переведена на более зрелый паттерн из версии 1: теперь справа можно переключать дополнительные контексты, не ломая основной экран.</p>
+                  </div>
+                </article>
+                <article class="comment">
+                  <p class="comment-author">Алексей Евстифеев · сегодня, 10:20</p>
+                  <div class="comment-thread">
+                    <div class="comment-author-avatar">АЕ</div>
+                    <div class="comment-box plain">
+                      <p>Важно было перенести именно механику карточки и рейлов, а не старую модель inline-коммуникации. Дальше уже наслаиваем новую централизованную логику.</p>
+                    </div>
+                  </div>
+                </article>
+              </div>
+            </div>
+          </aside>
+        </section>
+      </main>
+
+      <aside class="right-rail">
+        <button class="rail-btn rail-btn-communication is-active" id="activateUsersPanel" aria-label="Обзор пространства">
+          <span class="rail-icon-bubble">💬</span>
+          <span class="rail-notification">1</span>
+        </button>
+        <button class="rail-btn" aria-label="Участники">👥</button>
+        <button class="rail-btn" aria-label="История">⟲</button>
+        <button class="rail-btn" aria-label="Документы">▣</button>
+        <button class="rail-btn" aria-label="Настройки">⚙</button>
+      </aside>
+
+      <div class="card-rail-group card-rail-overlay" id="cardRailGroup" hidden>
+        <button class="rail-btn card-rail-btn" data-card-rail-target="info" aria-label="Информация карточки">
+          <span class="card-rail-icon">i</span>
+        </button>
+        <button class="rail-btn card-rail-btn" data-card-rail-target="communication" aria-label="Контекст карточки">
+          <span class="rail-icon-bubble">💬</span>
+        </button>
+        <button class="rail-btn card-rail-btn" data-card-rail-target="links" aria-label="Связи карточки">
+          <span class="card-rail-icon">⌘</span>
+        </button>
+        <button class="rail-btn card-rail-btn" data-card-rail-target="ai" aria-label="AI-ассистент по карточке">
+          <span class="card-rail-icon ai-rail-icon">AI</span>
+        </button>
+      </div>
+
+      <div class="card-rail-group card-rail-overlay document-rail-overlay" id="documentRailGroup" hidden>
+        <button class="rail-btn card-rail-btn" data-document-section-target="outline" aria-label="Содержание документа">
+          <span class="card-rail-icon">≡</span>
+        </button>
+        <button class="rail-btn card-rail-btn" data-document-section-target="access" aria-label="Доступ к документу">
+          <span class="card-rail-icon">👥</span>
+        </button>
+        <button class="rail-btn card-rail-btn" data-document-section-target="comments" aria-label="Комментарии к документу">
+          <span class="rail-icon-bubble">💬</span>
+        </button>
+        <button class="rail-btn card-rail-btn" data-document-section-target="history" aria-label="История документа">
+          <span class="card-rail-icon">⟲</span>
+        </button>
+        <button class="rail-btn card-rail-btn" data-document-section-target="share" aria-label="Поделиться документом">
+          <span class="card-rail-icon">⇪</span>
+        </button>
+        <button class="rail-btn card-rail-btn" data-document-section-target="settings" aria-label="Настройки документа">
+          <span class="card-rail-icon">⚙</span>
+        </button>
+      </div>
+
+      <aside class="people-panel space-communication-panel" id="rightPanel" hidden>
+        <div class="panel-mode panel-mode-space is-active" data-panel-mode-view="space">
+          <div class="panel-stream panel-stream-space">
+            <div class="space-summary-card">
+              <p class="space-channel-kicker">Обзор пространства</p>
+              <strong>Задачи на дизайн</strong>
+              <p>Здесь пока не inline-коммуникация из версии 1, а нейтральный обзорный слой для варианта B. Он нужен, чтобы сохранить механику правого рейла, не подмешивая старую логику общения.</p>
+            </div>
+            <div class="space-panel-section">
+              <p class="section-title">Что уже перенесено</p>
+              <ul class="card-section-list">
+                <li>Новый левый рейл из версии 1.</li>
+                <li>Паттерн secondary right rail для карточки.</li>
+                <li>Ресайз карточки и переключение правых секций.</li>
+              </ul>
+            </div>
+            <div class="space-panel-section">
+              <p class="section-title">Что появится дальше</p>
+              <ul class="card-section-list">
+                <li>Централизованный workspace коммуникации.</li>
+                <li>Входы из карточки, пространства и календаря.</li>
+                <li>История созвонов, артефакты и навигация по thread.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel-mode panel-mode-card" data-panel-mode-view="card" hidden>
+          <button class="panel-head-btn card-secondary-close" id="closeCardSecondaryPanel" aria-label="Закрыть второй уровень карточки">✕</button>
+          <div class="card-panel-header">
+            <div class="card-nav-tabs">
+              <button class="comments-tab is-active" data-card-section-target="info">Информация</button>
+              <button class="comments-tab" data-card-section-target="communication">Контекст</button>
+              <button class="comments-tab" data-card-section-target="links">Связи</button>
+            </div>
+          </div>
+
+          <div class="card-panel-scroll">
+            <section class="card-section is-active" data-card-section="info">
+              <div class="card-section-block">
+                <h3>Информация о карточке</h3>
+                <ul class="card-section-list">
+                  <li><strong>Статус:</strong> В работе</li>
+                  <li><strong>Исполнители:</strong> Алексей, Вячеслав, Ильдар</li>
+                  <li><strong>Срок:</strong> не задан</li>
+                  <li><strong>Метки:</strong> Сегмент B</li>
+                </ul>
+                <p>Этот слой полностью повторяет механику из версии 1: карточка остается основной, а дополнительная информация открывается во втором правом уровне.</p>
+              </div>
+            </section>
+
+            <section class="card-section" data-card-section="communication">
+              <div class="card-section-block">
+                <h3>Контекст карточки</h3>
+                <p class="card-section-intro">Механику раздела переносим из версии 1, но содержательно здесь пока не старый inline-chat, а заготовка под будущий централизованный модуль коммуникации.</p>
+              </div>
+              <div class="card-mentions-stream">
+                <article class="mention-entry mention-channel">
+                  <span class="mention-label">Entry point</span>
+                  <strong>Из карточки в communication module</strong>
+                  <p>Из этого места пользователь сможет уходить в централизованный workspace обсуждения и истории созвонов.</p>
+                  <small>Пока зафиксирован только паттерн слоя</small>
+                </article>
+                <article class="mention-entry mention-huddle">
+                  <span class="mention-label">Future thread</span>
+                  <strong>История встреч и решений</strong>
+                  <p>Здесь позже появятся артефакты, summary и activity, но уже не как в версии 1, а в новой модульной логике.</p>
+                  <small>Следующий этап проработки</small>
+                </article>
+              </div>
+              <div class="comment-input-wrap card-communication-composer">
+                <div class="comment-author-avatar self">АЕ</div>
+                <div class="comment-input">
+                  <input type="text" placeholder="Точка входа в будущий communication module">
+                  <button class="icon-btn" aria-label="Голосовой ввод">🎙</button>
+                </div>
+              </div>
+            </section>
+
+            <section class="card-section" data-card-section="links">
+              <div class="card-section-block">
+                <h3>Связи</h3>
+                <div class="link-group">
+                  <p class="link-group-title">Родительские и дочерние карточки</p>
+                  <ul class="card-section-list">
+                    <li>Родитель: “Коммуникационный модуль в Kaiten”</li>
+                    <li>Дочерняя: “Thread workspace для версии 2”</li>
+                    <li>Дочерняя: “Entry points из карточки и пространства”</li>
+                  </ul>
+                </div>
+                <div class="link-group">
+                  <p class="link-group-title">Связанные документы</p>
+                  <ul class="card-section-list">
+                    <li>Baseline / communication reference</li>
+                    <li>Version 1 / rail and card mechanics</li>
+                    <li>Variant B / centralized module concept</li>
+                  </ul>
+                </div>
+              </div>
+            </section>
+
+            <section class="card-section card-section-ai" data-card-section="ai">
+              <div class="ai-assistant-intro">
+                <div class="ai-assistant-avatar">AI</div>
+                <div class="ai-assistant-copy">
+                  <strong>Привет!</strong>
+                  <p>Я AI-помощник по этой карточке. Здесь оставляем удачный паттерн правой AI-панели из версии 1.</p>
+                  <p>Что вы хотите сделать?</p>
+                </div>
+              </div>
+              <div class="ai-assistant-actions">
+                <button class="ai-action-card">
+                  <span class="ai-action-icon">📅</span>
+                  <span class="ai-action-text">
+                    <strong>Спрогнозировать срок</strong>
+                    <small>Проанализирую сложность и предложу реалистичный срок по этой задаче.</small>
+                  </span>
+                  <span class="ai-action-arrow">›</span>
+                </button>
+                <button class="ai-action-card">
+                  <span class="ai-action-icon">Aa</span>
+                  <span class="ai-action-text">
+                    <strong>Исправить орфографию</strong>
+                    <small>Проверю формулировки, поправлю ошибки и сделаю текст чище.</small>
+                  </span>
+                  <span class="ai-action-arrow">›</span>
+                </button>
+                <button class="ai-action-card">
+                  <span class="ai-action-icon">≡</span>
+                  <span class="ai-action-text">
+                    <strong>Привести в порядок</strong>
+                    <small>Перепишу описание карточки в более понятном и профессиональном стиле.</small>
+                  </span>
+                  <span class="ai-action-arrow">›</span>
+                </button>
+              </div>
+            </section>
+          </div>
+        </div>
+
+        <div class="panel-mode panel-mode-document" data-panel-mode-view="document" hidden>
+          <button class="panel-head-btn card-secondary-close" id="closeDocumentPanel" aria-label="Закрыть документ созвона">✕</button>
+          <div class="document-panel-scroll" id="documentPanelScroll">
+            <section class="document-section is-active" data-document-section="outline">
+              <div class="document-panel-header">
+                <p class="document-kicker">AI Notes / Huddle recap</p>
+                <h3>Итоги созвона по задаче “Проработка пользовательского опыта работы ВКС в Kaiten”</h3>
+                <small>Документ автоматически создан после завершения созвона и опубликован в канал “Задачи на дизайн”.</small>
+              </div>
+
+              <div class="document-block">
+                <h4>Содержание</h4>
+                <ul class="document-outline-list">
+                  <li><a href="#document-summary">Summary созвона</a></li>
+                  <li><a href="#document-actions">AI-предложенные задачи</a></li>
+                  <li><a href="#document-transcript">Транскрипт разговора</a></li>
+                  <li><a href="#document-chatlog">Чат созвона и вложения</a></li>
+                </ul>
+              </div>
+
+              <div class="document-block" id="document-summary">
+                <h4>Summary созвона</h4>
+                <p>Команда согласовала, что созвоны должны жить как продолжение уже существующей коммуникации: через канал пространства, проектный канал или контекст карточки. После завершения звонка система создаёт документ-артефакт и публикует его в связанную сущность.</p>
+                <p>Рик Декард отдельно подчеркнул, что внешние PDF, карточки Kaiten и документы Kaiten должны отличаться друг от друга визуально и оставаться переходами в соответствующие сущности.</p>
+              </div>
+
+              <div class="document-block" id="document-actions">
+                <h4>AI-предложенные задачи</h4>
+                <div class="document-action-list">
+                  <article class="document-action-card">
+                    <span class="attachment-kicker">Предложение 1</span>
+                    <strong>Собрать единый паттерн публикации итогов хаддла в чат, канал и карточку</strong>
+                    <small>Приоритет: высокий · владелец: Алексей</small>
+                  </article>
+                  <article class="document-action-card">
+                    <span class="attachment-kicker">Предложение 2</span>
+                    <strong>Развести визуальные состояния внешних файлов и внутренних сущностей Kaiten</strong>
+                    <small>Приоритет: средний · владелец: дизайн-система</small>
+                  </article>
+                  <article class="document-action-card">
+                    <span class="attachment-kicker">Предложение 3</span>
+                    <strong>Подготовить сценарий завершения звонка с автосозданием документа и связанной коммуникации</strong>
+                    <small>Приоритет: высокий · владелец: продукт</small>
+                  </article>
+                </div>
+              </div>
+
+              <div class="document-block" id="document-transcript">
+                <h4>Транскрипт разговора</h4>
+                <div class="document-transcript">
+                  <p><strong>18:11 · Rick Deckard:</strong> Скидываю новые гайдлайны по выявлению андроидов. Важно, чтобы внешние материалы не смешивались с внутренними сущностями Kaiten.</p>
+                  <p><strong>18:14 · Вы:</strong> Тогда карточку сценария выявления андроидов надо из чата прикладывать как внутреннюю ссылку, а не как просто файл.</p>
+                  <p><strong>18:19 · Rick Deckard:</strong> Ещё нужен внутренний документ с транскрипцией спора Сорена и Палмера, чтобы к нему можно было возвращаться как к артефакту разговора.</p>
+                  <p><strong>18:24 · Вы:</strong> После завершения созвона этот документ должен открываться справа и одновременно падать в канал пространства.</p>
+                </div>
+              </div>
+
+              <div class="document-block" id="document-chatlog">
+                <h4>Чат созвона</h4>
+                <div class="document-chatlog">
+                  <article class="document-chat-entry external-file">
+                    <div class="huddle-chat-meta">
+                      <span class="huddle-chat-avatar accent-amber">RD</span>
+                      <div>
+                        <strong>Rick Deckard</strong>
+                        <small>Сегодня, 18:11</small>
+                      </div>
+                    </div>
+                    <p>Скидываю PDF с новыми гайдлайнами по выявлению андроидов.</p>
+                    <a class="huddle-chat-attachment is-pdf" href="#" role="button">PDF · android-detection-guidelines.pdf</a>
+                  </article>
+
+                  <article class="document-chat-entry internal-link">
+                    <div class="huddle-chat-meta">
+                      <span class="huddle-chat-avatar self">AE</span>
+                      <div>
+                        <strong>Вы</strong>
+                        <small>Сегодня, 18:14</small>
+                      </div>
+                    </div>
+                    <p>Отправляю карточку, в которой собираем сценарий выявления андроидов и правила эскалации.</p>
+                    <a class="huddle-chat-attachment is-kaiten-card" href="#" role="button">
+                      <span class="attachment-kicker">Карточка Kaiten</span>
+                      <strong>Выявление андроидов в полевых интервью</strong>
+                      <small>#63120411 · перейти к карточке</small>
+                    </a>
+                  </article>
+
+                  <article class="document-chat-entry internal-link">
+                    <div class="huddle-chat-meta">
+                      <span class="huddle-chat-avatar accent-amber">RD</span>
+                      <div>
+                        <strong>Rick Deckard</strong>
+                        <small>Сегодня, 18:19</small>
+                      </div>
+                    </div>
+                    <p>Прикладываю внутренний документ Kaiten с транскрипцией спора Сорена и Палмера.</p>
+                    <a class="huddle-chat-attachment is-kaiten-doc" href="#" role="button">
+                      <span class="attachment-kicker">Документ Kaiten</span>
+                      <strong>Транскрипция спора Сорена и Палмера</strong>
+                      <small>Внутренний документ · открыть в Kaiten Docs</small>
+                    </a>
+                  </article>
+                </div>
+              </div>
+            </section>
+
+            <section class="document-section" data-document-section="comments">
+              <div class="document-block">
+                <h4>Комментарии</h4>
+                <div class="document-comments-list">
+                  <article>
+                    <strong>Алексей</strong>
+                    <p>Нужно оставить post-call документ не как вторичный след, а как обязательный этап сценария.</p>
+                  </article>
+                  <article>
+                    <strong>Виктор</strong>
+                    <p>Боковую панель встречи стоит потом разделить на Chat / Content / AI.</p>
+                  </article>
+                </div>
+              </div>
+            </section>
+
+            <section class="document-section" data-document-section="access">
+              <div class="document-block">
+                <h4>Доступ к документу</h4>
+                <ul class="document-history-list">
+                  <li><strong>Алексей Евстифеев</strong> · редактор</li>
+                  <li><strong>Виктор</strong> · комментатор</li>
+                  <li><strong>Команда пространства “Задачи на дизайн”</strong> · опубликовано для участников пространства</li>
+                </ul>
+              </div>
+            </section>
+
+            <section class="document-section" data-document-section="history">
+              <div class="document-block">
+                <h4>История</h4>
+                <ul class="document-history-list">
+                  <li>16:34 · Документ создан автоматически после завершения встречи</li>
+                  <li>16:35 · Добавлен summary и расшифровка ключевых решений</li>
+                  <li>16:36 · Подтянуты материалы из чата созвона</li>
+                </ul>
+              </div>
+            </section>
+
+            <section class="document-section" data-document-section="share">
+              <div class="document-block">
+                <h4>Поделиться</h4>
+                <div class="document-share-grid">
+                  <button class="ai-action-card">
+                    <span class="ai-action-icon">#</span>
+                    <span class="ai-action-text">
+                      <strong>Опубликовать в пространстве “Задачи на дизайн”</strong>
+                      <small>Документ уже доступен участникам пространства как итог последней встречи.</small>
+                    </span>
+                    <span class="ai-action-arrow">✓</span>
+                  </button>
+                  <button class="ai-action-card">
+                    <span class="ai-action-icon">👥</span>
+                    <span class="ai-action-text">
+                      <strong>Поделиться с участниками встречи</strong>
+                      <small>Алексей и Виктор могут перейти к документу прямо из контекста встречи.</small>
+                    </span>
+                    <span class="ai-action-arrow">›</span>
+                  </button>
+                </div>
+              </div>
+            </section>
+
+            <section class="document-section" data-document-section="settings">
+              <div class="document-block">
+                <h4>Настройки документа</h4>
+                <ul class="document-history-list">
+                  <li>Автопубликация итогов включена</li>
+                  <li>Транскрипт прикладывается к документу автоматически</li>
+                  <li>Связанные материалы из чата подтягиваются в раздел “Чат и материалы”</li>
+                </ul>
+              </div>
+            </section>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <div class="communication-fullscreen" id="communicationFullscreen" hidden>
+    <div class="communication-fullscreen-head">
+      <div>
+        <p class="communication-hub-kicker">Централизованный модуль коммуникации</p>
+        <h2 id="communicationFullscreenTitle">Дашборд коммуникации</h2>
+        <p id="communicationFullscreenSubtitle">Полноэкранный режим для работы с выбранным модулем.</p>
+      </div>
+      <button class="panel-head-btn" id="closeCommunicationFullscreen" aria-label="Закрыть полноэкранный режим">✕</button>
+    </div>
+    <div class="communication-fullscreen-body" id="communicationFullscreenBody"></div>
+  </div>
+
+  <div class="huddle-fullscreen" id="huddleFullscreen" hidden>
+    <div class="huddle-fullscreen-head">
+      <div class="node-huddle-peer">
+        <span class="node-huddle-peer-avatar" id="fullscreenHuddlePeerAvatar">Q</span>
+        <div>
+          <button class="huddle-context-link" id="fullscreenHuddleContextLink" type="button">Квалификация 4.0</button>
+          <small id="fullscreenHuddlePeerStatus">Ближайшая встреча · дашборд коммуникации</small>
+        </div>
+      </div>
+      <div class="node-huddle-actions">
+        <button class="panel-head-btn" aria-label="Настройки встречи">⚙</button>
+        <button class="panel-head-btn" id="closeFullscreenHuddle" aria-label="Закрыть встречу">✕</button>
+      </div>
+    </div>
+
+    <div class="huddle-fullscreen-stage">
+      <div class="huddle-fullscreen-stage-shell" id="huddleFullscreenStageShell">
+        <div class="huddle-fullscreen-grid">
+          <div class="huddle-fullscreen-video huddle-video-self">
+            <div class="mock-self-video">
+              <div class="mock-self-head"></div>
+              <div class="mock-self-body"></div>
+            </div>
+            <div class="huddle-self-pill">Вы · 🎙</div>
+          </div>
+          <div class="huddle-fullscreen-video huddle-video-peer">
+            <span class="node-huddle-peer-stage-avatar large" id="fullscreenHuddlePeerStageAvatar">VK</span>
+            <div class="huddle-self-pill" id="fullscreenHuddlePeerStageLabel">Виктор · 🔇</div>
+            <div class="huddle-connecting-indicator" id="fullscreenHuddleWait">Подключаем собеседника · 0/2</div>
+          </div>
+        </div>
+
+        <aside class="huddle-chat-panel" id="huddleChatPanel" hidden>
+          <div class="huddle-chat-head">
+            <strong id="meetingSidePanelTitle">Чат созвона</strong>
+            <small id="meetingSidePanelSubtitle">Все сообщения и материалы по этой встрече</small>
+            <div class="meeting-side-tabs">
+              <button class="comments-tab is-active" type="button" data-meeting-side-tab="chat">Чат</button>
+              <button class="comments-tab" type="button" data-meeting-side-tab="content">Содержание</button>
+            </div>
+          </div>
+
+          <div class="huddle-chat-scroll meeting-side-section is-active" id="huddleChatScroll" data-meeting-side-section="chat">
+            <article class="huddle-chat-entry">
+              <div class="huddle-chat-meta">
+                <span class="huddle-chat-avatar accent-amber">VK</span>
+                <div>
+                  <strong>Виктор</strong>
+                  <small>Сегодня, 16:31</small>
+                </div>
+              </div>
+              <p>Я уже в комнате. Сразу после подключения покажу материалы по квалификации.</p>
+            </article>
+
+            <article class="huddle-chat-entry is-self">
+              <div class="huddle-chat-meta">
+                <span class="huddle-chat-avatar self">AE</span>
+                <div>
+                  <strong>Вы</strong>
+                  <small>Сегодня, 16:31</small>
+                </div>
+              </div>
+              <p>Отлично. После звонка мне нужен итоговый документ прямо в правом дровере.</p>
+            </article>
+
+            <article class="huddle-chat-entry">
+              <div class="huddle-chat-meta">
+                <span class="huddle-chat-avatar accent-amber">VK</span>
+                <div>
+                  <strong>Виктор</strong>
+                  <small>Сегодня, 16:32</small>
+                </div>
+              </div>
+              <p>Тогда прикладываю исходный документ и карточку со следующим этапом.</p>
+              <a class="huddle-chat-attachment is-kaiten-doc" href="#" role="button">
+                <span class="attachment-kicker">Документ Kaiten</span>
+                <strong>Qualification 4.0 / meeting notes</strong>
+                <small>Внутренний документ · открыть в Kaiten Docs</small>
+              </a>
+            </article>
+          </div>
+
+          <div class="huddle-chat-scroll meeting-side-section" data-meeting-side-section="content" hidden>
+            <article class="huddle-chat-entry">
+              <strong>Содержание встречи</strong>
+              <p>1. Проверка сценария подключения из дашборда</p>
+              <p>2. Открытие чата и материалов во время созвона</p>
+              <p>3. Автоматическое открытие post-call документа</p>
+            </article>
+
+            <article class="huddle-chat-entry">
+              <strong>Связанные сущности</strong>
+              <a class="huddle-chat-attachment is-kaiten-card" href="#" role="button">
+                <span class="attachment-kicker">Карточка Kaiten</span>
+                <strong>Fullscreen call flow для variant B</strong>
+                <small>#63200119 · перейти к карточке</small>
+              </a>
+              <a class="huddle-chat-attachment is-kaiten-doc" href="#" role="button">
+                <span class="attachment-kicker">Документ Kaiten</span>
+                <strong>Содержание встречи / Qualification 4.0</strong>
+                <small>Внутренний документ · открыть в Kaiten Docs</small>
+              </a>
+            </article>
+          </div>
+
+          <div class="huddle-chat-composer">
+            <div class="comment-author-avatar self">AE</div>
+            <div class="huddle-chat-composer-main">
+              <div class="huddle-chat-composer-hint">Можно открыть чат, скрыть его или переключиться на содержание встречи.</div>
+              <div class="huddle-chat-composer-row">
+                <div class="comment-input">
+                  <input type="text" placeholder="Написать сообщение в чат встречи">
+                  <button class="icon-btn" aria-label="Отправить сообщение">➤</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+
+    <div class="huddle-fullscreen-footer">
+      <div class="node-huddle-controls large">
+        <div class="huddle-control-split is-active" data-huddle-control-split>
+          <button class="huddle-control split-main primary" aria-label="Микрофон включён">🎙</button>
+          <button class="huddle-control split-toggle primary" type="button" aria-label="Настройки микрофона">▾</button>
+        </div>
+        <div class="huddle-control-split" data-huddle-control-split>
+          <button class="huddle-control split-main" aria-label="Видео выключено">📷</button>
+          <button class="huddle-control split-toggle" type="button" aria-label="Настройки видео">▾</button>
+        </div>
+        <button class="huddle-control icon-only" aria-label="Поделиться экраном">▣</button>
+        <button class="huddle-control icon-only" aria-label="Участники">👥</button>
+        <button class="huddle-control icon-only" id="fullscreenHuddleChatButton" aria-label="Показать или скрыть боковую панель">💬</button>
+        <button class="huddle-control icon-only" aria-label="Реакции">☺</button>
+      </div>
+      <button class="huddle-control danger large" id="leaveFullscreenHuddle" aria-label="Покинуть встречу">Покинуть</button>
+    </div>
+  </div>
+
+  <script src="../../../scripts/app.js"></script>
+  <script src="./script.js"></script>
+</body>
+</html>

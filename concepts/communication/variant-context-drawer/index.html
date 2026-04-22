@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Communication Variant Context Drawer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../styles/tokens.css">
+  <link rel="stylesheet" href="../../../styles/app.css">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body class="prototype-variant prototype-context-drawer">
+  <div class="prototype-banner">
+    <span class="prototype-banner-label">Variant C</span>
+    <strong>Context Drawer</strong>
+    <span>Коммуникация вызывается поверх текущей работы</span>
+    <a href="../hub.html">Вернуться в хаб</a>
+  </div>
+  <div class="workspace">
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-mark"></div>
+        <span>Kaiten</span>
+      </div>
+      <div class="searchbar">
+        <span class="search-icon">⌕</span>
+        <input type="text" value="Найти" aria-label="Поиск">
+      </div>
+      <div class="topbar-actions">
+        <button class="ai-button">Kaiten - AI</button>
+      </div>
+    </header>
+    <div class="toolbar">
+      <div class="toolbar-main">
+        <div class="toolbar-left">
+          <div class="breadcrumb">
+            <span class="crumb-muted">Research &amp; devel...</span>
+            <span class="sep">/</span>
+            <span class="crumb-heart">❤</span>
+            <span class="current">Задачи на дизайн</span>
+            <span class="crumb-caret">⌄</span>
+          </div>
+        </div>
+        <div class="toolbar-right">
+          <button class="primary-btn add-btn">＋ Добавить</button>
+          <button class="mini-btn filter-btn"><span class="mini-icon">☰</span><span>Фильтры</span></button>
+        </div>
+      </div>
+      <div class="toolbar-panel-head" id="rightPanelToolbarHead" hidden>
+        <div class="toolbar-panel-title">Пользователи</div>
+        <div class="toolbar-panel-actions">
+          <button class="panel-head-btn" aria-label="Добавить пользователя">👥+</button>
+          <button class="panel-head-btn" id="toolbarCloseRightPanel" aria-label="Закрыть правую панель">✕</button>
+        </div>
+      </div>
+    </div>
+    <div class="workspace-body">
+      <aside class="left-rail">
+        <div class="left-rail-top">
+          <button class="rail-btn is-active" data-left-mode="tree">✣</button>
+        </div>
+        <div class="left-rail-bottom">
+          <button class="profile-chip" aria-label="Профиль">
+            <span class="profile-avatar">АЕ</span>
+          </button>
+        </div>
+        <button class="talks-btn" id="openDrawerButton" aria-label="Talks">
+          <span class="talks-icon">◫</span>
+          <span>Talks</span>
+        </button>
+      </aside>
+      <main class="drawer-stage">
+        <section class="drawer-board-card">
+          <div class="drawer-board-header">
+            <div>
+              <p class="drawer-kicker">Контекст работы</p>
+              <h1>Design / В работе</h1>
+            </div>
+            <button class="drawer-open-action" id="openDrawerAction">Открыть коммуникацию</button>
+          </div>
+          <p class="drawer-board-copy">
+            В этом сценарии пользователь остается в основном рабочем пространстве, а коммуникация открывается
+            по запросу как контекстный слой поверх текущей задачи.
+          </p>
+          <div class="drawer-task-preview">
+            <strong>Проработка пользовательского опыта работы ВКС в Kaiten</strong>
+            <p>Связанный созвон сегодня в 16:30. Есть 3 сообщения и AI-резюме.</p>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+  <aside class="context-drawer is-open" id="contextDrawer">
+    <div class="context-drawer-head">
+      <div>
+        <p class="drawer-kicker">Context Drawer</p>
+        <h2>Коммуникация по задаче</h2>
+      </div>
+      <button class="context-drawer-close" id="closeDrawerButton">✕</button>
+    </div>
+    <div class="context-drawer-tabs">
+      <button class="drawer-tab is-active">Обсуждение</button>
+      <button class="drawer-tab">Созвон</button>
+      <button class="drawer-tab">Итоги</button>
+    </div>
+    <section class="context-drawer-summary">
+      <strong>Следующее событие</strong>
+      <p>Дизайн-ревью сценария ВКС внутри карточки, сегодня в 16:30.</p>
+    </section>
+    <div class="context-drawer-stream">
+      <article class="drawer-message ai">
+        <strong>Kaiten AI</strong>
+        <p>Контекстный drawer хорош, если коммуникация нужна часто, но не должна постоянно занимать место на экране.</p>
+      </article>
+      <article class="drawer-message">
+        <strong>Алексей Евстифеев</strong>
+        <p>Важно, чтобы из карточки или доски можно было одним действием открыть разговор, не теряя основную картину.</p>
+      </article>
+      <article class="drawer-message">
+        <strong>Мария Петрова</strong>
+        <p>Для длинных обсуждений нужно проверить, не станет ли drawer тесным, но для быстрых синхронизаций паттерн выглядит удобным.</p>
+      </article>
+    </div>
+    <div class="context-drawer-composer">
+      <input type="text" value="Сообщение в контекстном drawer">
+      <button>Отправить</button>
+    </div>
+  </aside>
+  <script src="./script.js"></script>
+</body>
+</html>

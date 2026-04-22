@@ -1,0 +1,762 @@
+{
+  "styles": {
+    "colors": [
+      {
+        "name": "Grey/Dark",
+        "token": "grey-dark",
+        "type": "solid",
+        "value": "#121212"
+      },
+      {
+        "name": "Grey/900",
+        "token": "grey-900",
+        "type": "solid",
+        "value": "#2D2D2D"
+      },
+      {
+        "name": "Grey/800",
+        "token": "grey-800",
+        "type": "solid",
+        "value": "#424242"
+      },
+      {
+        "name": "Grey/700",
+        "token": "grey-700",
+        "type": "solid",
+        "value": "#616161"
+      },
+      {
+        "name": "Grey/600",
+        "token": "grey-600",
+        "type": "solid",
+        "value": "#757575"
+      },
+      {
+        "name": "Grey/500",
+        "token": "grey-500",
+        "type": "solid",
+        "value": "#9E9E9E"
+      },
+      {
+        "name": "Grey/400",
+        "token": "grey-400",
+        "type": "solid",
+        "value": "#BDBDBD"
+      },
+      {
+        "name": "Grey/300",
+        "token": "grey-300",
+        "type": "solid",
+        "value": "#E0E0E0"
+      },
+      {
+        "name": "Grey/200",
+        "token": "grey-200",
+        "type": "solid",
+        "value": "#EEEEEE"
+      },
+      {
+        "name": "Grey/100",
+        "token": "grey-100",
+        "type": "solid",
+        "value": "#F5F5F5"
+      },
+      {
+        "name": "Grey/50",
+        "token": "grey-50",
+        "type": "solid",
+        "value": "#FAFAFA"
+      },
+      {
+        "name": "Grey/White",
+        "token": "grey-white",
+        "type": "solid",
+        "value": "#FFFFFF"
+      },
+      {
+        "name": "Grey/Black12%",
+        "token": "grey-black12",
+        "type": "solid",
+        "value": "rgba(0, 0, 0, 0.12)"
+      },
+      {
+        "name": "Grey/White12%",
+        "token": "grey-white12",
+        "type": "solid",
+        "value": "rgba(255, 255, 255, 0.12)"
+      },
+      {
+        "name": "Accent/Purple",
+        "token": "accent-purple",
+        "type": "solid",
+        "value": "#AB47BD"
+      },
+      {
+        "name": "Accent/Purple48%",
+        "token": "accent-purple48",
+        "type": "solid",
+        "value": "rgba(171, 71, 189, 0.48)"
+      },
+      {
+        "name": "Accent/Purple12%",
+        "token": "accent-purple12",
+        "type": "solid",
+        "value": "rgba(171, 71, 189, 0.12)"
+      },
+      {
+        "name": "Accent/Octopus",
+        "token": "accent-octopus",
+        "type": "solid",
+        "value": "#7D4CCF"
+      },
+      {
+        "name": "Accent/Octopus 48%",
+        "token": "accent-octopus-48",
+        "type": "solid",
+        "value": "rgba(125, 76, 207, 0.48)"
+      },
+      {
+        "name": "Accent/Octopus 12%",
+        "token": "accent-octopus-12",
+        "type": "solid",
+        "value": "rgba(125, 76, 207, 0.12)"
+      },
+      {
+        "name": "Additional/Grass",
+        "token": "additional-grass",
+        "type": "solid",
+        "value": "#4CAF51"
+      },
+      {
+        "name": "Additional/BlueCanary",
+        "token": "additional-bluecanary",
+        "type": "solid",
+        "value": "#07BCD4"
+      },
+      {
+        "name": "Additional/SeaBlue",
+        "token": "additional-seablue",
+        "type": "solid",
+        "value": "#2196F3"
+      },
+      {
+        "name": "Additional/Red",
+        "token": "additional-red",
+        "type": "solid",
+        "value": "#F44336"
+      },
+      {
+        "name": "Additional/Orange",
+        "token": "additional-orange",
+        "type": "solid",
+        "value": "#FF5722"
+      },
+      {
+        "name": "Additional/Yellow",
+        "token": "additional-yellow",
+        "type": "solid",
+        "value": "#FFA100"
+      },
+      {
+        "name": "Additional/Mustard",
+        "token": "additional-mustard",
+        "type": "solid",
+        "value": "#E2DB02"
+      },
+      {
+        "name": "Additional/Grass 12%",
+        "token": "additional-grass-12",
+        "type": "solid",
+        "value": "rgba(76, 175, 81, 0.12)"
+      },
+      {
+        "name": "Additional/BlueCanary 12%",
+        "token": "additional-bluecanary-12",
+        "type": "solid",
+        "value": "rgba(7, 188, 212, 0.12)"
+      },
+      {
+        "name": "Additional/SeaBlue 12%",
+        "token": "additional-seablue-12",
+        "type": "solid",
+        "value": "rgba(33, 150, 243, 0.12)"
+      },
+      {
+        "name": "Additional/Red 12%",
+        "token": "additional-red-12",
+        "type": "solid",
+        "value": "rgba(244, 67, 54, 0.12)"
+      },
+      {
+        "name": "Additional/Orange 12%",
+        "token": "additional-orange-12",
+        "type": "solid",
+        "value": "rgba(255, 87, 34, 0.12)"
+      },
+      {
+        "name": "Additional/Yellow 12%",
+        "token": "additional-yellow-12",
+        "type": "solid",
+        "value": "rgba(255, 161, 0, 0.12)"
+      },
+      {
+        "name": "Additional/Mustard 12%",
+        "token": "additional-mustard-12",
+        "type": "solid",
+        "value": "rgba(226, 219, 2, 0.12)"
+      },
+      {
+        "name": "Brand/CoralRed",
+        "token": "brand-coralred",
+        "type": "solid",
+        "value": "#F11F24"
+      },
+      {
+        "name": "Brand/Turquoise",
+        "token": "brand-turquoise",
+        "type": "solid",
+        "value": "#78FFC7"
+      }
+    ],
+    "textStyles": [
+      {
+        "name": "Regular/Caption",
+        "token": "regular-caption",
+        "type": "text",
+        "fontFamily": "Roboto",
+        "fontWeight": "400",
+        "fontSize": "12px",
+        "lineHeight": "16px",
+        "letterSpacing": "0.15px"
+      },
+      {
+        "name": "Regular/Small Text",
+        "token": "regular-small-text",
+        "type": "text",
+        "fontFamily": "Roboto",
+        "fontWeight": "400",
+        "fontSize": "14px",
+        "lineHeight": "20px",
+        "letterSpacing": "0.15px"
+      },
+      {
+        "name": "Regular/Medium Text",
+        "token": "regular-medium-text",
+        "type": "text",
+        "fontFamily": "Roboto",
+        "fontWeight": "400",
+        "fontSize": "16px",
+        "lineHeight": "24px",
+        "letterSpacing": "0.15px"
+      },
+      {
+        "name": "Regular/Large Text",
+        "token": "regular-large-text",
+        "type": "text",
+        "fontFamily": "Roboto",
+        "fontWeight": "400",
+        "fontSize": "20px",
+        "lineHeight": "28px",
+        "letterSpacing": "0.15px"
+      },
+      {
+        "name": "Regular/Head 2",
+        "token": "regular-head-2",
+        "type": "text",
+        "fontFamily": "Roboto",
+        "fontWeight": "400",
+        "fontSize": "24px",
+        "lineHeight": "32px",
+        "letterSpacing": "0.15px"
+      },
+      {
+        "name": "Regular/Head 1",
+        "token": "regular-head-1",
+        "type": "text",
+        "fontFamily": "Roboto",
+        "fontWeight": "400",
+        "fontSize": "32px",
+        "lineHeight": "40px",
+        "letterSpacing": "0.15px"
+      },
+      {
+        "name": "Medium/Caption",
+        "token": "medium-caption",
+        "type": "text",
+        "fontFamily": "Roboto",
+        "fontWeight": "500",
+        "fontSize": "12px",
+        "lineHeight": "16px",
+        "letterSpacing": "0.15px"
+      },
+      {
+        "name": "Medium/Small Text",
+        "token": "medium-small-text",
+        "type": "text",
+        "fontFamily": "Roboto",
+        "fontWeight": "500",
+        "fontSize": "14px",
+        "lineHeight": "20px",
+        "letterSpacing": "0.15px"
+      },
+      {
+        "name": "Medium/Medium Text",
+        "token": "medium-medium-text",
+        "type": "text",
+        "fontFamily": "Roboto",
+        "fontWeight": "500",
+        "fontSize": "16px",
+        "lineHeight": "24px",
+        "letterSpacing": "0.15px"
+      },
+      {
+        "name": "Medium/Large Text",
+        "token": "medium-large-text",
+        "type": "text",
+        "fontFamily": "Roboto",
+        "fontWeight": "500",
+        "fontSize": "20px",
+        "lineHeight": "28px",
+        "letterSpacing": "0.15px"
+      },
+      {
+        "name": "Medium/Head 2",
+        "token": "medium-head-2",
+        "type": "text",
+        "fontFamily": "Roboto",
+        "fontWeight": "500",
+        "fontSize": "24px",
+        "lineHeight": "32px",
+        "letterSpacing": "0.15px"
+      },
+      {
+        "name": "Medium/Head 1",
+        "token": "medium-head-1",
+        "type": "text",
+        "fontFamily": "Roboto",
+        "fontWeight": "500",
+        "fontSize": "32px",
+        "lineHeight": "40px",
+        "letterSpacing": "0.15px"
+      },
+      {
+        "name": "Bold/Caption",
+        "token": "bold-caption",
+        "type": "text",
+        "fontFamily": "Roboto",
+        "fontWeight": "700",
+        "fontSize": "12px",
+        "lineHeight": "16px",
+        "letterSpacing": "0.15px"
+      },
+      {
+        "name": "Bold/Small Text",
+        "token": "bold-small-text",
+        "type": "text",
+        "fontFamily": "Roboto",
+        "fontWeight": "700",
+        "fontSize": "14px",
+        "lineHeight": "20px",
+        "letterSpacing": "0.15px"
+      },
+      {
+        "name": "Bold/Medium Text",
+        "token": "bold-medium-text",
+        "type": "text",
+        "fontFamily": "Roboto",
+        "fontWeight": "700",
+        "fontSize": "16px",
+        "lineHeight": "24px",
+        "letterSpacing": "0.15px"
+      },
+      {
+        "name": "Bold/Large Text",
+        "token": "bold-large-text",
+        "type": "text",
+        "fontFamily": "Roboto",
+        "fontWeight": "700",
+        "fontSize": "20px",
+        "lineHeight": "28px",
+        "letterSpacing": "0.15px"
+      },
+      {
+        "name": "Bold/Head 2",
+        "token": "bold-head-2",
+        "type": "text",
+        "fontFamily": "Roboto",
+        "fontWeight": "700",
+        "fontSize": "24px",
+        "lineHeight": "32px",
+        "letterSpacing": "0.15px"
+      },
+      {
+        "name": "Bold/Head 1",
+        "token": "bold-head-1",
+        "type": "text",
+        "fontFamily": "Roboto",
+        "fontWeight": "700",
+        "fontSize": "32px",
+        "lineHeight": "40px",
+        "letterSpacing": "0.15px"
+      },
+      {
+        "name": "Button/XS",
+        "token": "button-xs",
+        "type": "text",
+        "fontFamily": "Roboto",
+        "fontWeight": "500",
+        "fontSize": "12px",
+        "lineHeight": "16px",
+        "letterSpacing": "0.15px",
+        "textTransform": "uppercase"
+      },
+      {
+        "name": "Button/S",
+        "token": "button-s",
+        "type": "text",
+        "fontFamily": "Roboto",
+        "fontWeight": "500",
+        "fontSize": "14px",
+        "lineHeight": "20px",
+        "letterSpacing": "0.15px",
+        "textTransform": "uppercase"
+      },
+      {
+        "name": "Button/M",
+        "token": "button-m",
+        "type": "text",
+        "fontFamily": "Roboto",
+        "fontWeight": "500",
+        "fontSize": "16px",
+        "lineHeight": "24px",
+        "letterSpacing": "0.15px",
+        "textTransform": "uppercase"
+      }
+    ],
+    "effectStyles": [
+      {
+        "name": "Divider/BrightMode/Bottom",
+        "token": "divider-brightmode-bottom",
+        "type": "effect",
+        "value": "box-shadow: inset 0px -1px 0px 0px rgba(0, 0, 0, 0.12)",
+        "effects": [
+          {
+            "type": "inner-shadow",
+            "x": 0,
+            "y": -1,
+            "blur": 0,
+            "spread": 0,
+            "color": "rgba(0, 0, 0, 0.12)"
+          }
+        ]
+      },
+      {
+        "name": "Divider/BrightMode/Top",
+        "token": "divider-brightmode-top",
+        "type": "effect",
+        "value": "box-shadow: inset 0px 1px 0px 0px rgba(0, 0, 0, 0.12)",
+        "effects": [
+          {
+            "type": "inner-shadow",
+            "x": 0,
+            "y": 1,
+            "blur": 0,
+            "spread": 0,
+            "color": "rgba(0, 0, 0, 0.12)"
+          }
+        ]
+      },
+      {
+        "name": "Divider/BrightMode/Left",
+        "token": "divider-brightmode-left",
+        "type": "effect",
+        "value": "box-shadow: inset 1px 0px 0px 0px rgba(0, 0, 0, 0.12)",
+        "effects": [
+          {
+            "type": "inner-shadow",
+            "x": 1,
+            "y": 0,
+            "blur": 0,
+            "spread": 0,
+            "color": "rgba(0, 0, 0, 0.12)"
+          }
+        ]
+      },
+      {
+        "name": "Divider/BrightMode/Right",
+        "token": "divider-brightmode-right",
+        "type": "effect",
+        "value": "box-shadow: inset -1px 0px 0px 0px rgba(0, 0, 0, 0.12)",
+        "effects": [
+          {
+            "type": "inner-shadow",
+            "x": -1,
+            "y": 0,
+            "blur": 0,
+            "spread": 0,
+            "color": "rgba(0, 0, 0, 0.12)"
+          }
+        ]
+      },
+      {
+        "name": "Divider/DarkMode/Bottom",
+        "token": "divider-darkmode-bottom",
+        "type": "effect",
+        "value": "box-shadow: inset 0px -1px 0px 0px rgba(255, 255, 255, 0.12)",
+        "effects": [
+          {
+            "type": "inner-shadow",
+            "x": 0,
+            "y": -1,
+            "blur": 0,
+            "spread": 0,
+            "color": "rgba(255, 255, 255, 0.12)"
+          }
+        ]
+      },
+      {
+        "name": "Divider/DarkMode/Top",
+        "token": "divider-darkmode-top",
+        "type": "effect",
+        "value": "box-shadow: inset 0px 1px 0px 0px rgba(255, 255, 255, 0.12)",
+        "effects": [
+          {
+            "type": "inner-shadow",
+            "x": 0,
+            "y": 1,
+            "blur": 0,
+            "spread": 0,
+            "color": "rgba(255, 255, 255, 0.12)"
+          }
+        ]
+      },
+      {
+        "name": "Divider/DarkMode/Left",
+        "token": "divider-darkmode-left",
+        "type": "effect",
+        "value": "box-shadow: inset 1px 0px 0px 0px rgba(255, 255, 255, 0.12)",
+        "effects": [
+          {
+            "type": "inner-shadow",
+            "x": 1,
+            "y": 0,
+            "blur": 0,
+            "spread": 0,
+            "color": "rgba(255, 255, 255, 0.12)"
+          }
+        ]
+      },
+      {
+        "name": "Divider/DarkMode/Right",
+        "token": "divider-darkmode-right",
+        "type": "effect",
+        "value": "box-shadow: inset -1px 0px 0px 0px rgba(255, 255, 255, 0.12)",
+        "effects": [
+          {
+            "type": "inner-shadow",
+            "x": -1,
+            "y": 0,
+            "blur": 0,
+            "spread": 0,
+            "color": "rgba(255, 255, 255, 0.12)"
+          }
+        ]
+      },
+      {
+        "name": "Elevation/1 dp | Cards, Chips",
+        "token": "elevation-1-dp-cards-chips",
+        "type": "effect",
+        "value": "box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15), 0px 1px 2px 0px rgba(0, 0, 0, 0.24)",
+        "effects": [
+          {
+            "type": "drop-shadow",
+            "x": 0,
+            "y": 1,
+            "blur": 3,
+            "spread": 1,
+            "color": "rgba(0, 0, 0, 0.15)"
+          },
+          {
+            "type": "drop-shadow",
+            "x": 0,
+            "y": 1,
+            "blur": 2,
+            "spread": 0,
+            "color": "rgba(0, 0, 0, 0.24)"
+          }
+        ]
+      },
+      {
+        "name": "Elevation/2 dp | Tooltip",
+        "token": "elevation-2-dp-tooltip",
+        "type": "effect",
+        "value": "box-shadow: 0px 2px 6px 2px rgba(0, 0, 0, 0.15), 0px 1px 2px 0px rgba(0, 0, 0, 0.24)",
+        "effects": [
+          {
+            "type": "drop-shadow",
+            "x": 0,
+            "y": 2,
+            "blur": 6,
+            "spread": 2,
+            "color": "rgba(0, 0, 0, 0.15)"
+          },
+          {
+            "type": "drop-shadow",
+            "x": 0,
+            "y": 1,
+            "blur": 2,
+            "spread": 0,
+            "color": "rgba(0, 0, 0, 0.24)"
+          }
+        ]
+      },
+      {
+        "name": "Elevation/3 dp | FAB",
+        "token": "elevation-3-dp-fab",
+        "type": "effect",
+        "value": "box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.3), 0px 4px 8px 3px rgba(0, 0, 0, 0.15)",
+        "effects": [
+          {
+            "type": "drop-shadow",
+            "x": 0,
+            "y": 1,
+            "blur": 3,
+            "spread": 0,
+            "color": "rgba(0, 0, 0, 0.3)"
+          },
+          {
+            "type": "drop-shadow",
+            "x": 0,
+            "y": 4,
+            "blur": 8,
+            "spread": 3,
+            "color": "rgba(0, 0, 0, 0.15)"
+          }
+        ]
+      },
+      {
+        "name": "Elevation/4 dp",
+        "token": "elevation-4-dp",
+        "type": "effect",
+        "value": "box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.3), 0px 6px 10px 4px rgba(0, 0, 0, 0.15)",
+        "effects": [
+          {
+            "type": "drop-shadow",
+            "x": 0,
+            "y": 2,
+            "blur": 3,
+            "spread": 0,
+            "color": "rgba(0, 0, 0, 0.3)"
+          },
+          {
+            "type": "drop-shadow",
+            "x": 0,
+            "y": 6,
+            "blur": 10,
+            "spread": 4,
+            "color": "rgba(0, 0, 0, 0.15)"
+          }
+        ]
+      },
+      {
+        "name": "Elevation/5 dp | Dropdown, Dialog",
+        "token": "elevation-5-dp-dropdown-dialog",
+        "type": "effect",
+        "value": "box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.24), 0px 8px 12px 6px rgba(0, 0, 0, 0.15)",
+        "effects": [
+          {
+            "type": "drop-shadow",
+            "x": 0,
+            "y": 4,
+            "blur": 4,
+            "spread": 0,
+            "color": "rgba(0, 0, 0, 0.24)"
+          },
+          {
+            "type": "drop-shadow",
+            "x": 0,
+            "y": 8,
+            "blur": 12,
+            "spread": 6,
+            "color": "rgba(0, 0, 0, 0.15)"
+          }
+        ]
+      },
+      {
+        "name": "Elevation/16 dp",
+        "token": "elevation-16-dp",
+        "type": "effect",
+        "value": "box-shadow: 0px 8px 10px 0px rgba(0, 0, 0, 0.2), 0px 6px 30px 0px rgba(0, 0, 0, 0.12), 0px 16px 24px 0px rgba(0, 0, 0, 0.14)",
+        "description": "Dialog",
+        "effects": [
+          {
+            "type": "drop-shadow",
+            "x": 0,
+            "y": 8,
+            "blur": 10,
+            "spread": 0,
+            "color": "rgba(0, 0, 0, 0.2)"
+          },
+          {
+            "type": "drop-shadow",
+            "x": 0,
+            "y": 6,
+            "blur": 30,
+            "spread": 0,
+            "color": "rgba(0, 0, 0, 0.12)"
+          },
+          {
+            "type": "drop-shadow",
+            "x": 0,
+            "y": 16,
+            "blur": 24,
+            "spread": 0,
+            "color": "rgba(0, 0, 0, 0.14)"
+          }
+        ]
+      },
+      {
+        "name": "Elevation/24 dp",
+        "token": "elevation-24-dp",
+        "type": "effect",
+        "value": "box-shadow: 0px 11px 15px 0px rgba(0, 0, 0, 0.2), 0px 9px 46px 0px rgba(0, 0, 0, 0.12), 0px 24px 38px 0px rgba(0, 0, 0, 0.14)",
+        "effects": [
+          {
+            "type": "drop-shadow",
+            "x": 0,
+            "y": 11,
+            "blur": 15,
+            "spread": 0,
+            "color": "rgba(0, 0, 0, 0.2)"
+          },
+          {
+            "type": "drop-shadow",
+            "x": 0,
+            "y": 9,
+            "blur": 46,
+            "spread": 0,
+            "color": "rgba(0, 0, 0, 0.12)"
+          },
+          {
+            "type": "drop-shadow",
+            "x": 0,
+            "y": 24,
+            "blur": 38,
+            "spread": 0,
+            "color": "rgba(0, 0, 0, 0.14)"
+          }
+        ]
+      }
+    ],
+    "gridStyles": []
+  },
+  "collections": {},
+  "metadata": {
+    "exportDate": "2026-04-14T11:25:39.915Z",
+    "figmaFileKey": "unknown",
+    "fileName": "Стили",
+    "pluginVersion": "1.0.0",
+    "collectionsFound": 0,
+    "collectionsExported": 0
+  }
+}

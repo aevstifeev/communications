@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Communication Module Hub</title>
+  <link rel="stylesheet" href="../../styles/tokens.css">
+  <style>
+    :root {
+      color-scheme: light;
+      --hub-bg: #f4efe7;
+      --hub-surface: rgba(255, 255, 255, 0.86);
+      --hub-surface-strong: #ffffff;
+      --hub-text: #1f1f24;
+      --hub-muted: #676270;
+      --hub-border: rgba(31, 31, 36, 0.1);
+      --hub-accent: #c35f3d;
+      --hub-accent-soft: rgba(195, 95, 61, 0.12);
+      --hub-shadow: 0 24px 60px rgba(44, 36, 30, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Roboto", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(195, 95, 61, 0.12), transparent 24rem),
+        radial-gradient(circle at right center, rgba(87, 122, 196, 0.08), transparent 26rem),
+        var(--hub-bg);
+      color: var(--hub-text);
+    }
+
+    .page {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 40px 0 56px;
+    }
+
+    .hero {
+      display: grid;
+      gap: 16px;
+      margin-bottom: 28px;
+      padding: 28px;
+      border: 1px solid var(--hub-border);
+      border-radius: 28px;
+      background: var(--hub-surface);
+      box-shadow: var(--hub-shadow);
+      backdrop-filter: blur(20px);
+    }
+
+    .eyebrow {
+      margin: 0;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--hub-accent);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(32px, 5vw, 56px);
+      line-height: 0.96;
+    }
+
+    .hero p {
+      margin: 0;
+      max-width: 780px;
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--hub-muted);
+    }
+
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 6px;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: var(--hub-accent-soft);
+      color: var(--hub-text);
+      font-size: 13px;
+      font-weight: 500;
+    }
+
+    .section-title {
+      margin: 0 0 14px;
+      font-size: 18px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+    }
+
+    .card {
+      display: grid;
+      gap: 14px;
+      min-height: 240px;
+      padding: 22px;
+      border: 1px solid var(--hub-border);
+      border-radius: 24px;
+      background: var(--hub-surface-strong);
+      box-shadow: 0 14px 36px rgba(44, 36, 30, 0.08);
+    }
+
+    .card.is-disabled {
+      opacity: 0.62;
+      background: rgba(255, 255, 255, 0.78);
+    }
+
+    .card strong {
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--hub-accent);
+    }
+
+    .card h2 {
+      margin: 0;
+      font-size: 24px;
+      line-height: 1.1;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--hub-muted);
+      line-height: 1.55;
+    }
+
+    .notes {
+      display: grid;
+      gap: 8px;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      color: var(--hub-muted);
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: auto;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 0 16px;
+      border-radius: 999px;
+      border: 1px solid var(--hub-border);
+      color: var(--hub-text);
+      text-decoration: none;
+      font-weight: 600;
+      background: #fff;
+    }
+
+    .button.primary {
+      background: var(--hub-text);
+      color: #fff;
+      border-color: var(--hub-text);
+    }
+
+    .button.disabled {
+      background: #f2eee8;
+      color: #8f897f;
+      border-color: rgba(31, 31, 36, 0.08);
+      cursor: default;
+    }
+
+    .footer-note {
+      margin-top: 22px;
+      padding: 18px 20px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid var(--hub-border);
+      color: var(--hub-muted);
+      line-height: 1.6;
+    }
+
+    @media (max-width: 720px) {
+      .page {
+        width: min(100% - 20px, 1120px);
+        padding-top: 20px;
+      }
+
+      .hero,
+      .card {
+        padding: 20px;
+        border-radius: 22px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="hero">
+      <p class="eyebrow">Communication Module</p>
+      <h1>Хаб для параллельных прототипов</h1>
+      <p>
+        Здесь собраны активные варианты того, как коммуникация и созвоны могут жить в продукте.
+        Baseline остается контрольной точкой, а рабочее сравнение сейчас ведем между двумя основными направлениями.
+      </p>
+      <div class="meta">
+        <span class="chip">Baseline остается точкой отсчета</span>
+        <span class="chip">В фокусе только варианты A и B</span>
+        <span class="chip">Variant B это активная зона для версии 2</span>
+        <span class="chip">Variant C сохранен как архивный референс</span>
+      </div>
+    </section>
+
+    <h2 class="section-title">Варианты</h2>
+    <section class="grid">
+      <article class="card">
+        <strong>Control</strong>
+        <h2>Baseline</h2>
+        <p>Зафиксированная версия текущей реализации. Используем ее как контрольную точку для сравнения продуктовых гипотез.</p>
+        <ul class="notes">
+          <li>Папка: <code>baseline/</code></li>
+          <li>Источник правды для сравнения</li>
+        </ul>
+        <div class="actions">
+          <a class="button primary" href="./baseline/index.html">Открыть</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <strong>Variant A</strong>
+        <h2>Созвоны как часть чатов и каналов</h2>
+        <p>Созвоны не становятся отдельной сущностью. Они поддерживают уже существующую коммуникацию и живут как продолжение чатов, каналов и обсуждений.</p>
+        <ul class="notes">
+          <li>Папка: <code>variant-inline-panel/</code></li>
+          <li>Фокус на поддержке текущей коммуникации</li>
+        </ul>
+        <div class="actions">
+          <a class="button primary" href="./variant-inline-panel/index.html">Открыть</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <strong>Variant B / In Progress</strong>
+        <h2>Созвоны как отдельный модуль коммуникации</h2>
+        <p>Созвоны становятся самостоятельным модулем внутри системы и живут наравне с чатами и календарем, а не как поддержка текущих обсуждений.</p>
+        <ul class="notes">
+          <li>Папка: <code>variant-thread-workspace/</code></li>
+          <li>Фокус на самостоятельной модульной роли коммуникации</li>
+          <li>Рабочая папка для второго прототипа</li>
+        </ul>
+        <div class="actions">
+          <a class="button primary" href="./variant-thread-workspace/index.html">Открыть</a>
+        </div>
+      </article>
+
+      <article class="card is-disabled">
+        <strong>Variant C</strong>
+        <h2>Архивный drawer-паттерн</h2>
+        <p>Этот вариант не участвует в текущем сравнении и оставлен как резервная гипотеза на случай возврата к ней позже.</p>
+        <ul class="notes">
+          <li>Папка: <code>variant-context-drawer/</code></li>
+          <li>Сейчас исключен из активной проработки</li>
+          <li>Сохранен как референс, но не как workspace версии 2</li>
+        </ul>
+        <div class="actions">
+          <span class="button disabled" aria-disabled="true">Неактивен</span>
+        </div>
+      </article>
+    </section>
+
+    <p class="footer-note">
+      Отдельные смысловые направления вроде <code>meeting-card</code>, <code>space-calendar</code> и
+      <code>task-integration</code> остаются на месте. Этот хаб фиксирует именно продуктовые альтернативы
+      по роли коммуникации в системе.
+    </p>
+  </main>
+</body>
+</html>
