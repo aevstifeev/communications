@@ -1,0 +1,10 @@
+{
+  "name": "kaiten-communication-prototypes",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Static HTML prototypes for Kaiten communication module exploration.",
+  "license": "UNLICENSED",
+  "repository": {
+    "type": "git"
+  }
+}

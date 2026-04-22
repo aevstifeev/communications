@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Base Prototype</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../styles/tokens.css">
+  <link rel="stylesheet" href="../../../styles/app.css">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body class="prototype-baseline">
+  <div class="prototype-banner">
+    <span class="prototype-banner-label">Base</span>
+    <strong>Базовая версия</strong>
+    <a href="../index.html">Вернуться в хаб</a>
+  </div>
+  <div class="workspace">
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-mark"></div>
+        <span>Kaiten</span>
+      </div>
+      <div class="searchbar">
+        <span class="search-icon">⌕</span>
+        <input type="text" value="Найти" aria-label="Поиск">
+      </div>
+      <div class="topbar-actions">
+        <button class="ai-button">Kaiten - AI</button>
+      </div>
+    </header>
+    <div class="toolbar">
+      <div class="toolbar-main">
+        <div class="toolbar-left">
+          <div class="breadcrumb">
+            <span class="crumb-muted">Research &amp; devel...</span>
+            <span class="sep">/</span>
+            <span class="crumb-heart">❤</span>
+            <span class="current">Задачи на дизайн</span>
+            <span class="crumb-caret">⌄</span>
+          </div>
+          <div class="view-switch">
+            <button class="mini-btn is-active with-icon"><span class="mini-icon">▦</span><span>Доски</span></button>
+            <button class="mini-btn icon-only" aria-label="Документы">▣</button>
+            <button class="mini-btn icon-only" aria-label="Карточки">◫</button>
+            <button class="mini-btn icon-only" aria-label="Таблица">▥</button>
+            <button class="mini-btn icon-only" aria-label="Список">☰</button>
+            <button class="mini-btn icon-only" aria-label="Календарь">⌷</button>
+          </div>
+          <div class="toolbar-shortcuts">
+            <button class="mini-btn action-pill"><span class="mini-icon">↗</span><span>Отчёты</span></button>
+            <button class="mini-btn action-pill"><span class="mini-icon">⊡</span><span>Архив</span></button>
+          </div>
+        </div>
+        <div class="toolbar-right">
+          <button class="primary-btn add-btn">＋ Добавить</button>
+          <button class="mini-btn filter-btn"><span class="mini-icon">☰</span><span>Фильтры</span></button>
+          <button class="mini-btn icon-only utility-btn" aria-label="Теги">⌁</button>
+          <button class="mini-btn icon-only utility-btn" aria-label="Свернуть">⋀</button>
+          <button class="mini-btn icon-only utility-btn favorite-star" aria-label="Избранное">★</button>
+        </div>
+      </div>
+      <div class="toolbar-panel-head" id="rightPanelToolbarHead" hidden>
+        <div class="toolbar-panel-title">Пользователи</div>
+        <div class="toolbar-panel-actions">
+          <button class="panel-head-btn" aria-label="Добавить пользователя">👥+</button>
+          <button class="panel-head-btn" id="toolbarCloseRightPanel" aria-label="Закрыть правую панель">✕</button>
+        </div>
+      </div>
+    </div>
+    <div class="workspace-body">
+      <aside class="left-rail">
+        <div class="left-rail-top">
+          <button class="rail-btn" data-left-mode="personal">◪</button>
+          <button class="rail-btn" data-left-mode="favorites">★</button>
+          <button class="rail-btn is-active" data-left-mode="tree">✣</button>
+        </div>
+        <div class="left-rail-bottom">
+          <button class="rail-btn help-btn" aria-label="Обзорчик">?</button>
+          <button class="profile-chip" aria-label="Профиль">
+            <span class="profile-avatar">АЕ</span>
+          </button>
+        </div>
+        <button class="talks-btn" aria-label="Talks">
+          <span class="talks-icon">◫</span>
+          <span>Talks</span>
+        </button>
+      </aside>
+      <aside class="tree-panel" id="leftPanel">
+        <div class="panel-header">
+          <h2 id="leftPanelTitle">Дерево</h2>
+          <button class="ghost-btn" id="collapseLeftPanel" aria-label="Свернуть левую панель">≪</button>
+        </div>
+        <div class="left-panel-mode" data-panel-mode="personal" hidden>
+          <nav class="simple-menu">
+            <button class="simple-menu-item">Карточки</button>
+            <button class="simple-menu-item is-current">Блокеры</button>
+            <button class="simple-menu-item">Активности</button>
+            <button class="simple-menu-item">Учёт времени</button>
+            <button class="simple-menu-item">Записи встреч</button>
+          </nav>
+        </div>
+        <div class="left-panel-mode" data-panel-mode="favorites" hidden>
+          <nav class="favorites-list">
+            <button class="favorite-row"><span class="favorite-icon">▥</span><span>Испытательный срок</span></button>
+            <button class="favorite-row"><span class="favorite-icon">▦</span><span>B - Project management</span></button>
+            <button class="favorite-row"><span class="favorite-icon doc">◫</span><span>План на неделю (v2)</span></button>
+            <button class="favorite-row"><span class="favorite-icon folder">◼</span><span>Research &amp; development</span></button>
+            <button class="favorite-row"><span class="favorite-icon badge">B</span><span>B</span></button>
+            <button class="favorite-row"><span class="favorite-icon">▥</span><span>Product Analytics</span></button>
+            <button class="favorite-row is-current"><span class="favorite-icon heart">❤</span><span>Задачи на дизайн</span></button>
+            <button class="favorite-row is-current subtle"><span class="favorite-icon task">☑</span><span>Проработка пользовательского опыта работы...</span></button>
+            <button class="favorite-row"><span class="favorite-icon task">☰</span><span>UX ресёрч – первоочерёдные задачи</span></button>
+            <button class="favorite-row"><span class="favorite-icon folder">◼</span><span>ВКС</span></button>
+            <button class="favorite-row"><span class="favorite-icon">▥</span><span>UX research</span></button>
+          </nav>
+        </div>
+        <div class="left-panel-mode" data-panel-mode="tree">
+          <div class="panel-search">
+            <input type="text" placeholder="Найти...">
+            <button class="ghost-btn">＋</button>
+          </div>
+          <div class="tree-toolbar">
+            <div class="chip-row">
+              <button class="filter-chip">Все</button>
+              <button class="filter-chip">Пространства</button>
+              <button class="filter-chip is-active">Папки</button>
+              <button class="filter-chip">Документы</button>
+              <button class="filter-chip">Story Map</button>
+            </div>
+            <div class="chip-row slim">
+              <button class="filter-chip is-active">Все</button>
+              <button class="filter-chip">Избранное</button>
+              <button class="filter-chip">Мои</button>
+            </div>
+          </div>
+          <nav class="tree-list rich">
+            <div class="tree-row"><span class="tree-node-icon">◼</span><span>FAQ и другие публичные материалы</span></div>
+            <div class="tree-row highlight"><span class="tree-node-icon">◼</span><span>База знаний компании</span><span class="tree-row-actions">＋ ⋮</span></div>
+            <div class="tree-group">
+              <div class="tree-row"><span class="tree-node-icon">◼</span><span>Research &amp; development</span></div>
+              <div class="tree-indent">
+                <div class="tree-row"><span class="tree-node-icon">▥</span><span>Product management segment logic</span></div>
+                <div class="tree-row"><span class="tree-node-icon">▥</span><span>Roadmap</span></div>
+                <div class="tree-row"><span class="tree-node-icon">▥</span><span>Релизные циклы</span></div>
+                <div class="tree-row"><span class="tree-node-icon">◼</span><span>VP</span></div>
+                <div class="tree-row"><span class="tree-node-icon">◌</span><span>Регламенты R&amp;D</span></div>
+                <div class="tree-row"><span class="tree-node-icon">◌</span><span>Уровень Epic (Стратегия)</span></div>
+                <div class="tree-row"><span class="tree-node-icon">▥</span><span>DevOps / Infra</span></div>
+                <div class="tree-row"><span class="tree-node-icon">▥</span><span>Проекты R&amp;D</span></div>
+              </div>
+            </div>
+            <div class="tree-group">
+              <div class="tree-row"><span class="tree-node-icon">◼</span><span>Product management and UX</span></div>
+              <div class="tree-indent">
+                <div class="tree-row"><span class="tree-node-icon">◼</span><span>OLD Product management</span></div>
+                <div class="tree-row"><span class="tree-node-icon">▥</span><span>Публичные фильтры</span></div>
+                <div class="tree-row"><span class="tree-node-icon">◍</span><span>Ключи как у нормальных людей</span></div>
+                <div class="tree-row"><span class="tree-node-icon">▥</span><span>Каталоги</span></div>
+                <div class="tree-row"><span class="tree-node-icon">◼</span><span>Whiteboard</span></div>
+                <div class="tree-row"><span class="tree-node-icon">◼</span><span>Дорожная карта</span></div>
+                <div class="tree-row is-selected"><span class="tree-node-icon heart">❤</span><span>Задачи на дизайн</span></div>
+              </div>
+            </div>
+          </nav>
+        </div>
+        <button class="vertical-tab" id="peekLeftPanel">Бэклог гипотез</button>
+      </aside>
+      <main class="board-shell">
+        <section class="board-header">
+          <div class="board-title">
+            <span class="board-grip">⠿</span>
+            <h1>Design</h1>
+          </div>
+          <div class="board-actions hover-tools">
+            <button class="board-icon-btn" aria-label="Добавить">＋</button>
+            <button class="board-icon-btn" aria-label="Ссылка">⌁</button>
+            <button class="board-icon-btn" aria-label="Меню">⋮</button>
+            <button class="board-icon-btn" aria-label="Свернуть">⌃</button>
+          </div>
+        </section>
+        <section class="board" aria-label="Канбан-доска">
+          <article class="column">
+            <header class="column-header"><span>Очередь</span><span class="count">32</span></header>
+            <div class="column-cards">
+              <button class="task-card"><span class="task-line cyan"></span><h3>Цвета в продукте: синхронизировать кит и фактические библиотеки</h3><div class="task-tags"><span class="pill teal">Техдолг</span></div><div class="task-meta"><div class="avatars"><span>АЕ</span><span>ДС</span></div></div></button>
+              <button class="task-card"><span class="task-line cyan"></span><h3>Добавить баннер в флоу и макеты</h3><div class="task-tags"><span class="pill teal">Техдолг</span></div></button>
+              <button class="task-card"><span class="task-line cyan"></span><h3>Обновить компоненты баров в связи с новой навигацией</h3><div class="task-tags"><span class="pill slate">Сегмент CDX</span></div></button>
+              <button class="task-card"><span class="task-line cyan"></span><h3>Ресерч и концепт: навигация в Service Desk</h3><div class="task-tags"><span class="pill slate">Сегмент CDX</span></div></button>
+            </div>
+          </article>
+          <article class="column">
+            <header class="column-header"><span>Планы на неделю</span><span class="count">2</span></header>
+            <div class="column-cards">
+              <button class="task-card"><span class="task-line cyan"></span><h3>Редизайн и улучшение опыта взаимодействия с таблицей заявок</h3><div class="task-tags"><span class="pill slate">Сегмент CDX</span></div><div class="task-meta"><div class="avatars"><span>ИГ</span></div></div></button>
+              <button class="task-card"><span class="task-line cyan"></span><h3>Посадочная страница для HR / Лендинг «Кайтен для HR»</h3><div class="task-meta"><div class="avatars"><span>ЯК</span><span>ВС</span></div></div></button>
+            </div>
+          </article>
+          <article class="column">
+            <header class="column-header"><span>В работе</span><span class="count">3</span></header>
+            <div class="column-cards">
+              <button class="task-card is-highlighted" id="openTaskCard"><span class="task-line cyan"></span><h3>[MVP] Подключение сервисов и работа с заявками в публичной БЗ</h3><div class="task-tags"><span class="pill slate">Сегмент CDX</span></div><p class="link-row">figma.com/design/proto-case</p><div class="task-meta"><span>0/1</span><div class="avatars"><span>ИГ</span></div></div></button>
+              <button class="task-card"><span class="task-line cyan"></span><h3>Пользователь может закрыть свой запрос в SD через Self Service</h3><div class="task-tags"><span class="pill slate">Сегмент CDX</span></div><p class="link-row">figma.com/design/service-flow</p></button>
+              <button class="task-card"><span class="task-line green"></span><h3>Проработка пользовательского опыта работы ВКС в Supercase</h3><div class="task-tags"><span class="pill rose">Сегмент B</span></div></button>
+            </div>
+          </article>
+          <article class="column">
+            <header class="column-header"><span>Ревью</span><span class="count">9</span></header>
+            <div class="column-cards">
+              <button class="task-card"><span class="task-line cyan"></span><h3>ЧПУ в базе знаний, чтобы улучшить навигацию</h3><div class="task-tags"><span class="pill slate">Сегмент CDX</span></div></button>
+              <button class="task-card urgent"><span class="status-chip">жду фидбек</span><span class="task-line cyan"></span><h3>Добавить карточку из любой сущности</h3><div class="task-tags"><span class="pill rose">Сегмент B</span></div><div class="task-meta"><span>2 комментария</span><div class="avatars"><span>АЕ</span><span>ДС</span><span>+1</span></div></div></button>
+              <button class="task-card"><span class="task-line cyan"></span><h3>CRM отчеты: конверсии по воронке MVP</h3><div class="task-tags"><span class="pill rose">Сегмент B</span></div></button>
+            </div>
+          </article>
+          <article class="column compact">
+            <header class="column-header"><span>Готово</span><span class="count">7</span></header>
+            <div class="column-cards">
+              <button class="task-card slim"><span class="task-line cyan"></span><h3>Тест</h3></button>
+              <button class="task-card slim"><span class="task-line cyan"></span><h3>Добавить описания для сервисов</h3></button>
+              <button class="task-card slim"><span class="task-line cyan"></span><h3>Подготовить прототип help center на базе SD</h3></button>
+              <button class="task-card slim"><span class="task-line cyan"></span><h3>Покраска ячеек в таблицах</h3></button>
+            </div>
+          </article>
+        </section>
+        <section class="task-detail" id="taskDetail">
+          <div class="detail-main">
+            <div class="detail-headline">
+              <div>
+                <p class="issue-link">#63053263 Заказчик Виктор Огнев</p>
+                <h2>Проработка пользовательского опыта работы ВКС в Kaiten</h2>
+                <p class="detail-subtitle">Создана 6 дней назад · Перемещена 5 дней назад</p>
+              </div>
+              <button class="circle-btn detail-close-mobile" id="closeTaskDetail" data-close-task-detail aria-label="Закрыть карточку">✕</button>
+            </div>
+            <div class="detail-actions">
+              <button class="fab">＋</button>
+              <div class="detail-actions-right">
+                <button class="circle-btn">▶</button>
+                <button class="detail-pill">→ РЕВЬЮ</button>
+                <button class="circle-btn">↗</button>
+                <button class="circle-btn">!</button>
+                <button class="circle-btn">⇪</button>
+                <button class="circle-btn">⋮</button>
+              </div>
+            </div>
+            <dl class="detail-grid">
+              <div class="detail-field">
+                <dt>Расположение</dt>
+                <dd class="detail-link-row"><a href="#">Design / В работе (Стандартные)</a><span class="detail-inline-icon">⌕</span></dd>
+              </div>
+              <div class="detail-field">
+                <dt>Тип</dt>
+                <dd><span class="pill subtle-pill"><span class="pill-icon">C</span>Card</span></dd>
+              </div>
+              <div class="detail-field">
+                <dt>Участники</dt>
+                <dd class="detail-avatars"><span class="avatar large">АЕ</span><span class="avatar large">ВС</span><span class="avatar large">ИГ</span><a href="#" class="detail-text-link">Добавить участников</a></dd>
+              </div>
+              <div class="detail-field">
+                <dt>Срок</dt>
+                <dd><a href="#" class="detail-text-link">Установить срок</a></dd>
+              </div>
+              <div class="detail-field">
+                <dt>Метки</dt>
+                <dd><span class="pill rose">Сегмент B</span></dd>
+              </div>
+            </dl>
+            <div class="detail-section">
+              <h3><span class="detail-section-icon">☰</span>Описание</h3>
+              <p>Цель — проработать пользовательский опыт работы с видеоконференциями внутри Kaiten как нативной части продукта.</p>
+              <ul>
+                <li>Определить ключевые пользовательские сценарии использования ВКС.</li>
+                <li>Описать потоки и точки входа в интерфейсе.</li>
+                <li>Сформировать целостную UX-концепцию для демонстрации на презентации.</li>
+              </ul>
+              <p>В рамках этой карточки мы будем показывать, как встреча создаётся из контекста задачи, как участники присоединяются к созвону и как артефакты встречи остаются внутри рабочей сущности.</p>
+            </div>
+            <div class="detail-section">
+              <h3><span class="detail-section-icon">🔗</span>Материалы</h3>
+              <ul class="detail-links-list">
+                <li><a href="#">Сценарий интеграции видеовстречи в карточку задачи</a></li>
+                <li><a href="#">Карта пользовательского пути встречи</a></li>
+                <li><a href="#">Подборка референсов по коммуникационному модулю</a></li>
+              </ul>
+            </div>
+          </div>
+          <aside class="detail-comments">
+            <div class="comments-shell">
+              <div class="comments-topbar">
+                <div class="comments-topbar-spacer"></div>
+                <div class="comments-topbar-actions">
+                  <button class="board-icon-btn topbar-icon-btn" aria-label="В избранное">☆</button>
+                  <button class="board-icon-btn topbar-icon-btn" aria-label="Развернуть">⛶</button>
+                  <button class="board-icon-btn topbar-icon-btn" data-close-task-detail aria-label="Закрыть карточку">✕</button>
+                </div>
+              </div>
+              <div class="comments-header">
+                <button class="comments-tab is-active">Комментарии</button>
+                <button class="comments-tab">Спросить ИИ</button>
+              </div>
+              <div class="comments-toolbar">
+                <div class="comments-toolbar-icons">
+                  <button class="board-icon-btn" aria-label="Видео">◧</button>
+                  <button class="board-icon-btn" aria-label="Режим">▭</button>
+                </div>
+                <button class="comment-filter">Все ▾</button>
+                <div class="comments-toolbar-icons">
+                  <button class="board-icon-btn" aria-label="Компактный вид">▤</button>
+                  <button class="board-icon-btn" aria-label="Широкий вид">⟷</button>
+                </div>
+              </div>
+              <div class="comment-input-wrap">
+                <div class="comment-author-avatar self">АЕ</div>
+                <div class="comment-input">
+                  <input type="text" placeholder="Напишите комментарий">
+                  <button class="icon-btn" aria-label="Голосовой ввод">🎙</button>
+                </div>
+              </div>
+              <div class="comments-stream">
+                <article class="comment comment-ai">
+                  <p class="comment-author">Kaiten AI · 3 часа назад</p>
+                  <div class="comment-box">
+                    <h4>AI-ассистент</h4>
+                    <p>Из похожих задач видно, что пользователи ожидают создавать встречу прямо из карточки и быстро возвращаться к результатам созвона уже внутри рабочей сущности.</p>
+                    <div class="file-list">
+                      <div class="file-tile">XLSX</div>
+                      <div class="file-tile chart">Forecast</div>
+                    </div>
+                  </div>
+                </article>
+                <article class="comment">
+                  <p class="comment-author">Алексей Евстифеев · 10 апр. 2026, 13:38</p>
+                  <div class="comment-thread">
+                    <div class="comment-author-avatar">АЕ</div>
+                    <div class="comment-box plain">
+                      <p>Нужен прототип экрана, который покажет сценарий от канбана до раскрытой карточки и дальше к созданию встречи.</p>
+                    </div>
+                  </div>
+                </article>
+                <article class="comment">
+                  <p class="comment-author">Мария Петрова · 1 день назад</p>
+                  <div class="comment-thread">
+                    <div class="comment-author-avatar accent">МП</div>
+                    <div class="comment-box plain">
+                      <p>Предлагаю встроить блок встречи в верхнюю часть карточки, чтобы пользователь сразу видел статус звонка, участников и доступ к материалам после созвона.</p>
+                    </div>
+                  </div>
+                </article>
+              </div>
+            </div>
+          </aside>
+        </section>
+      </main>
+      <aside class="right-rail">
+        <button class="rail-btn is-active" id="activateUsersPanel">👥</button>
+        <button class="rail-btn">◔</button>
+        <button class="rail-btn">⟲</button>
+        <button class="rail-btn">▣</button>
+        <button class="rail-btn">⚙</button>
+        <button class="rail-btn">⊘</button>
+      </aside>
+      <aside class="people-panel" id="rightPanel">
+        <div class="panel-header">
+          <h2>Пользователи</h2>
+          <div class="panel-header-actions">
+            <button class="ghost-btn" aria-label="Добавить пользователя">👥+</button>
+            <button class="ghost-btn" id="collapseRightPanel" aria-label="Закрыть правую панель">✕</button>
+          </div>
+        </div>
+        <div class="panel-search wide">
+          <input type="text" placeholder="Введите имя, id или email">
+        </div>
+        <div class="people-section">
+          <p class="section-title">Группы</p>
+          <div class="group-card">
+            <div class="group-icon">👥</div>
+            <div><strong>Продуктовый отдел</strong><p>разобраться с группой</p></div>
+          </div>
+        </div>
+        <div class="people-section">
+          <p class="section-title">Доступ выдан выше</p>
+          <div class="person-list">
+            <div class="person-row"><span class="avatar">АЕ</span><div><strong>Алексей Евстифеев</strong><p>@a_evstifeev</p></div></div>
+            <div class="person-row"><span class="avatar">ВС</span><div><strong>Вячеслав Цырульник</strong><p>@slava</p></div></div>
+            <div class="person-row"><span class="avatar">ИГ</span><div><strong>Ильдар Гильфанов</strong><p>@ildargilfanov</p></div></div>
+            <div class="person-row"><span class="avatar">ЯК</span><div><strong>Ярослав Кошкарев</strong><p>@yarik_85</p></div></div>
+            <div class="person-row"><span class="avatar">ОС</span><div><strong>Олег Сафонов</strong><p>@safonoi</p></div></div>
+            <div class="person-row"><span class="avatar">ЕК</span><div><strong>Екатерина Кокова</strong><p>@catherine</p></div></div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+  <script src="../../../scripts/app.js"></script>
+  <script src="./script.js"></script>
+</body>
+</html>

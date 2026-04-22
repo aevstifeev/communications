@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Communication Prototypes Hub</title>
+  <link rel="stylesheet" href="../../styles/tokens.css">
+  <style>
+    :root {
+      color-scheme: light;
+      --hub-bg: #f4efe7;
+      --hub-surface: rgba(255, 255, 255, 0.86);
+      --hub-surface-strong: #ffffff;
+      --hub-text: #1f1f24;
+      --hub-muted: #676270;
+      --hub-border: rgba(31, 31, 36, 0.1);
+      --hub-accent: #c35f3d;
+      --hub-accent-soft: rgba(195, 95, 61, 0.12);
+      --hub-shadow: 0 24px 60px rgba(44, 36, 30, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(195, 95, 61, 0.12), transparent 24rem),
+        radial-gradient(circle at right center, rgba(87, 122, 196, 0.08), transparent 26rem),
+        var(--hub-bg);
+      color: var(--hub-text);
+    }
+
+    .page {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 40px 0 56px;
+    }
+
+    .hero {
+      display: grid;
+      gap: 16px;
+      margin-bottom: 28px;
+      padding: 28px;
+      border: 1px solid var(--hub-border);
+      border-radius: 28px;
+      background: var(--hub-surface);
+      box-shadow: var(--hub-shadow);
+      backdrop-filter: blur(20px);
+    }
+
+    .eyebrow {
+      margin: 0;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--hub-accent);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(32px, 5vw, 56px);
+      line-height: 0.96;
+    }
+
+    h2,
+    p {
+      margin: 0;
+    }
+
+    .hero p {
+      max-width: 780px;
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--hub-muted);
+    }
+
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 6px;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: var(--hub-accent-soft);
+      color: var(--hub-text);
+      font-size: 13px;
+      font-weight: 500;
+    }
+
+    .section-title {
+      margin: 0 0 14px;
+      font-size: 18px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+    }
+
+    .card {
+      display: grid;
+      gap: 14px;
+      min-height: 240px;
+      padding: 22px;
+      border: 1px solid var(--hub-border);
+      border-radius: 24px;
+      background: var(--hub-surface-strong);
+      box-shadow: 0 14px 36px rgba(44, 36, 30, 0.08);
+    }
+
+    .card.is-disabled {
+      opacity: 0.62;
+      background: rgba(255, 255, 255, 0.78);
+    }
+
+    .card strong {
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--hub-accent);
+    }
+
+    .card h2 {
+      margin: 0;
+      font-size: 24px;
+      line-height: 1.1;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--hub-muted);
+      line-height: 1.55;
+    }
+
+    .notes {
+      display: grid;
+      gap: 8px;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      color: var(--hub-muted);
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: auto;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 0 16px;
+      border-radius: 999px;
+      border: 1px solid var(--hub-border);
+      color: var(--hub-text);
+      text-decoration: none;
+      font-weight: 600;
+      background: #fff;
+    }
+
+    .button.primary {
+      background: var(--hub-text);
+      color: #fff;
+      border-color: var(--hub-text);
+    }
+
+    .footer-note {
+      margin-top: 22px;
+      padding: 18px 20px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid var(--hub-border);
+      color: var(--hub-muted);
+      line-height: 1.6;
+    }
+
+    @media (max-width: 720px) {
+      .page {
+        width: min(100% - 20px, 1120px);
+        padding-top: 20px;
+      }
+
+      .hero,
+      .card {
+        padding: 20px;
+        border-radius: 22px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="hero">
+      <p class="eyebrow">Communication Module</p>
+      <h1>Хаб для активных версий модуля коммуникации</h1>
+      <p>
+        Здесь собраны основные варианты для сравнения: базовая контрольная точка, распределённая версия
+        и централизованный модуль коммуникации. Архивный drawer-паттерн сохранён отдельно и не входит в
+        основной контур демонстрации.
+      </p>
+      <div class="meta">
+        <span class="chip">Base как контрольная точка</span>
+        <span class="chip">Distributed как версия 1</span>
+        <span class="chip">Centralized как версия 2</span>
+        <span class="chip">Archive не участвует в основном сравнении</span>
+      </div>
+    </section>
+
+    <h2 class="section-title">Варианты</h2>
+    <section class="grid">
+      <article class="card">
+        <strong>Base</strong>
+        <h2>Базовая версия</h2>
+        <p>Зафиксированная версия текущей реализации. Используем её как контрольную точку для оценки следующих решений.</p>
+        <ul class="notes">
+          <li>Папка: <code>base/</code></li>
+          <li>Статус: active</li>
+        </ul>
+        <div class="actions">
+          <a class="button primary" href="./base/index.html">Открыть</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <strong>Distributed</strong>
+        <h2>Созвоны внутри чатов и каналов</h2>
+        <p>Коммуникация развивается как распределённый слой внутри уже существующих каналов, пространств и обсуждений.</p>
+        <ul class="notes">
+          <li>Папка: <code>distributed/</code></li>
+          <li>Статус: active</li>
+        </ul>
+        <div class="actions">
+          <a class="button primary" href="./distributed/index.html">Открыть</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <strong>Centralized / In Progress</strong>
+        <h2>Коммуникация как отдельный модуль</h2>
+        <p>Встречи, планирование и артефакты собираются в самостоятельный модуль, который живёт наравне с остальными частями системы.</p>
+        <ul class="notes">
+          <li>Папка: <code>centralized/</code></li>
+          <li>Статус: in-progress</li>
+        </ul>
+        <div class="actions">
+          <a class="button primary" href="./centralized/index.html">Открыть</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <strong>Archive</strong>
+        <h2>Context Drawer</h2>
+        <p>Архивный референс паттерна, который сохранён для исторического контекста, но не участвует в основном сравнении вариантов.</p>
+        <ul class="notes">
+          <li>Папка: <code>archive-context-drawer/</code></li>
+          <li>Статус: inactive</li>
+        </ul>
+        <div class="actions">
+          <a class="button" href="./archive-context-drawer/index.html">Открыть архив</a>
+        </div>
+      </article>
+    </section>
+
+    <p class="footer-note">
+      Общие стили и логика переиспользуются из <code>styles/</code> и <code>scripts/</code>, а историческая структура
+      в <code>concepts/communication/</code> остаётся как исследовательский слой и не считается основной publish-ready навигацией.
+    </p>
+  </main>
+</body>
+</html>

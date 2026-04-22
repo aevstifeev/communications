@@ -1,0 +1,42 @@
+body.prototype-baseline {
+  padding-top: 40px;
+}
+
+.prototype-banner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 16px;
+  background: rgba(23, 28, 39, 0.92);
+  color: #fff;
+  font: 500 13px/1 "Roboto", sans-serif;
+  backdrop-filter: blur(12px);
+}
+
+.prototype-banner-label {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 72px;
+  height: 24px;
+  padding: 0 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.14);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.prototype-banner a {
+  margin-left: auto;
+  color: #fff;
+  text-decoration: none;
+  opacity: 0.88;
+}
