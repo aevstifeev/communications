@@ -1,4 +1,4 @@
-document.documentElement.dataset.prototype = "variant-inline-panel";
+﻿document.documentElement.dataset.prototype = "variant-inline-panel";
 
 const workspace = document.querySelector(".workspace");
 const workspaceBody = document.querySelector(".workspace-body");
@@ -76,10 +76,10 @@ const huddleChatScroll = document.getElementById("huddleChatScroll");
 const documentOutlineSection = document.querySelector('[data-document-section="outline"]');
 
 const leftModeTitles = {
-  personal: "Личное",
-  chat: "Узел связи",
-  favorites: "Избранное",
-  tree: "Дерево",
+  personal: "Р›РёС‡РЅРѕРµ",
+  chat: "РЈР·РµР» СЃРІСЏР·Рё",
+  favorites: "РР·Р±СЂР°РЅРЅРѕРµ",
+  tree: "Р”РµСЂРµРІРѕ",
 };
 
 const state = {
@@ -177,32 +177,32 @@ function setupDocumentOutline() {
   documentOutlineSection.innerHTML = `
     <div class="document-panel-header">
       <p class="document-kicker">AI Notes / Huddle recap</p>
-      <h3>Содержание</h3>
-      <small>Автособираемое оглавление документа с сохранением уровней заголовков.</small>
+      <h3>РЎРѕРґРµСЂР¶Р°РЅРёРµ</h3>
+      <small>РђРІС‚РѕСЃРѕР±РёСЂР°РµРјРѕРµ РѕРіР»Р°РІР»РµРЅРёРµ РґРѕРєСѓРјРµРЅС‚Р° СЃ СЃРѕС…СЂР°РЅРµРЅРёРµРј СѓСЂРѕРІРЅРµР№ Р·Р°РіРѕР»РѕРІРєРѕРІ.</small>
     </div>
     <div class="document-block">
       <ul class="document-outline-list">
-        <li><a href="#document-main-title">Тест транскрипция</a></li>
+        <li><a href="#document-main-title">РўРµСЃС‚ С‚СЂР°РЅСЃРєСЂРёРїС†РёСЏ</a></li>
         <li>
-          <a href="#document-task-table">Зафиксируйте задачи</a>
+          <a href="#document-task-table">Р—Р°С„РёРєСЃРёСЂСѓР№С‚Рµ Р·Р°РґР°С‡Рё</a>
           <ul>
-            <li><a href="#document-task-row-1">Обсудить предложенный набор сценариев использования созвонов и выявить отсутствующие сценарии</a></li>
-            <li><a href="#document-task-row-2">Разработать концепцию публикации итогов созвона в чат, канал и карточку</a></li>
-            <li><a href="#document-task-row-3">Придумать единый паттерн различения PDF, карточек Kaiten и документов Kaiten</a></li>
+            <li><a href="#document-task-row-1">РћР±СЃСѓРґРёС‚СЊ РїСЂРµРґР»РѕР¶РµРЅРЅС‹Р№ РЅР°Р±РѕСЂ СЃС†РµРЅР°СЂРёРµРІ РёСЃРїРѕР»СЊР·РѕРІР°РЅРёСЏ СЃРѕР·РІРѕРЅРѕРІ Рё РІС‹СЏРІРёС‚СЊ РѕС‚СЃСѓС‚СЃС‚РІСѓСЋС‰РёРµ СЃС†РµРЅР°СЂРёРё</a></li>
+            <li><a href="#document-task-row-2">Р Р°Р·СЂР°Р±РѕС‚Р°С‚СЊ РєРѕРЅС†РµРїС†РёСЋ РїСѓР±Р»РёРєР°С†РёРё РёС‚РѕРіРѕРІ СЃРѕР·РІРѕРЅР° РІ С‡Р°С‚, РєР°РЅР°Р» Рё РєР°СЂС‚РѕС‡РєСѓ</a></li>
+            <li><a href="#document-task-row-3">РџСЂРёРґСѓРјР°С‚СЊ РµРґРёРЅС‹Р№ РїР°С‚С‚РµСЂРЅ СЂР°Р·Р»РёС‡РµРЅРёСЏ PDF, РєР°СЂС‚РѕС‡РµРє Kaiten Рё РґРѕРєСѓРјРµРЅС‚РѕРІ Kaiten</a></li>
           </ul>
         </li>
-        <li><a href="#document-brief-agenda">Краткая повестка</a></li>
+        <li><a href="#document-brief-agenda">РљСЂР°С‚РєР°СЏ РїРѕРІРµСЃС‚РєР°</a></li>
         <li>
-          <a href="#document-agenda">Повестка</a>
+          <a href="#document-agenda">РџРѕРІРµСЃС‚РєР°</a>
           <ul>
-            <li><a href="#document-agenda-scenarios">Обзор сценариев использования созвонов и их интеграция с задачами и календарями</a></li>
+            <li><a href="#document-agenda-scenarios">РћР±Р·РѕСЂ СЃС†РµРЅР°СЂРёРµРІ РёСЃРїРѕР»СЊР·РѕРІР°РЅРёСЏ СЃРѕР·РІРѕРЅРѕРІ Рё РёС… РёРЅС‚РµРіСЂР°С†РёСЏ СЃ Р·Р°РґР°С‡Р°РјРё Рё РєР°Р»РµРЅРґР°СЂСЏРјРё</a></li>
           </ul>
         </li>
         <li>
-          <a href="#document-full-transcript">Транскрипт</a>
+          <a href="#document-full-transcript">РўСЂР°РЅСЃРєСЂРёРїС‚</a>
           <ul>
-            <li><a href="#document-transcript-part-1">1. Обзор сценариев использования созвонов и их классификация</a></li>
-            <li><a href="#document-transcript-part-2">2. Проблемы интеграции созвонов с календарём и карточками в Кайтоне</a></li>
+            <li><a href="#document-transcript-part-1">1. РћР±Р·РѕСЂ СЃС†РµРЅР°СЂРёРµРІ РёСЃРїРѕР»СЊР·РѕРІР°РЅРёСЏ СЃРѕР·РІРѕРЅРѕРІ Рё РёС… РєР»Р°СЃСЃРёС„РёРєР°С†РёСЏ</a></li>
+            <li><a href="#document-transcript-part-2">2. РџСЂРѕР±Р»РµРјС‹ РёРЅС‚РµРіСЂР°С†РёРё СЃРѕР·РІРѕРЅРѕРІ СЃ РєР°Р»РµРЅРґР°СЂС‘Рј Рё РєР°СЂС‚РѕС‡РєР°РјРё РІ РљР°Р№С‚РѕРЅРµ</a></li>
           </ul>
         </li>
       </ul>
@@ -254,7 +254,7 @@ const floatChatTemplates = {
             <small>Сегодня, 10:31</small>
           </div>
         </div>
-        <p>Принял. Дообновлю флоу и верну сюда вариант с отдельным раскрытием канала пространства.</p>
+        <p>Принял. Обновлю flow и верну сюда вариант с отдельным раскрытием канала пространства.</p>
       </article>
       <article class="float-chat-message system-message">
         <div class="float-chat-meta">
@@ -325,7 +325,7 @@ const floatChatTemplates = {
             <small>Сегодня, 18:26</small>
           </div>
         </div>
-        <p>Транскрипция созвона по задаче “Проработка пользовательского опыта работы ВКС в Kaiten” обработана. Итоговый документ опубликован в канал пространства.</p>
+        <p>Транскрипция созвона по задаче «Проработка пользовательского опыта работы ВКС в Kaiten» обработана. Итоговый документ опубликован в канал пространства.</p>
       </article>
       <article class="float-chat-message system-message">
         <div class="float-chat-meta">
@@ -335,7 +335,7 @@ const floatChatTemplates = {
             <small>Сегодня, 18:27</small>
           </div>
         </div>
-        <p>В документе созданы AI-предложенные задачи и доступ открыт участникам созвона.</p>
+        <p>В документе созданы AI-предложенные задачи, а доступ открыт участникам созвона.</p>
       </article>
     `,
   },
@@ -354,7 +354,7 @@ const floatChatTemplates = {
             <small>Сегодня, 11:03</small>
           </div>
         </div>
-        <p>Собрал новый сценарий для перехода из канала в созвон. Нужен фидбек по скорости входа в встречу.</p>
+        <p>Собрал новый сценарий для перехода из канала в созвон. Нужен фидбек по скорости входа во встречу.</p>
       </article>
       <article class="float-chat-message system-message">
         <div class="float-chat-meta">
@@ -364,7 +364,7 @@ const floatChatTemplates = {
             <small>Сегодня, 11:11</small>
           </div>
         </div>
-        <p>Транскрипция встречи “Видео и встречи / weekly sync” сохранена. Краткое summary доступно по ссылке ниже.</p>
+        <p>Транскрипция встречи «Видео и встречи / weekly sync» сохранена. Краткое summary доступно по ссылке ниже.</p>
         <div class="float-chat-attachments">
           <span class="attachment-tile">meeting-summary.doc</span>
         </div>
@@ -377,7 +377,7 @@ const floatChatTemplates = {
             <small>Сегодня, 11:24</small>
           </div>
         </div>
-        <p>Я бы оставил вход в запись звонка прямо в сообщении системы, так люди меньше теряют контекст.</p>
+        <p>Я бы оставил вход в запись звонка прямо в системном сообщении, так люди меньше теряют контекст.</p>
       </article>
     `,
   },
@@ -503,7 +503,7 @@ const floatChatTemplates = {
             <small>Сегодня, 12:06</small>
           </div>
         </div>
-        <p>Проверьте, пожалуйста, новый флоу эскалации. Особенно момент, где из карточки можно уйти в быстрый созвон.</p>
+        <p>Проверьте, пожалуйста, новый flow эскалации. Особенно момент, где из карточки можно уйти в быстрый созвон.</p>
       </article>
       <article class="float-chat-message">
         <div class="float-chat-meta">
@@ -578,23 +578,23 @@ const floatChatTemplates = {
 };
 
 const huddleSourceTemplates = {
-  "space-panel": { name: "Rick Deckard", avatar: "R", waiting: "Ждём участника из пространства" },
-  "space-channel": { name: "Rick Deckard", avatar: "R", waiting: "Ждём участника из канала пространства" },
-  "project-channel": { name: "Rick Deckard", avatar: "R", waiting: "Ждём участника из проектного канала" },
-  "group-direct-chat": { name: "Rick Deckard", avatar: "R", waiting: "Ждём SIP-подключение в личном чате" },
-  "chat-preview": { name: "Rick Deckard", avatar: "R", waiting: "Ждём SIP-подключение" },
-  "task-card": { name: "Проработка пользовательского опыта", avatar: "П", waiting: "Ждём участника по карточке" },
+  "space-panel": { name: "Rick Deckard", avatar: "R", waiting: "Р–РґС‘Рј СѓС‡Р°СЃС‚РЅРёРєР° РёР· РїСЂРѕСЃС‚СЂР°РЅСЃС‚РІР°" },
+  "space-channel": { name: "Rick Deckard", avatar: "R", waiting: "Р–РґС‘Рј СѓС‡Р°СЃС‚РЅРёРєР° РёР· РєР°РЅР°Р»Р° РїСЂРѕСЃС‚СЂР°РЅСЃС‚РІР°" },
+  "project-channel": { name: "Rick Deckard", avatar: "R", waiting: "Р–РґС‘Рј СѓС‡Р°СЃС‚РЅРёРєР° РёР· РїСЂРѕРµРєС‚РЅРѕРіРѕ РєР°РЅР°Р»Р°" },
+  "group-direct-chat": { name: "Rick Deckard", avatar: "R", waiting: "Р–РґС‘Рј SIP-РїРѕРґРєР»СЋС‡РµРЅРёРµ РІ Р»РёС‡РЅРѕРј С‡Р°С‚Рµ" },
+  "chat-preview": { name: "Rick Deckard", avatar: "R", waiting: "Р–РґС‘Рј SIP-РїРѕРґРєР»СЋС‡РµРЅРёРµ" },
+  "task-card": { name: "РџСЂРѕСЂР°Р±РѕС‚РєР° РїРѕР»СЊР·РѕРІР°С‚РµР»СЊСЃРєРѕРіРѕ РѕРїС‹С‚Р°", avatar: "Рџ", waiting: "Р–РґС‘Рј СѓС‡Р°СЃС‚РЅРёРєР° РїРѕ РєР°СЂС‚РѕС‡РєРµ" },
 };
 
 const HUDDLE_CONNECT_TICKS = 1;
 
 const huddleContextTemplates = {
-  "space-panel": { icon: "#", title: "Задачи на дизайн", meta: "Канал пространства · открыть контекст" },
-  "space-channel": { icon: "#", title: "Задачи на дизайн", meta: "Канал пространства · открыть контекст" },
-  "project-channel": { icon: "#", title: "R&D / Видео и встречи", meta: "Проектный канал · открыть контекст" },
-  "group-direct-chat": { icon: "R", title: "Rick Deckard", meta: "Личный чат · открыть контекст" },
-  "chat-preview": { icon: "#", title: "Задачи на дизайн", meta: "Канал · открыть контекст" },
-  "task-card": { icon: "#", title: "Проработка пользовательского опыта работы ВКС в Kaiten", meta: "Карточка задачи · открыть контекст" },
+  "space-panel": { icon: "#", title: "Р—Р°РґР°С‡Рё РЅР° РґРёР·Р°Р№РЅ", meta: "РљР°РЅР°Р» РїСЂРѕСЃС‚СЂР°РЅСЃС‚РІР° В· РѕС‚РєСЂС‹С‚СЊ РєРѕРЅС‚РµРєСЃС‚" },
+  "space-channel": { icon: "#", title: "Р—Р°РґР°С‡Рё РЅР° РґРёР·Р°Р№РЅ", meta: "РљР°РЅР°Р» РїСЂРѕСЃС‚СЂР°РЅСЃС‚РІР° В· РѕС‚РєСЂС‹С‚СЊ РєРѕРЅС‚РµРєСЃС‚" },
+  "project-channel": { icon: "#", title: "R&D / Р’РёРґРµРѕ Рё РІСЃС‚СЂРµС‡Рё", meta: "РџСЂРѕРµРєС‚РЅС‹Р№ РєР°РЅР°Р» В· РѕС‚РєСЂС‹С‚СЊ РєРѕРЅС‚РµРєСЃС‚" },
+  "group-direct-chat": { icon: "R", title: "Rick Deckard", meta: "Р›РёС‡РЅС‹Р№ С‡Р°С‚ В· РѕС‚РєСЂС‹С‚СЊ РєРѕРЅС‚РµРєСЃС‚" },
+  "chat-preview": { icon: "#", title: "Р—Р°РґР°С‡Рё РЅР° РґРёР·Р°Р№РЅ", meta: "РљР°РЅР°Р» В· РѕС‚РєСЂС‹С‚СЊ РєРѕРЅС‚РµРєСЃС‚" },
+  "task-card": { icon: "#", title: "РџСЂРѕСЂР°Р±РѕС‚РєР° РїРѕР»СЊР·РѕРІР°С‚РµР»СЊСЃРєРѕРіРѕ РѕРїС‹С‚Р° СЂР°Р±РѕС‚С‹ Р’РљРЎ РІ Kaiten", meta: "РљР°СЂС‚РѕС‡РєР° Р·Р°РґР°С‡Рё В· РѕС‚РєСЂС‹С‚СЊ РєРѕРЅС‚РµРєСЃС‚" },
 };
 
 function clampTaskWidth(width) {
@@ -729,16 +729,16 @@ function initializeHuddleSplitButtons() {
     const arrowButton = document.createElement("button");
     arrowButton.type = "button";
     arrowButton.className = "huddle-menu-toggle";
-    arrowButton.setAttribute("aria-label", "Открыть меню хаддла");
-    arrowButton.innerHTML = '<span class="huddle-menu-caret">▾</span>';
+    arrowButton.setAttribute("aria-label", "РћС‚РєСЂС‹С‚СЊ РјРµРЅСЋ С…Р°РґРґР»Р°");
+    arrowButton.innerHTML = '<span class="huddle-menu-caret">в–ѕ</span>';
     group.appendChild(arrowButton);
 
     const menu = document.createElement("div");
     menu.className = "huddle-menu";
     menu.innerHTML = `
-      <button type="button" class="huddle-menu-item">Начать Huddle прямо сейчас</button>
-      <button type="button" class="huddle-menu-item">Запланировать Huddle</button>
-      <button type="button" class="huddle-menu-item">Посмотреть записи Huddle</button>
+      <button type="button" class="huddle-menu-item">РќР°С‡Р°С‚СЊ Huddle РїСЂСЏРјРѕ СЃРµР№С‡Р°СЃ</button>
+      <button type="button" class="huddle-menu-item">Р—Р°РїР»Р°РЅРёСЂРѕРІР°С‚СЊ Huddle</button>
+      <button type="button" class="huddle-menu-item">РџРѕСЃРјРѕС‚СЂРµС‚СЊ Р·Р°РїРёСЃРё Huddle</button>
     `;
     group.appendChild(menu);
 
@@ -824,11 +824,11 @@ function syncHuddleView() {
   const template = getActiveHuddleTemplate();
   const contextTemplate = getActiveHuddleContextTemplate();
   const waitingLabel = state.huddleConnected
-    ? `${template.name} в созвоне`
+    ? `${template.name} РІ СЃРѕР·РІРѕРЅРµ`
     : template.waiting;
   const counterLabel = state.huddleConnected
-    ? "Созвон активен · два участника в линии"
-    : `Подключаем SIP · ${state.huddleCounter}/${HUDDLE_CONNECT_TICKS}`;
+    ? "РЎРѕР·РІРѕРЅ Р°РєС‚РёРІРµРЅ В· РґРІР° СѓС‡Р°СЃС‚РЅРёРєР° РІ Р»РёРЅРёРё"
+    : `РџРѕРґРєР»СЋС‡Р°РµРј SIP В· ${state.huddleCounter}/${HUDDLE_CONNECT_TICKS}`;
   const stageInitials = template.name
     .split(" ")
     .map((part) => part[0])
@@ -841,14 +841,14 @@ function syncHuddleView() {
   if (nodeHuddlePeerStatus) nodeHuddlePeerStatus.textContent = waitingLabel;
   if (nodeHuddleWait) nodeHuddleWait.textContent = counterLabel;
   if (nodeHuddlePeerStageAvatar) nodeHuddlePeerStageAvatar.textContent = stageInitials;
-  if (nodeHuddlePeerStageLabel) nodeHuddlePeerStageLabel.textContent = `${template.name} · 🔇`;
+  if (nodeHuddlePeerStageLabel) nodeHuddlePeerStageLabel.textContent = `${template.name} В· рџ”‡`;
   if (nodeHuddleCard) nodeHuddleCard.classList.toggle("is-connected", state.huddleConnected);
 
   if (fullscreenHuddlePeerAvatar) fullscreenHuddlePeerAvatar.textContent = contextTemplate.icon;
   if (fullscreenHuddleContextLink) fullscreenHuddleContextLink.textContent = contextTemplate.title;
   if (fullscreenHuddlePeerStatus) fullscreenHuddlePeerStatus.textContent = contextTemplate.meta;
   if (fullscreenHuddlePeerStageAvatar) fullscreenHuddlePeerStageAvatar.textContent = stageInitials;
-  if (fullscreenHuddlePeerStageLabel) fullscreenHuddlePeerStageLabel.textContent = `${template.name} · 🔇`;
+  if (fullscreenHuddlePeerStageLabel) fullscreenHuddlePeerStageLabel.textContent = `${template.name} В· рџ”‡`;
   if (huddleFullscreen) huddleFullscreen.classList.toggle("is-connected", state.huddleConnected);
 }
 
@@ -925,8 +925,11 @@ function render() {
 
   syncChatCreateMenu();
 
+  const activeModeButton = document.querySelector(`[data-left-mode="${state.leftMode}"]`);
+  const activeModeLabel = activeModeButton?.getAttribute("aria-label");
+
   if (leftPanelTitle) {
-    leftPanelTitle.textContent = leftModeTitles[state.leftMode] || "Узел связи";
+    leftPanelTitle.textContent = activeModeLabel || leftModeTitles[state.leftMode] || "Узел связи";
   }
 
   personalViewButtons.forEach((button) => {
@@ -953,7 +956,7 @@ function render() {
   if (chatRailNotification) {
     chatRailNotification.classList.toggle("is-call-live", state.huddleOpen);
     chatRailNotification.textContent = state.huddleOpen ? "" : "2";
-    chatRailNotification.setAttribute("aria-label", state.huddleOpen ? "Идет созвон" : "2 непрочитанных");
+    chatRailNotification.setAttribute("aria-label", state.huddleOpen ? "РРґРµС‚ СЃРѕР·РІРѕРЅ" : "2 РЅРµРїСЂРѕС‡РёС‚Р°РЅРЅС‹С…");
   }
 
   leftModePanels.forEach((panel) => {
@@ -1033,10 +1036,10 @@ function render() {
 
   if (rightPanelToolbarTitle) {
     rightPanelToolbarTitle.textContent = state.rightMode === "card"
-      ? "Карточка"
+      ? "РљР°СЂС‚РѕС‡РєР°"
       : state.rightMode === "document"
-        ? "Документ созвона"
-        : "Задачи на дизайн";
+        ? "Р”РѕРєСѓРјРµРЅС‚ СЃРѕР·РІРѕРЅР°"
+        : "Р—Р°РґР°С‡Рё РЅР° РґРёР·Р°Р№РЅ";
   }
 
   if (toolbarHuddleButton) {
@@ -1456,3 +1459,4 @@ initializeComposerAttachMenus();
 setupDocumentOutline();
 
 window.addEventListener("load", render);
+
