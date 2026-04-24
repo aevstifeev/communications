@@ -38,9 +38,11 @@ body.prototype-inline-panel {
   list-style: none;
   display: inline-flex;
   align-items: center;
+  justify-content: space-between;
   gap: 8px;
   min-height: 36px;
-  padding: 0 12px;
+  min-width: 248px;
+  padding: 0 12px 0 14px;
   border: 1px solid rgba(18, 18, 18, 0.12);
   border-radius: 8px;
   background: #ffffff;
@@ -64,14 +66,29 @@ body.prototype-inline-panel {
   position: absolute;
   top: calc(100% + 10px);
   right: 0;
-  min-width: 250px;
+  min-width: 360px;
   display: grid;
-  gap: 4px;
-  padding: 8px;
+  gap: 8px;
+  padding: 10px;
   border: 1px solid rgba(31, 31, 36, 0.1);
   border-radius: 14px;
   background: #fff;
   box-shadow: 0 18px 40px rgba(31, 31, 36, 0.16);
+}
+
+.hub-switcher-section {
+  display: grid;
+  gap: 4px;
+  padding-top: 6px;
+  border-top: 1px solid rgba(31, 31, 36, 0.08);
+}
+
+.hub-switcher-section-title {
+  padding: 2px 12px 0;
+  color: #7a838c;
+  font: 700 11px/1.3 "Roboto", sans-serif;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .hub-switcher-link {
@@ -84,8 +101,25 @@ body.prototype-inline-panel {
   text-decoration: none;
 }
 
+.hub-switcher-child {
+  padding-left: 24px;
+}
+
+.hub-switcher-root {
+  color: #52606b;
+}
+
 .hub-switcher-link:hover {
   background: #f5f7fa;
+}
+
+.hub-switcher-link.is-disabled {
+  color: #9aa3ab;
+  cursor: default;
+}
+
+.hub-switcher-link.is-disabled:hover {
+  background: transparent;
 }
 
 .hub-switcher-link.is-current {

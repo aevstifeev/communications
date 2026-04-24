@@ -24,12 +24,25 @@
       </div>
       <div class="topbar-actions">
         <details class="hub-switcher">
-          <summary class="hub-switcher-toggle">Хаб <span class="hub-switcher-caret">▾</span></summary>
+          <summary class="hub-switcher-toggle">
+            <span>Концепция 1 · Распределённая</span>
+            <span class="hub-switcher-caret">▾</span>
+          </summary>
           <div class="hub-switcher-menu">
-            <a class="hub-switcher-link" href="../index.html">← Вернуться в хаб</a>
-            <a class="hub-switcher-link is-current" href="./index.html">Концепция 1 · Distributed</a>
-            <a class="hub-switcher-link" href="../centralized/index.html">Концепция 2 · Centralized</a>
-            <a class="hub-switcher-link" href="../quick-start/index.html">Концепция 3 · Quick Start</a>
+            <a class="hub-switcher-link hub-switcher-root" href="../index.html">Все концепции коммуникаций</a>
+            <div class="hub-switcher-section">
+              <span class="hub-switcher-section-title">Концепции</span>
+              <a class="hub-switcher-link is-current" href="./index.html">1 · Распределённая</a>
+              <a class="hub-switcher-link" href="../centralized/index.html">2 · Централизованная</a>
+              <a class="hub-switcher-link" href="../quick-start/index.html">3 · Быстрый старт</a>
+            </div>
+            <div class="hub-switcher-section">
+              <span class="hub-switcher-section-title">Быстрый старт</span>
+              <a class="hub-switcher-link hub-switcher-child" href="../quick-start/index.html">Обзор прототипов ВКС</a>
+              <a class="hub-switcher-link hub-switcher-child" href="../quick-start/drover/index.html">В дровере</a>
+              <a class="hub-switcher-link hub-switcher-child" href="../quick-start/fullscreen/index.html">Полноэкранный</a>
+              <span class="hub-switcher-link hub-switcher-child is-disabled">Подключение внешнего участника · в работе</span>
+            </div>
           </div>
         </details>
       </div>

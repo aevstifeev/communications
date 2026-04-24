@@ -1,0 +1,457 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Quick Start Layout Options</title>
+  <style>
+    :root {
+      --text: #14111f;
+      --muted: #526173;
+      --line: rgba(18, 18, 18, 0.1);
+      --surface: #fff;
+      --page: #f7f8fa;
+      --purple: #b145c2;
+      --purple-2: #8c53df;
+      --cyan: #22c3d6;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--page);
+    }
+
+    .topbar {
+      height: 56px;
+      display: grid;
+      grid-template-columns: 220px minmax(280px, 420px) 1fr 70px;
+      align-items: center;
+      gap: 24px;
+      padding: 0 16px;
+      border-bottom: 1px solid var(--line);
+      background: #fff;
+    }
+
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    .logo-dot {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at 50% 50%, #22c3d6 0 33%, transparent 34%),
+        conic-gradient(#b145c2, #22c3d6, #50c878, #ff495c, #b145c2);
+    }
+
+    .search {
+      height: 38px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 14px 0 16px;
+      border: 1px solid #d8dde3;
+      border-radius: 4px;
+      color: #111;
+      background: #f7f7f7;
+      font-size: 18px;
+    }
+
+    .hub {
+      justify-self: end;
+      padding: 8px 14px;
+      border: 1px solid #dde1e6;
+      border-radius: 8px;
+      background: #fff;
+      font-weight: 600;
+    }
+
+    .workspace {
+      display: grid;
+      grid-template-columns: 60px minmax(0, 1fr);
+      min-height: calc(100vh - 56px);
+    }
+
+    .rail {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 22px;
+      padding-top: 26px;
+      border-right: 1px solid var(--line);
+      background: #fff;
+      color: #666f78;
+      font-size: 22px;
+    }
+
+    .rail .meet {
+      position: relative;
+      color: #9737ff;
+    }
+
+    .rail .meet::after {
+      content: "2";
+      position: absolute;
+      right: -12px;
+      top: -10px;
+      width: 18px;
+      height: 18px;
+      border-radius: 999px;
+      background: #1f89ff;
+      color: #fff;
+      font-size: 12px;
+      line-height: 18px;
+      text-align: center;
+    }
+
+    .stage {
+      padding: 48px 56px 72px;
+      background:
+        radial-gradient(circle at 25% 8%, rgba(177, 69, 194, 0.11), transparent 34%),
+        linear-gradient(#fff, #f7f8fa 62%);
+    }
+
+    .preview {
+      width: min(1060px, calc(100vw - 180px));
+      margin: 0 auto 36px;
+    }
+
+    .preview-label {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 12px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .preview-label strong {
+      color: var(--text);
+      font-size: 18px;
+    }
+
+    .brand {
+      font-weight: 800;
+      line-height: 0.96;
+      letter-spacing: 0;
+    }
+
+    .brand span {
+      display: block;
+    }
+
+    .brand .meet-word {
+      color: var(--purple-2);
+    }
+
+    .btn-primary {
+      height: 44px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      border: 0;
+      border-radius: 7px;
+      background: linear-gradient(90deg, var(--purple), var(--purple-2));
+      color: #fff;
+      font-size: 14px;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .btn-secondary,
+    .field {
+      height: 42px;
+      width: 100%;
+      border: 1px solid #d9dde4;
+      border-radius: 7px;
+      background: #fff;
+      color: #111;
+      font-size: 14px;
+    }
+
+    .field {
+      display: flex;
+      align-items: center;
+      padding: 0 14px;
+      color: #8a93a0;
+    }
+
+    .option-one {
+      display: grid;
+      grid-template-columns: 0.95fr 1fr 1fr;
+      gap: 18px;
+      align-items: stretch;
+      padding: 22px;
+      border: 1px solid rgba(18, 18, 18, 0.08);
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.96);
+      box-shadow: 0 18px 42px rgba(31, 31, 36, 0.08);
+    }
+
+    .option-one .brand-tile {
+      display: flex;
+      align-items: center;
+      min-height: 148px;
+      padding-left: 2px;
+    }
+
+    .option-one .brand {
+      font-size: 56px;
+    }
+
+    .action-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 16px;
+      min-height: 148px;
+      padding: 22px 20px;
+      border: 1px solid rgba(18, 18, 18, 0.08);
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    .action-card h3,
+    .command-title {
+      margin: 0;
+      font-size: 16px;
+      line-height: 1.35;
+    }
+
+    .join-stack {
+      display: grid;
+      gap: 10px;
+    }
+
+    .option-four {
+      display: grid;
+      grid-template-columns: minmax(180px, 0.72fr) minmax(260px, 1fr) minmax(340px, 1.35fr);
+      align-items: center;
+      gap: 18px;
+      padding: 18px 20px;
+      border: 1px solid rgba(18, 18, 18, 0.08);
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.96);
+      box-shadow: 0 18px 42px rgba(31, 31, 36, 0.08);
+    }
+
+    .option-four .brand {
+      font-size: 42px;
+    }
+
+    .command-start,
+    .command-join {
+      display: grid;
+      gap: 10px;
+    }
+
+    .inline-join {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 160px;
+      gap: 8px;
+    }
+
+    .records {
+      margin-top: 24px;
+      padding: 18px 20px 16px;
+      border: 1px solid rgba(18, 18, 18, 0.08);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.94);
+      box-shadow: 0 12px 32px rgba(31, 31, 36, 0.05);
+    }
+
+    .records-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .records h2 {
+      margin: 0;
+      font-size: 20px;
+    }
+
+    .records p {
+      margin: 4px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .record-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto auto;
+      gap: 16px;
+      align-items: center;
+      min-height: 56px;
+      border-top: 1px solid #e6e8eb;
+      font-size: 14px;
+    }
+
+    .record-row strong {
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .record-row small {
+      color: var(--muted);
+    }
+
+    .pill {
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: #f3e4f7;
+      color: #a235b9;
+      font-size: 12px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .duration {
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: #eef2f5;
+      color: #526173;
+      font-weight: 700;
+      font-size: 12px;
+    }
+
+    @media (max-width: 1050px) {
+      .preview {
+        width: min(100%, calc(100vw - 120px));
+      }
+
+      .option-one,
+      .option-four {
+        grid-template-columns: 1fr;
+      }
+
+      .option-one .brand-tile,
+      .action-card {
+        min-height: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="logo"><span class="logo-dot"></span><span>Kaiten</span></div>
+    <div class="search"><span>Найти</span><span>⌕</span></div>
+    <div></div>
+    <button class="hub">Хаб⌄</button>
+  </header>
+
+  <main class="workspace">
+    <aside class="rail" aria-label="Левый рейл">
+      <span>◪</span>
+      <span>★</span>
+      <span>✣</span>
+      <span class="meet">▱</span>
+    </aside>
+
+    <section class="stage">
+      <div class="preview">
+        <div class="preview-label">
+          <strong>Вариант 1: единый блок быстрого старта</strong>
+          <span>Бренд и две равные CTA-карточки внутри одной общей поверхности</span>
+        </div>
+        <div class="option-one">
+          <div class="brand-tile">
+            <div class="brand" aria-label="Kaiten Meet">
+              <span>Kaiten</span>
+              <span class="meet-word">Meet</span>
+            </div>
+          </div>
+          <article class="action-card">
+            <h3>Начать встречу и пригласить коллег</h3>
+            <button class="btn-primary" type="button">▣ Начать видеозвонок</button>
+          </article>
+          <article class="action-card">
+            <h3>Присоединиться по ссылке или коду</h3>
+            <div class="join-stack">
+              <div class="field">Ссылка или ID встречи</div>
+              <button class="btn-secondary" type="button">Подключиться</button>
+            </div>
+          </article>
+        </div>
+        <div class="records">
+          <div class="records-head">
+            <div>
+              <h2>Прошедшие встречи и записи</h2>
+              <p>Недавние созвоны, записи и документы с итогами.</p>
+            </div>
+          </div>
+          <div class="record-row">
+            <div><strong>Кайтен ВКС тестовая запись</strong><small>Сегодня, 12:30 · Задачи на дизайн / Видеосвязь</small></div>
+            <span class="pill">Транскрипт готов</span>
+            <span class="duration">48 мин</span>
+          </div>
+          <div class="record-row">
+            <div><strong>Design sync / Quick Start</strong><small>Вчера, 16:31 · Задачи на дизайн / Quick Start</small></div>
+            <span class="pill">Транскрипт готов</span>
+            <span class="duration">31 мин</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="preview">
+        <div class="preview-label">
+          <strong>Вариант 4: горизонтальная командная панель</strong>
+          <span>Максимально рабочий формат: бренд, старт и подключение в одной строке</span>
+        </div>
+        <div class="option-four">
+          <div class="brand" aria-label="Kaiten Meet">
+            <span>Kaiten</span>
+            <span class="meet-word">Meet</span>
+          </div>
+          <div class="command-start">
+            <h3 class="command-title">Начать встречу и пригласить коллег</h3>
+            <button class="btn-primary" type="button">▣ Начать видеозвонок</button>
+          </div>
+          <div class="command-join">
+            <h3 class="command-title">Присоединиться по ссылке или коду</h3>
+            <div class="inline-join">
+              <div class="field">Ссылка или ID встречи</div>
+              <button class="btn-secondary" type="button">Подключиться</button>
+            </div>
+          </div>
+        </div>
+        <div class="records">
+          <div class="records-head">
+            <div>
+              <h2>Прошедшие встречи и записи</h2>
+              <p>Недавние созвоны, записи и документы с итогами.</p>
+            </div>
+          </div>
+          <div class="record-row">
+            <div><strong>Кайтен ВКС тестовая запись</strong><small>Сегодня, 12:30 · Задачи на дизайн / Видеосвязь</small></div>
+            <span class="pill">Транскрипт готов</span>
+            <span class="duration">48 мин</span>
+          </div>
+          <div class="record-row">
+            <div><strong>Design sync / Quick Start</strong><small>Вчера, 16:31 · Задачи на дизайн / Quick Start</small></div>
+            <span class="pill">Транскрипт готов</span>
+            <span class="duration">31 мин</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

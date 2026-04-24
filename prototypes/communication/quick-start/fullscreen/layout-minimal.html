@@ -1,0 +1,389 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Quick Start Minimal Concept</title>
+  <style>
+    :root {
+      --text: #14111f;
+      --muted: #536273;
+      --line: rgba(18, 18, 18, 0.1);
+      --surface: #fff;
+      --page: #f7f8fa;
+      --purple: #b145c2;
+      --purple-2: #8c53df;
+      --focus: #1f89ff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--page);
+    }
+
+    .topbar {
+      height: 56px;
+      display: grid;
+      grid-template-columns: 220px minmax(280px, 420px) 1fr 70px;
+      align-items: center;
+      gap: 24px;
+      padding: 0 16px;
+      border-bottom: 1px solid var(--line);
+      background: #fff;
+    }
+
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    .logo-dot {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at 50% 50%, #22c3d6 0 33%, transparent 34%),
+        conic-gradient(#b145c2, #22c3d6, #50c878, #ff495c, #b145c2);
+    }
+
+    .search {
+      height: 38px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 14px 0 16px;
+      border: 1px solid #d8dde3;
+      border-radius: 4px;
+      color: #111;
+      background: #f7f7f7;
+      font-size: 18px;
+    }
+
+    .hub {
+      justify-self: end;
+      padding: 8px 14px;
+      border: 1px solid #dde1e6;
+      border-radius: 8px;
+      background: #fff;
+      font-weight: 600;
+    }
+
+    .workspace {
+      display: grid;
+      grid-template-columns: 60px minmax(0, 1fr);
+      min-height: calc(100vh - 56px);
+    }
+
+    .rail {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 22px;
+      padding-top: 26px;
+      border-right: 1px solid var(--line);
+      background: #fff;
+      color: #666f78;
+      font-size: 22px;
+    }
+
+    .rail .meet {
+      position: relative;
+      color: #9737ff;
+    }
+
+    .rail .meet::after {
+      content: "2";
+      position: absolute;
+      right: -12px;
+      top: -10px;
+      width: 18px;
+      height: 18px;
+      border-radius: 999px;
+      background: var(--focus);
+      color: #fff;
+      font-size: 12px;
+      line-height: 18px;
+      text-align: center;
+    }
+
+    .stage {
+      min-height: calc(100vh - 56px);
+      padding: 64px 56px 72px;
+      background:
+        radial-gradient(circle at 25% 6%, rgba(177, 69, 194, 0.11), transparent 32%),
+        linear-gradient(#fff, #f7f8fa 62%);
+    }
+
+    .content {
+      width: min(1060px, calc(100vw - 180px));
+      margin: 0 auto;
+    }
+
+    .quick-panel {
+      display: grid;
+      grid-template-columns: minmax(390px, 1.05fr) minmax(360px, 0.95fr);
+      gap: 0;
+      border: 1px solid rgba(18, 18, 18, 0.08);
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.96);
+      box-shadow: 0 18px 42px rgba(31, 31, 36, 0.08);
+      overflow: hidden;
+    }
+
+    .start-group,
+    .join-group {
+      min-height: 132px;
+      display: grid;
+      align-items: center;
+      gap: 18px;
+      padding: 24px 28px;
+    }
+
+    .start-group {
+      grid-template-columns: minmax(160px, 0.7fr) minmax(220px, 1fr);
+    }
+
+    .join-group {
+      grid-template-columns: minmax(0, 1fr) 158px;
+      border-left: 1px solid rgba(18, 18, 18, 0.08);
+    }
+
+    .brand {
+      font-size: 46px;
+      font-weight: 800;
+      line-height: 0.96;
+      letter-spacing: 0;
+    }
+
+    .brand span {
+      display: block;
+    }
+
+    .brand .meet-word {
+      color: var(--purple-2);
+    }
+
+    .btn-primary,
+    .btn-secondary,
+    .field {
+      height: 44px;
+      border-radius: 7px;
+      font-size: 14px;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 0;
+      font-weight: 800;
+      cursor: default;
+    }
+
+    .btn-primary {
+      width: 100%;
+      gap: 8px;
+      background: linear-gradient(90deg, var(--purple), var(--purple-2));
+      color: #fff;
+      text-transform: uppercase;
+    }
+
+    .btn-secondary {
+      width: 100%;
+      border: 1px solid #d9dde4;
+      background: #fff;
+      color: #111;
+      text-transform: uppercase;
+    }
+
+    .field {
+      display: flex;
+      align-items: center;
+      padding: 0 14px;
+      border: 1px solid #d9dde4;
+      background: #fff;
+      color: #8a93a0;
+    }
+
+    .records {
+      margin-top: 24px;
+      padding: 18px 20px 16px;
+      border: 1px solid rgba(18, 18, 18, 0.08);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.94);
+      box-shadow: 0 12px 32px rgba(31, 31, 36, 0.05);
+    }
+
+    .records-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .records h2 {
+      margin: 0;
+      font-size: 20px;
+    }
+
+    .records p {
+      margin: 4px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .record-tools {
+      display: inline-flex;
+      gap: 8px;
+    }
+
+    .tool-btn {
+      width: 36px;
+      height: 36px;
+      border: 1px solid #dde1e6;
+      border-radius: 7px;
+      background: #fff;
+      color: #526173;
+      font-size: 17px;
+    }
+
+    .record-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto auto;
+      gap: 16px;
+      align-items: center;
+      min-height: 56px;
+      border-top: 1px solid #e6e8eb;
+      font-size: 14px;
+    }
+
+    .record-row strong {
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .record-row small {
+      color: var(--muted);
+    }
+
+    .pill {
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: #f3e4f7;
+      color: #a235b9;
+      font-size: 12px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .duration {
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: #eef2f5;
+      color: #526173;
+      font-weight: 700;
+      font-size: 12px;
+    }
+
+    .note {
+      margin: 14px 0 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    @media (max-width: 1050px) {
+      .content {
+        width: min(100%, calc(100vw - 120px));
+      }
+
+      .quick-panel,
+      .start-group,
+      .join-group {
+        grid-template-columns: 1fr;
+      }
+
+      .join-group {
+        border-left: 0;
+        border-top: 1px solid rgba(18, 18, 18, 0.08);
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="logo"><span class="logo-dot"></span><span>Kaiten</span></div>
+    <div class="search"><span>Найти</span><span>⌕</span></div>
+    <div></div>
+    <button class="hub">Хаб⌄</button>
+  </header>
+
+  <main class="workspace">
+    <aside class="rail" aria-label="Левый рейл">
+      <span>◪</span>
+      <span>★</span>
+      <span>✣</span>
+      <span class="meet">▱</span>
+    </aside>
+
+    <section class="stage">
+      <div class="content">
+        <div class="quick-panel" aria-label="Быстрый старт видеовстреч">
+          <div class="start-group">
+            <div class="brand" aria-label="Kaiten Meet">
+              <span>Kaiten</span>
+              <span class="meet-word">Meet</span>
+            </div>
+            <button class="btn-primary" type="button">▣ Начать видеозвонок</button>
+          </div>
+
+          <div class="join-group">
+            <div class="field">Ссылка или ID встречи</div>
+            <button class="btn-secondary" type="button">Подключиться</button>
+          </div>
+        </div>
+        <p class="note">Минимальная версия: без заголовка у подключения, потому что placeholder уже объясняет действие.</p>
+
+        <div class="records">
+          <div class="records-head">
+            <div>
+              <h2>Прошедшие встречи и записи</h2>
+              <p>Недавние созвоны, записи и документы с итогами.</p>
+            </div>
+            <div class="record-tools">
+              <button class="tool-btn" type="button" aria-label="Поиск">⌕</button>
+              <button class="tool-btn" type="button" aria-label="Календарь">▣</button>
+            </div>
+          </div>
+          <div class="record-row">
+            <div><strong>Кайтен ВКС тестовая запись</strong><small>Сегодня, 12:30 · Задачи на дизайн / Видеосвязь</small></div>
+            <span class="pill">Транскрипт готов</span>
+            <span class="duration">48 мин</span>
+          </div>
+          <div class="record-row">
+            <div><strong>Design sync / Quick Start</strong><small>Вчера, 16:31 · Задачи на дизайн / Quick Start</small></div>
+            <span class="pill">Транскрипт готов</span>
+            <span class="duration">31 мин</span>
+          </div>
+          <div class="record-row">
+            <div><strong>UX review: карточка звонка</strong><small>22 апреля, 11:20 · Задачи на дизайн / Карточка звонка</small></div>
+            <span class="pill">Без транскрипта</span>
+            <span class="duration">18 мин</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
