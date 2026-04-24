@@ -3,356 +3,282 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kaiten Communication Prototypes</title>
+  <title>Communication Concepts Hub</title>
+  <link rel="stylesheet" href="./styles/tokens.css">
   <style>
     :root {
-      color-scheme: light;
-      --bg: #f3efe8;
-      --surface: rgba(255, 255, 255, 0.84);
-      --surface-strong: #ffffff;
-      --text: #1e2028;
-      --muted: #666372;
-      --border: rgba(30, 32, 40, 0.12);
-      --accent: #d1623b;
-      --accent-soft: rgba(209, 98, 59, 0.12);
-      --accent-2: #325fd1;
-      --shadow: 0 24px 64px rgba(39, 28, 21, 0.12);
+      --bg: var(--app-color-bg);
+      --surface: var(--app-color-surface);
+      --border: var(--app-color-border);
+      --text: var(--app-color-text);
+      --muted: var(--app-color-text-muted);
+      --accent: var(--app-color-accent);
+      --accent-strong: var(--app-color-accent-strong);
+      --info: var(--app-color-info);
+      --shadow: var(--app-shadow-card);
+      --font-family: var(--app-font-family);
+      --text-caption: var(--app-text-caption);
+      --text-body: var(--app-text-body);
+      --text-title: var(--app-text-title);
+      --text-button: var(--app-text-button);
     }
 
     * {
       box-sizing: border-box;
     }
 
+    html,
     body {
       margin: 0;
-      font-family: "Segoe UI", sans-serif;
+      min-height: 100%;
+    }
+
+    body {
+      font-family: var(--font-family);
       color: var(--text);
       background:
-        radial-gradient(circle at top left, rgba(209, 98, 59, 0.14), transparent 24rem),
-        radial-gradient(circle at right top, rgba(50, 95, 209, 0.12), transparent 26rem),
-        linear-gradient(180deg, #f7f2eb 0%, var(--bg) 100%);
+        radial-gradient(circle at top left, rgba(33, 150, 243, 0.05), transparent 18rem),
+        radial-gradient(circle at right top, rgba(125, 76, 207, 0.04), transparent 20rem),
+        linear-gradient(180deg, #fcfcfc 0%, #f4f5f7 100%);
     }
 
-    .page {
-      width: min(1160px, calc(100% - 32px));
-      margin: 0 auto;
-      padding: 32px 0 56px;
-    }
-
-    .hero,
-    .section,
-    .footer-note {
-      border: 1px solid var(--border);
-      border-radius: 28px;
-      background: var(--surface);
-      box-shadow: var(--shadow);
-      backdrop-filter: blur(16px);
-    }
-
-    .hero {
-      display: grid;
-      gap: 18px;
-      padding: 28px;
-      margin-bottom: 20px;
-    }
-
-    .eyebrow {
-      margin: 0;
-      color: var(--accent);
-      font-size: 12px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-    }
-
-    h1,
-    h2,
-    h3,
-    p {
+    p,
+    h2 {
       margin: 0;
     }
 
-    h1 {
-      font-size: clamp(34px, 6vw, 64px);
-      line-height: 0.96;
-      max-width: 920px;
-    }
-
-    .hero-copy {
-      max-width: 860px;
-      font-size: 17px;
-      line-height: 1.65;
-      color: var(--muted);
-    }
-
-    .chips {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .chip {
-      display: inline-flex;
-      align-items: center;
-      min-height: 38px;
-      padding: 0 14px;
-      border-radius: 999px;
-      background: var(--accent-soft);
-      font-size: 13px;
-      font-weight: 600;
-    }
-
-    .layout {
+    .screen {
+      width: min(1280px, calc(100% - 40px));
+      min-height: calc(100vh - 40px);
+      margin: 20px auto;
       display: grid;
-      gap: 20px;
-    }
-
-    .section {
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: repeat(6, minmax(0, 1fr));
+      column-gap: 24px;
       padding: 24px;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.82), rgba(250, 250, 251, 0.96));
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
     }
 
-    .section-head {
-      display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
-      gap: 16px;
-      margin-bottom: 16px;
-    }
-
-    .section-head p {
-      max-width: 720px;
-      color: var(--muted);
-      line-height: 1.6;
-    }
-
-    .card-grid {
+    .left-side {
+      grid-column: 1;
+      grid-row: 2 / span 4;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 16px;
+      align-content: center;
+      justify-items: center;
+      min-height: 0;
+    }
+
+    .hypothesis-text {
+      width: min(420px, calc(100% - 88px));
+      font-size: clamp(20px, 1.45vw, 25px);
+      line-height: 1.52;
+      letter-spacing: -0.018em;
+      color: var(--text);
+    }
+
+    .hypothesis-break {
+      display: block;
+      height: 0.55em;
+    }
+
+    .hypothesis-text strong {
+      font-weight: 700;
+    }
+
+    .right-side {
+      grid-column: 2;
+      grid-row: 2 / span 4;
+      min-height: 0;
+      display: grid;
+      grid-template-rows: auto auto;
+      align-content: center;
+      gap: 28px;
     }
 
     .card {
       display: grid;
-      gap: 14px;
-      min-height: 260px;
-      padding: 22px;
-      border: 1px solid var(--border);
-      border-radius: 24px;
-      background: var(--surface-strong);
-    }
-
-    .card.kicker-accent {
-      background:
-        linear-gradient(180deg, rgba(209, 98, 59, 0.08), rgba(209, 98, 59, 0) 36%),
-        var(--surface-strong);
-    }
-
-    .card.kicker-alt {
-      background:
-        linear-gradient(180deg, rgba(50, 95, 209, 0.08), rgba(50, 95, 209, 0) 36%),
-        var(--surface-strong);
+      grid-template-columns: 36ch auto;
+      grid-template-areas:
+        "label button"
+        "title button"
+        "body button";
+      justify-content: end;
+      align-content: start;
+      align-items: start;
+      padding: 10px 18px 10px 52px;
+      border: none;
+      background: transparent;
+      box-shadow: none;
     }
 
     .card-label {
-      color: var(--accent);
-      font-size: 12px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-    }
-
-    .card.kicker-alt .card-label {
-      color: var(--accent-2);
-    }
-
-    .card p,
-    .doc-list a,
-    .meta-list {
+      grid-area: label;
+      width: 36ch;
+      margin-bottom: 10px;
       color: var(--muted);
-      line-height: 1.55;
+      font: var(--text-caption);
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
     }
 
-    .meta-list {
-      padding-left: 18px;
+    .card h2 {
+      grid-area: title;
+      width: 36ch;
+      margin-bottom: 12px;
+      font: var(--text-title);
+      font-size: clamp(28px, 2vw, 34px);
+      line-height: 1.08;
+      letter-spacing: -0.024em;
     }
 
-    .actions,
-    .doc-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
+    .card p {
+      grid-area: body;
+      width: 36ch;
+      max-width: 36ch;
+      margin-bottom: 0;
+      color: var(--muted);
+      font: var(--text-body);
+      font-size: 17px;
+      line-height: 1.58;
     }
 
     .button {
+      grid-area: button;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-height: 44px;
-      padding: 0 16px;
-      border-radius: 999px;
-      border: 1px solid var(--border);
-      background: #fff;
-      color: var(--text);
+      min-height: 42px;
+      padding: 0 18px;
+      align-self: start;
+      justify-self: end;
+      margin-top: 4px;
+      color: var(--token-color-grey-white);
       text-decoration: none;
-      font-weight: 600;
+      font: var(--text-button);
+      font-weight: 700;
+      box-shadow: var(--shadow);
     }
 
-    .button.primary {
-      background: var(--text);
-      border-color: var(--text);
-      color: #fff;
+    .distributed .button {
+      background: linear-gradient(135deg, #4f78cf 0%, var(--info) 100%);
     }
 
-    .footer-note {
-      margin-top: 20px;
-      padding: 20px 24px;
-      color: var(--muted);
-      line-height: 1.65;
+    .centralized .button {
+      background: linear-gradient(135deg, var(--accent-strong) 0%, var(--accent) 100%);
     }
 
-    .doc-list a {
-      text-decoration: none;
-      padding: 10px 14px;
-      border-radius: 14px;
-      border: 1px solid var(--border);
-      background: rgba(255, 255, 255, 0.72);
-    }
+    @media (max-width: 980px) {
+      .screen {
+        min-height: auto;
+        grid-template-columns: 1fr;
+        grid-template-rows: none;
+        margin: 10px auto 20px;
+        row-gap: 16px;
+      }
 
-    code {
-      font-family: Consolas, monospace;
-      font-size: 0.95em;
+      .left-side,
+      .right-side {
+        min-height: auto;
+        grid-column: auto;
+        grid-row: auto;
+      }
+
+      .right-side {
+        grid-template-rows: none;
+      }
+
+      .left-side {
+        padding: 40px 0;
+      }
     }
 
     @media (max-width: 720px) {
-      .page {
-        width: min(100% - 20px, 1160px);
-        padding-top: 20px;
+      .screen {
+        width: min(100% - 20px, 1280px);
+        row-gap: 16px;
+        column-gap: 16px;
+        padding: 16px;
       }
 
-      .hero,
-      .section,
-      .footer-note {
-        border-radius: 22px;
+      .hypothesis-text {
+        width: min(100% - 32px, 420px);
+        font-size: 22px;
+        line-height: 1.48;
+      }
+
+      .right-side {
+        gap: 16px;
+      }
+
+      .card {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+          "label"
+          "title"
+          "body"
+          "button";
+        justify-content: stretch;
+        padding: 24px 20px;
+      }
+
+      .card-label,
+      .card h2,
+      .card p {
+        width: auto;
+      }
+
+      .card p {
+        max-width: none;
+        margin-bottom: 18px;
+      }
+
+      .button {
+        justify-self: start;
       }
     }
   </style>
 </head>
 <body>
-  <main class="page">
-    <section class="hero">
-      <p class="eyebrow">Kaiten Prototype Workspace</p>
-      <h1>База, распределённая и централизованная версии в одной publish-ready структуре</h1>
-      <p class="hero-copy">
-        Этот репозиторий собран как статическая витрина прототипов для GitHub и Vercel.
-        Корень репозитория теперь выступает точкой входа, а активные версии модуля коммуникации
-        вынесены в отдельный каталог с явной структурой и понятным неймингом.
+  <main class="screen">
+    <section class="left-side">
+      <p class="hypothesis-text">
+        <strong>Если</strong> мы дадим встроенные ЧАТ и ВКС на уровне “good enough” прямо рядом с задачами и проектами
+        (без попытки конкурировать с мессенджерами),<br>
+        <span class="hypothesis-break" aria-hidden="true"></span>
+        <strong>то</strong> команды будут реже уносить обсуждения и решения наружу,<br>
+        <span class="hypothesis-break" aria-hidden="true"></span>
+        <strong>потому</strong> что обсуждение и решение будут происходить в том же контуре, где фиксируется работа,<br>
+        <span class="hypothesis-break" aria-hidden="true"></span>
+        тогда вырастет stickiness и снизится риск ухода в all-in-one платформы.
       </p>
-      <div class="chips">
-        <span class="chip">Static-first</span>
-        <span class="chip">GitHub-ready</span>
-        <span class="chip">Vercel-ready</span>
-        <span class="chip">Base / Distributed / Centralized</span>
-      </div>
     </section>
 
-    <div class="layout">
-      <section class="section">
-        <div class="section-head">
-          <div>
-            <h2>Активные прототипы</h2>
-            <p>Основной набор для демонстрации и сравнения. Именно эти страницы стоит использовать как рабочие entry points после публикации репозитория.</p>
-          </div>
-        </div>
-        <div class="card-grid">
-          <article class="card kicker-accent">
-            <span class="card-label">Base</span>
-            <h3>Контрольная точка</h3>
-            <p>Фиксированная базовая версия интерфейса Kaiten, от которой сравниваются дальнейшие сценарии модуля коммуникации.</p>
-            <ul class="meta-list">
-              <li>Путь: <code>prototypes/communication/base/</code></li>
-              <li>Роль: baseline</li>
-            </ul>
-            <div class="actions">
-              <a class="button primary" href="./prototypes/communication/base/index.html">Открыть</a>
-            </div>
-          </article>
+    <section class="right-side" aria-label="Варианты концепции">
+      <article class="card distributed">
+        <span class="card-label">Концепция</span>
+        <h2>Распределённая</h2>
+        <p>Коммуникация встроена в текущие чаты, каналы и обсуждения рядом с работой.</p>
+        <a class="button" href="./prototypes/communication/distributed/index.html">Смотреть</a>
+      </article>
 
-          <article class="card kicker-alt">
-            <span class="card-label">Distributed</span>
-            <h3>Коммуникация распределена по чатам и каналам</h3>
-            <p>Созвоны остаются частью уже существующих коммуникационных сущностей и не выделяются в самостоятельный продуктовый слой.</p>
-            <ul class="meta-list">
-              <li>Путь: <code>prototypes/communication/distributed/</code></li>
-              <li>Роль: версия 1</li>
-            </ul>
-            <div class="actions">
-              <a class="button primary" href="./prototypes/communication/distributed/index.html">Открыть</a>
-            </div>
-          </article>
+      <article class="card centralized">
+        <span class="card-label">Концепция</span>
+        <h2>Централизованная</h2>
+        <p>Коммуникация становится отдельной точкой входа и самостоятельным модулем.</p>
+        <a class="button" href="./prototypes/communication/centralized/index.html">Смотреть</a>
+      </article>
 
-          <article class="card">
-            <span class="card-label">Centralized</span>
-            <h3>Коммуникация как отдельный модуль</h3>
-            <p>Централизованная версия, где встречи, планирование и артефакты собираются в самостоятельный модуль внутри системы.</p>
-            <ul class="meta-list">
-              <li>Путь: <code>prototypes/communication/centralized/</code></li>
-              <li>Роль: версия 2</li>
-            </ul>
-            <div class="actions">
-              <a class="button primary" href="./prototypes/communication/centralized/index.html">Открыть</a>
-            </div>
-          </article>
-
-          <article class="card kicker-accent">
-            <span class="card-label">Quick Start</span>
-            <h3>Быстрый старт ВКС</h3>
-            <p>Минимальная концепция быстрого входа в звонок из панели: создать комнату или присоединиться по ссылке с pre-join экраном.</p>
-            <ul class="meta-list">
-              <li>Путь: <code>prototypes/communication/quick-start/</code></li>
-              <li>Роль: минимальная концепция</li>
-            </ul>
-            <div class="actions">
-              <a class="button primary" href="./prototypes/communication/quick-start/index.html">Открыть</a>
-            </div>
-          </article>
-
-          <article class="card">
-            <span class="card-label">Hub</span>
-            <h3>Сравнение вариантов</h3>
-            <p>Отдельная страница-хаб для переключения между версиями и фиксации текущего фокуса работы.</p>
-            <ul class="meta-list">
-              <li>Путь: <code>prototypes/communication/index.html</code></li>
-              <li>Роль: навигация по набору прототипов</li>
-            </ul>
-            <div class="actions">
-              <a class="button" href="./prototypes/communication/index.html">Открыть хаб</a>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <section class="section">
-        <div class="section-head">
-          <div>
-            <h2>Документация</h2>
-            <p>Файлы ниже описывают продуктовый контекст, логику сравнения вариантов и то, как устроен репозиторий после нормализации.</p>
-          </div>
-        </div>
-        <div class="doc-list">
-          <a href="./README.md">README</a>
-          <a href="./docs/project-context.md">Project Context</a>
-          <a href="./docs/communication-module-plan.md">Communication Module Plan</a>
-          <a href="./docs/communication-variants.md">Communication Variants</a>
-          <a href="./concepts/communication/README.md">Communication Concepts</a>
-        </div>
-      </section>
-    </div>
-
-    <p class="footer-note">
-      Legacy-файлы из старого корня сохранены в <code>archive/legacy-root/</code>, а историческая структура в
-      <code>concepts/communication/</code> остаётся как исследовательский слой. Для GitHub и Vercel используем
-      корневую страницу этого репозитория и каталог <code>prototypes/communication/</code> как основной runtime-контур.
-    </p>
+      <article class="card distributed">
+        <span class="card-label">Концепция</span>
+        <h2>Быстрый старт</h2>
+        <p>Одна кнопка в панели, мгновенное создание комнаты и pre-join экран для подключения по ссылке.</p>
+        <a class="button" href="./prototypes/communication/quick-start/index.html">Смотреть</a>
+      </article>
+    </section>
   </main>
 </body>
 </html>

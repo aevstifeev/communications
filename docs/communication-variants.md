@@ -50,8 +50,8 @@
 
 ## Archive Context Drawer
 
-- Status: inactive
-- Folder: `prototypes/communication/archive-context-drawer/`
+- Status: removed from active runtime
+- Folder: removed from current repo structure
 - Idea: архивный drawer-паттерн, сохраненный как референс.
 - Diff from base: не участвует в текущем сравнении.
 - Strengths: можно быстро вернуть как запасную гипотезу.

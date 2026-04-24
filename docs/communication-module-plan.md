@@ -26,7 +26,7 @@
 1. Держим `Base` как контрольную точку.
 2. Развиваем распределённую и централизованную версии как независимые entry points.
 3. Фиксируем гипотезы и критерии сравнения в `docs/communication-variants.md`.
-4. Используем `prototypes/communication/index.html` как страницу переключения между версиями.
+4. Используем корневой `index.html` как publish-ready вход и сохраняем `prototypes/communication/index.html` как тот же хаб внутри структуры прототипов.
 5. После выбора итогового направления переносим выводы в следующий продуктовый контур.
 
 ## Naming Rule
@@ -41,4 +41,3 @@
 - `prototypes/communication/distributed/`
 - `prototypes/communication/centralized/`
 - `prototypes/communication/quick-start/`
-- `prototypes/communication/archive-context-drawer/`

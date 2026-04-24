@@ -15,7 +15,7 @@
 - `prototypes/communication/base/`
 - `prototypes/communication/distributed/`
 - `prototypes/communication/centralized/`
-- `prototypes/communication/index.html`
+- `index.html`
 
 ## Роль этой папки
 

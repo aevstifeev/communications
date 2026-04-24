@@ -186,6 +186,10 @@ body.prototype-variant-b {
   --icon-height: 16px;
 }
 
+.rail-btn-chat .rail-icon-plane {
+  display: none;
+}
+
 .rail-btn-communication::before,
 .huddle-control[aria-label*="Показать или скрыть боковую панель"]::before,
 .task-stat-icon::before {

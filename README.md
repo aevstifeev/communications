@@ -10,15 +10,15 @@
 - `scripts/` - общая логика shell-уровня.
 - `docs/` - контекст проекта, решения и описание вариантов.
 - `concepts/` - дополнительные продуктовые направления и legacy-структура исследования.
-- `archive/legacy-root/` - сохранённые старые файлы из корня, которые больше не являются основной точкой входа.
 
 ## Активные прототипы
 
 - `prototypes/communication/base/` - базовая версия (`Base`).
-- `prototypes/communication/distributed/` - распределённая версия модуля коммуникации.
-- `prototypes/communication/centralized/` - централизованная версия модуля коммуникации.
-- `prototypes/communication/quick-start/` - ветка под концепт «быстрый старт» с двумя минимальными входами: `Новая встреча` и `Присоединиться`.
-- `prototypes/communication/archive-context-drawer/` - архивный референс, не входит в основной набор для сравнения.
+- `prototypes/communication/distributed/` - распределённая концепция модуля коммуникации.
+- `prototypes/communication/centralized/` - централизованная концепция модуля коммуникации.
+- `prototypes/communication/quick-start/` - концепция быстрого старта ВКС с мгновенным созданием встречи и входом по ссылке.
+
+Корневой `index.html` и `prototypes/communication/index.html` ведут в единый хаб с тремя текущими концепциями.
 
 ## Публикация
 

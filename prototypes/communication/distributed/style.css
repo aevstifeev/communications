@@ -191,22 +191,12 @@ body.prototype-inline-panel {
 }
 
 .rail-btn-chat::before {
-  --icon-size: 22px;
-}
-
-.rail-btn-chat::before {
-  display: none;
+  --icon-width: 20px;
+  --icon-height: 16px;
 }
 
 .rail-btn-chat .rail-icon-plane {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 20px;
-  height: 20px;
-  font-size: 18px;
-  line-height: 1;
-  color: currentColor;
+  display: none;
 }
 
 .rail-btn-communication::before,
