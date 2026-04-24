@@ -96,12 +96,176 @@ body.prototype-inline-panel {
 .rail-btn-chat,
 .rail-btn-communication {
   position: relative;
+  font-size: 0;
+  color: #606a75;
+}
+
+.rail-btn-chat.is-active,
+.rail-btn-communication.is-active {
+  color: #ab47bd;
 }
 
 .rail-icon-plane,
-.rail-icon-bubble {
-  font-size: 16px;
+.rail-icon-bubble,
+.help-btn,
+.favorite-star,
+.panel-head-btn[aria-label*="Закрыть"],
+.circle-btn[aria-label*="Закрыть"],
+.board-icon-btn[aria-label*="Закрыть"],
+.icon-btn[aria-label*="Отправить"],
+.icon-btn[aria-label*="Голосовой"],
+.huddle-control[aria-label*="Микрофон"],
+.huddle-control[aria-label*="Видео"],
+.huddle-control[aria-label*="Чат"],
+.state-icon-btn[aria-label*="Отправить"],
+.state-icon-btn[aria-label*="Микрофон"],
+.ask-ai-send,
+.audio-square-btn[aria-label*="Воспроизвести"],
+.board-icon-btn[aria-label*="Видео"],
+.ghost-btn-icon[aria-label*="полном экране"],
+.panel-head-btn[aria-label*="Развернуть"],
+.recording-play,
+.task-stat-icon {
+  font-size: 0 !important;
+  line-height: 0 !important;
+}
+
+.rail-btn-chat::before,
+.rail-btn-communication::before,
+.help-btn::before,
+.favorite-star::before,
+.panel-head-btn[aria-label*="Закрыть"]::before,
+.circle-btn[aria-label*="Закрыть"]::before,
+.board-icon-btn[aria-label*="Закрыть"]::before,
+.icon-btn[aria-label*="Отправить"]::before,
+.icon-btn[aria-label*="Голосовой"]::before,
+.huddle-control[aria-label*="Микрофон"]::before,
+.huddle-control[aria-label*="Видео"]::before,
+.huddle-control[aria-label*="Чат"]::before,
+.state-icon-btn[aria-label*="Отправить"]::before,
+.state-icon-btn[aria-label*="Микрофон"]::before,
+.ask-ai-send::before,
+.audio-square-btn[aria-label*="Воспроизвести"]::before,
+.board-icon-btn[aria-label*="Видео"]::before,
+.ghost-btn-icon[aria-label*="полном экране"]::before,
+.panel-head-btn[aria-label*="Развернуть"]::before,
+.recording-play::before,
+.task-stat-icon::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  display: block;
+  width: var(--icon-size, 20px);
+  height: var(--icon-size, 20px);
+  background-image: none !important;
+  background-color: currentColor;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  -webkit-mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: contain;
+  -webkit-mask-image: var(--icon-mask);
+  mask-image: var(--icon-mask);
+}
+
+.help-btn,
+.favorite-star,
+.panel-head-btn[aria-label*="Закрыть"],
+.circle-btn[aria-label*="Закрыть"],
+.board-icon-btn[aria-label*="Закрыть"],
+.icon-btn[aria-label*="Отправить"],
+.icon-btn[aria-label*="Голосовой"],
+.huddle-control[aria-label*="Микрофон"],
+.huddle-control[aria-label*="Видео"],
+.huddle-control[aria-label*="Чат"],
+.state-icon-btn[aria-label*="Отправить"],
+.state-icon-btn[aria-label*="Микрофон"],
+.ask-ai-send,
+.audio-square-btn[aria-label*="Воспроизвести"],
+.board-icon-btn[aria-label*="Видео"],
+.ghost-btn-icon[aria-label*="полном экране"],
+.panel-head-btn[aria-label*="Развернуть"] {
+  position: relative;
+}
+
+.rail-btn-chat::before {
+  --icon-size: 22px;
+}
+
+.rail-btn-chat::before {
+  display: none;
+}
+
+.rail-btn-chat .rail-icon-plane {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  font-size: 18px;
   line-height: 1;
+  color: currentColor;
+}
+
+.rail-btn-communication::before,
+.huddle-control[aria-label*="Чат"]::before,
+.task-stat-icon::before {
+  --icon-width: 18px;
+  --icon-height: 16px;
+}
+
+.rail-btn-chat,
+.board-icon-btn[aria-label*="Видео"],
+.huddle-control[aria-label*="Видео"] {
+  --icon-mask: url("https://www.figma.com/api/mcp/asset/73c739b4-48e3-47f7-b4ff-4faba091d569");
+}
+
+.rail-btn-communication,
+.huddle-control[aria-label*="Чат"],
+.task-stat-icon {
+  --icon-mask: url("https://www.figma.com/api/mcp/asset/f0ed3ed8-9b9b-4811-adab-3189054db2cb");
+}
+
+.help-btn {
+  --icon-mask: url("https://www.figma.com/api/mcp/asset/171c6019-6595-4e65-a298-09fcd9ea6a69");
+}
+
+.favorite-star {
+  --icon-mask: url("https://www.figma.com/api/mcp/asset/a50742e1-82af-4fb3-a478-67c92ff157fe");
+}
+
+.panel-head-btn[aria-label*="Закрыть"],
+.circle-btn[aria-label*="Закрыть"],
+.board-icon-btn[aria-label*="Закрыть"] {
+  --icon-mask: url("https://www.figma.com/api/mcp/asset/9b2d16f6-a697-435a-9469-7becafbb37a4");
+}
+
+.icon-btn[aria-label*="Отправить"],
+.state-icon-btn[aria-label*="Отправить"],
+.ask-ai-send {
+  --icon-mask: url("https://www.figma.com/api/mcp/asset/5ab0b172-569c-41fd-bf8c-ab7ed8b32c01");
+}
+
+.icon-btn[aria-label*="Голосовой"],
+.huddle-control[aria-label*="Микрофон включён"] {
+  --icon-mask: url("https://www.figma.com/api/mcp/asset/ae47324d-6fda-4ae9-8ee9-fa8fae7a8b23");
+}
+
+.state-icon-btn[aria-label*="Микрофон выключен"],
+.huddle-control[aria-label*="Микрофон выключен"] {
+  --icon-mask: url("https://www.figma.com/api/mcp/asset/b8e23410-bdb1-422d-96b6-610ad7d59081");
+}
+
+.ghost-btn-icon[aria-label*="полном экране"],
+.panel-head-btn[aria-label*="Развернуть"] {
+  --icon-mask: url("https://www.figma.com/api/mcp/asset/e7cca67e-6b47-458a-b078-d6df3d1bed22");
+}
+
+.audio-square-btn[aria-label*="Воспроизвести"],
+.recording-play {
+  --icon-mask: url("https://www.figma.com/api/mcp/asset/1ac4353a-3069-4128-9614-a16b02cf17c1");
 }
 
 .rail-notification {
@@ -536,6 +700,7 @@ body.prototype-inline-panel {
   display: inline-flex;
   align-items: center;
   gap: 2px;
+  z-index: 8;
 }
 
 .huddle-split .panel-head-btn,
@@ -2332,6 +2497,12 @@ body.prototype-inline-panel {
   display: flex;
   align-items: center;
   gap: 8px;
+  overflow: visible;
+}
+
+.toolbar-panel-head,
+.detail-actions-right {
+  overflow: visible;
 }
 
 .space-channel-link {

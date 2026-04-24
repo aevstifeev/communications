@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Centralized Communication Prototype</title>
+  <title>Quick Start Communication Prototype</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
@@ -28,8 +28,8 @@
           <div class="hub-switcher-menu">
             <a class="hub-switcher-link" href="../index.html">← Вернуться в хаб</a>
             <a class="hub-switcher-link" href="../distributed/index.html">Концепция 1 · Distributed</a>
-            <a class="hub-switcher-link is-current" href="./index.html">Концепция 2 · Centralized</a>
-            <a class="hub-switcher-link" href="../quick-start/index.html">Концепция 3 · Quick Start</a>
+            <a class="hub-switcher-link" href="../centralized/index.html">Концепция 2 · Centralized</a>
+            <a class="hub-switcher-link is-current" href="./index.html">Концепция 3 · Quick Start</a>
           </div>
         </details>
       </div>
@@ -95,12 +95,9 @@
 
       <aside class="tree-panel chat-panel" id="leftPanel">
         <div class="panel-header">
-          <h2 id="leftPanelTitle">Дашборд</h2>
+          <h2 id="leftPanelTitle">Видеосвязь</h2>
           <div class="panel-header-actions">
             <button class="ghost-btn" id="collapseLeftPanel" aria-label="Свернуть левую панель">≪</button>
-            <button class="ghost-btn ghost-btn-icon" id="openCommunicationFullscreen" aria-label="Открыть модуль на полном экране">
-              <span aria-hidden="true">↗</span>
-            </button>
           </div>
         </div>
 
@@ -136,6 +133,28 @@
         </div>
 
         <div class="left-panel-mode chat-scroll" data-panel-mode="chat">
+          <div class="quick-start-panel">
+            <div class="quick-start-create-card">
+              <div class="quick-start-create-copy">
+                <h3 class="quick-start-create-title">Начать встречу и пригласить коллег</h3>
+              </div>
+              <button class="quick-start-create-btn" id="quickStartCreateButton" type="button" aria-label="Начать встречу">
+                <span class="quick-start-create-icon" aria-hidden="true"></span>
+                <span>Начать встречу</span>
+              </button>
+            </div>
+
+            <div class="quick-start-join-card">
+              <label class="quick-start-join-label" for="quickStartJoinInput">Присоединиться по ссылке или коду</label>
+              <div class="quick-start-join-surface">
+                <div class="quick-start-join-row">
+                  <input id="quickStartJoinInput" type="text" placeholder="Ссылка или ID встречи">
+                  <button class="quick-start-join-button" id="quickStartJoinButton" type="button">Подключиться</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
           <div class="communication-module-tabs communication-module-tabs-top">
             <button class="chat-filter-pill is-active" type="button" data-communication-tab="dashboard">Дашборд</button>
             <button class="chat-filter-pill" type="button" data-communication-tab="planner">Планировщик</button>
@@ -145,9 +164,9 @@
           <div class="communication-module-panels">
             <section class="communication-module-panel is-active" data-communication-panel="dashboard">
               <div class="dashboard-sticky-action">
-                <button class="dashboard-start-button" type="button" aria-label="Начать встречу">
+                <button class="dashboard-start-button" type="button" aria-label="Начать видеовстречу">
                   <span class="dashboard-start-icon" aria-hidden="true">◧</span>
-                  <span>Начать встречу</span>
+                  <span>Начать видеовстречу</span>
                 </button>
               </div>
 
@@ -1068,7 +1087,7 @@
   <div class="communication-fullscreen" id="communicationFullscreen" hidden>
     <div class="communication-fullscreen-head">
       <div>
-        <p class="communication-hub-kicker">Централизованный модуль коммуникации</p>
+        <p class="communication-hub-kicker">Ветка quick start</p>
         <h2 id="communicationFullscreenTitle">Дашборд коммуникации</h2>
         <p id="communicationFullscreenSubtitle">Полноэкранный режим для работы с выбранным модулем.</p>
       </div>

@@ -11,6 +11,7 @@
 - `prototypes/communication/base/` хранит базовую версию (`Base`).
 - `prototypes/communication/distributed/` хранит распределённую версию модуля коммуникации.
 - `prototypes/communication/centralized/` хранит централизованную версию модуля коммуникации.
+- `prototypes/communication/quick-start/` хранит минимальную ветку под сценарий мгновенного старта ВКС.
 - `prototypes/communication/index.html` используется как отдельный хаб сравнения вариантов.
 
 ## Invariants
@@ -39,4 +40,5 @@
 - `prototypes/communication/base/`
 - `prototypes/communication/distributed/`
 - `prototypes/communication/centralized/`
+- `prototypes/communication/quick-start/`
 - `prototypes/communication/archive-context-drawer/`
