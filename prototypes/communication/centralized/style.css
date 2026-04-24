@@ -147,8 +147,8 @@ body.prototype-variant-b {
   inset: 0;
   margin: auto;
   display: block;
-  width: var(--icon-size, 20px);
-  height: var(--icon-size, 20px);
+  width: var(--icon-width, var(--icon-size, 20px));
+  height: var(--icon-height, var(--icon-size, 20px));
   background-image: none !important;
   background-color: currentColor;
   -webkit-mask-repeat: no-repeat;

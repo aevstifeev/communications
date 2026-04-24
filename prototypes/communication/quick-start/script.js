@@ -52,6 +52,7 @@
   const huddleFullscreenStageShell = document.getElementById("huddleFullscreenStageShell");
   const huddleChatPanel = document.getElementById("huddleChatPanel");
   const fullscreenHuddleChatButton = document.getElementById("fullscreenHuddleChatButton");
+  const closeMeetingChatButton = document.getElementById("closeMeetingChatButton");
   const meetingSideTabButtons = document.querySelectorAll("[data-meeting-side-tab]");
   const meetingSideSections = document.querySelectorAll("[data-meeting-side-section]");
   const meetingSidePanelTitle = document.getElementById("meetingSidePanelTitle");
@@ -59,6 +60,14 @@
   const quickStartCreateButton = document.getElementById("quickStartCreateButton");
   const quickStartJoinInput = document.getElementById("quickStartJoinInput");
   const quickStartJoinButton = document.getElementById("quickStartJoinButton");
+  const quickStartTabButtons = document.querySelectorAll("[data-quick-start-tab]");
+  const quickStartTabPanels = document.querySelectorAll("[data-quick-start-panel]");
+  const recordingDocumentTriggers = document.querySelectorAll("[data-open-recording-document]");
+  const recordingDocumentPage = document.getElementById("recordingDocumentPage");
+  const recordingDocumentToc = document.getElementById("recordingDocumentToc");
+  const recordingDocumentRailActions = document.getElementById("recordingDocumentRailActions");
+  const toggleRecordingDocumentToc = document.getElementById("toggleRecordingDocumentToc");
+  const closeRecordingDocumentPage = document.getElementById("closeRecordingDocumentPage");
 
   const leftModeTitles = {
     personal: "Личное",
@@ -84,6 +93,10 @@
     documentSection: "outline",
     taskWidth: null,
     communicationTab: "dashboard",
+    quickStartTab: "meetings",
+    recordingsUnread: false,
+    recordingDocumentOpen: false,
+    recordingDocumentTocOpen: true,
     communicationFullscreen: null,
     meetingOpen: false,
     meetingConnected: false,
@@ -216,7 +229,7 @@
       fullscreenHuddleWait.hidden = state.meetingConnected;
     }
     if (meetingSidePanelTitle) {
-      meetingSidePanelTitle.textContent = state.meetingSideTab === "chat" ? "Чат созвона" : "Содержание встречи";
+      meetingSidePanelTitle.textContent = state.meetingSideTab === "chat" ? "Chat" : "Содержание встречи";
     }
     if (meetingSidePanelSubtitle) {
       meetingSidePanelSubtitle.textContent = state.meetingSideTab === "chat"
@@ -257,17 +270,22 @@
   }
 
   function closeMeeting() {
+    const shouldNotifyRecordings = state.meetingOpen;
     stopMeetingTimer();
     state.meetingOpen = false;
     state.meetingConnected = false;
     state.meetingCounter = 0;
     state.meetingSideOpen = false;
     state.meetingSideTab = "chat";
+
+    if (shouldNotifyRecordings) {
+      state.recordingsUnread = true;
+    }
   }
 
   function openMeeting() {
     state.meetingOpen = true;
-    state.meetingSideOpen = false;
+    state.meetingSideOpen = true;
     state.meetingSideTab = "chat";
     startMeetingSequence();
   }
@@ -284,13 +302,15 @@
     }
   }
 
-  function openMeetingDocument() {
-    closeMeeting();
-    state.taskOpen = true;
-    state.detailKind = "document";
-    state.rightOpen = true;
-    state.rightMode = "document";
+  function openRecordingDocument() {
+    state.recordingDocumentOpen = true;
+    state.recordingDocumentTocOpen = true;
+    state.taskOpen = false;
+    state.detailKind = "task";
+    state.rightOpen = false;
+    state.rightMode = "space";
     state.documentSection = "outline";
+    state.taskWidth = null;
     render();
   }
 
@@ -326,6 +346,7 @@
     if (workspace) {
       workspace.classList.toggle("left-open", state.leftOpen);
       workspace.classList.toggle("right-open", isSpaceRightOpen);
+      workspace.classList.toggle("recording-document-open", state.recordingDocumentOpen);
     }
 
     if (workspaceBody) {
@@ -334,6 +355,24 @@
       workspaceBody.classList.toggle("task-open", state.taskOpen);
       workspaceBody.classList.toggle("task-secondary-open", state.taskOpen && state.rightOpen && (state.rightMode === "card" || state.rightMode === "document"));
       workspaceBody.classList.toggle("document-open", state.rightOpen && state.rightMode === "document");
+      workspaceBody.classList.toggle("recording-document-open", state.recordingDocumentOpen);
+    }
+
+    if (recordingDocumentPage) {
+      recordingDocumentPage.hidden = !state.recordingDocumentOpen;
+      recordingDocumentPage.classList.toggle("is-toc-closed", state.recordingDocumentOpen && !state.recordingDocumentTocOpen);
+    }
+
+    if (recordingDocumentToc) {
+      recordingDocumentToc.hidden = state.recordingDocumentOpen && !state.recordingDocumentTocOpen;
+    }
+
+    if (recordingDocumentRailActions) {
+      recordingDocumentRailActions.hidden = !state.recordingDocumentOpen;
+    }
+
+    if (toggleRecordingDocumentToc) {
+      toggleRecordingDocumentToc.classList.toggle("is-active", state.recordingDocumentOpen && state.recordingDocumentTocOpen);
     }
 
     if (taskDetail) {
@@ -395,6 +434,19 @@
       panel.classList.toggle("is-active", panel.dataset.communicationPanel === state.communicationTab);
     });
 
+    quickStartTabButtons.forEach((button) => {
+      const isActive = button.dataset.quickStartTab === state.quickStartTab;
+      button.classList.toggle("is-active", isActive);
+      button.classList.toggle("has-unread", button.dataset.quickStartTab === "recordings" && state.recordingsUnread);
+      button.setAttribute("aria-selected", String(isActive));
+    });
+
+    quickStartTabPanels.forEach((panel) => {
+      const isActive = panel.dataset.quickStartPanel === state.quickStartTab;
+      panel.hidden = !isActive;
+      panel.classList.toggle("is-active", isActive);
+    });
+
     panelModes.forEach((panelMode) => {
       const isActive = panelMode.dataset.panelModeView === state.rightMode;
       panelMode.hidden = !isActive;
@@ -439,6 +491,7 @@
 
     if (huddleFullscreen) {
       huddleFullscreen.hidden = !state.meetingOpen;
+      huddleFullscreen.classList.toggle("is-chat-open", state.meetingOpen && state.meetingSideOpen);
     }
 
     if (huddleFullscreenStageShell) {
@@ -495,12 +548,14 @@
 
       if (shouldClose) {
         state.leftOpen = false;
+        state.recordingDocumentOpen = false;
         render();
         return;
       }
 
       state.leftMode = requestedMode;
       state.leftOpen = true;
+      state.recordingDocumentOpen = false;
       render();
     });
   });
@@ -516,6 +571,7 @@
 
   boardTaskCards.forEach((card) => {
     card.addEventListener("click", () => {
+      state.recordingDocumentOpen = false;
       state.taskOpen = true;
       state.detailKind = "task";
       state.rightOpen = false;
@@ -530,6 +586,7 @@
       state.taskOpen = false;
       state.detailKind = "task";
       state.rightOpen = false;
+      state.recordingDocumentOpen = false;
       render();
     });
   });
@@ -567,6 +624,47 @@
       render();
     });
   });
+
+  quickStartTabButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const requestedTab = button.dataset.quickStartTab || "meetings";
+      state.quickStartTab = requestedTab;
+
+      if (requestedTab === "recordings") {
+        state.recordingsUnread = false;
+      }
+
+      render();
+    });
+  });
+
+  recordingDocumentTriggers.forEach((trigger) => {
+    trigger.addEventListener("click", openRecordingDocument);
+    trigger.addEventListener("keydown", (event) => {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        openRecordingDocument();
+      }
+    });
+  });
+
+  if (closeRecordingDocumentPage) {
+    closeRecordingDocumentPage.addEventListener("click", () => {
+      state.recordingDocumentTocOpen = false;
+      render();
+    });
+  }
+
+  if (toggleRecordingDocumentToc) {
+    toggleRecordingDocumentToc.addEventListener("click", () => {
+      if (!state.recordingDocumentOpen) {
+        return;
+      }
+
+      state.recordingDocumentTocOpen = !state.recordingDocumentTocOpen;
+      render();
+    });
+  }
 
   if (joinNearestMeeting) {
     joinNearestMeeting.addEventListener("click", () => {
@@ -620,13 +718,21 @@
 
   if (leaveFullscreenHuddle) {
     leaveFullscreenHuddle.addEventListener("click", () => {
-      openMeetingDocument();
+      closeMeeting();
+      render();
     });
   }
 
   if (fullscreenHuddleChatButton) {
     fullscreenHuddleChatButton.addEventListener("click", () => {
       state.meetingSideOpen = !state.meetingSideOpen;
+      render();
+    });
+  }
+
+  if (closeMeetingChatButton) {
+    closeMeetingChatButton.addEventListener("click", () => {
+      state.meetingSideOpen = false;
       render();
     });
   }
